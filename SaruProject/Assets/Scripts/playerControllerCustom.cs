@@ -1,0 +1,179 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class playerControllerCustom : MonoBehaviour
+{
+    #region variables   
+    public float jumpForce = 15f;
+    public float moveSpeed = 10f;
+    public float gravityScale = 4f;
+    public float rotateSpeed = 5f;
+    public float rollSpeed = 20;
+
+    public Transform pivot;
+    public GameObject playerModel;
+    public Animator anim;
+    public Camera cam;
+    public bool modoGuardian = false;
+
+    public Texture[] textures;
+    public GameObject playerMesh;
+
+    private CharacterController _characterController;
+    private Vector3 _moveDirection;
+    public bool isRolling;
+
+    [HideInInspector]
+    public bool isAttacking;
+
+    private int _lerpSpeed = 1;
+    private Color _colorModoSaru = new Color(1, 1, 1, 1);
+    private Color _colorModoGuardian = new Color(1, 0, 1, 1);
+    private float _lerpTime = 0;
+
+    private CameraFilterPack_Color_RGB _rgbColorFilter;
+    private CameraFilterPack_3D_Anomaly _anomalyFilter;
+
+    private bool _cambiandoModo = false;
+
+    #endregion
+
+    void Start()
+    {
+        _characterController = GetComponent<CharacterController>();
+
+        _rgbColorFilter = cam.GetComponent<CameraFilterPack_Color_RGB>();
+        _anomalyFilter = cam.GetComponent<CameraFilterPack_3D_Anomaly>();
+
+        _rgbColorFilter.ColorRGB = _colorModoSaru;
+        _anomalyFilter.Intensity = 0;
+    }
+
+    void Update()
+    {
+        HandleGroundedMovement();
+        HandleAirMovement();
+        HandlePlayerRotation();
+        HandleAnimations();
+        HandleGuardianMode();
+        HandleAttacking();
+    }
+
+    void HandlePlayerRotation()
+    {
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            transform.rotation = Quaternion.Euler(0f, pivot.rotation.eulerAngles.y, 0f);
+            Quaternion newRotation = Quaternion.LookRotation(new Vector3(_moveDirection.x, 0f, _moveDirection.z));
+            playerModel.transform.rotation = Quaternion.Slerp(playerModel.transform.rotation, newRotation, rotateSpeed * Time.deltaTime);
+        }
+    }
+    void HandleAnimations()
+    {
+        anim.SetBool("IsRolling", isRolling);
+        anim.SetBool("IsGrounded", _characterController.isGrounded);
+        anim.SetBool("IsAttacking", isAttacking);
+        anim.SetFloat("speed", (Mathf.Abs(Input.GetAxis("Vertical")) + Mathf.Abs(Input.GetAxis("Horizontal"))));
+    }
+    void HandleAirMovement()
+    {
+        if (_characterController.isGrounded)
+        {
+            _moveDirection.y = 0f;
+            if ( (Input.GetButtonDown("Jump")) || (Input.GetButtonDown("X_PS4")))
+            {
+                _moveDirection.y = jumpForce;
+
+            }
+        }
+        _moveDirection.y = _moveDirection.y + (Physics.gravity.y * gravityScale * Time.deltaTime);
+    }
+    void HandleGroundedMovement()
+    {
+
+        float yStore = _moveDirection.y;
+        _moveDirection = (transform.forward * Input.GetAxis("Vertical")) + (transform.right * Input.GetAxis("Horizontal"));
+        //normalize the player movement so diagonal movement is not twice as fast as single axis movement
+        _moveDirection = (_moveDirection.magnitude > 1) ? _moveDirection.normalized * moveSpeed : _moveDirection * moveSpeed;
+        _moveDirection.y = yStore;
+        _characterController.Move(_moveDirection * Time.deltaTime);
+        HandleRolling();
+    }
+    void HandleGuardianMode()
+    {
+        if ( (Input.GetKeyDown(KeyCode.G)) || (Input.GetButtonDown("L1_PS4")) )
+        {
+            _cambiandoModo = true;
+        }
+
+        if (_cambiandoModo)
+        {
+            if (_lerpTime <= 1)
+            {
+                if (modoGuardian)
+                {
+                    playerMesh.GetComponent<Renderer>().material.mainTexture = textures[0];
+                    AudioManager.instance.PlaySound("ModoGuardian");
+                }
+                else
+                {
+                    playerMesh.GetComponent<Renderer>().material.mainTexture = textures[1];
+                    AudioManager.instance.PlaySound("ModoSaru");
+
+                }
+                _lerpTime += Time.deltaTime * _lerpSpeed;
+                _rgbColorFilter.ColorRGB = (!modoGuardian) ? Color.Lerp(_colorModoSaru, _colorModoGuardian, _lerpTime) : Color.Lerp(_colorModoGuardian, _colorModoSaru, _lerpTime);
+                _anomalyFilter.Intensity = (!modoGuardian) ? Mathf.Lerp(0, 0.2f, _lerpTime) : Mathf.Lerp(0.2f, 0, _lerpTime);
+            }
+            else if (_lerpTime > 1)
+            {
+                modoGuardian = !modoGuardian;
+                _cambiandoModo = false;
+                _lerpTime = 0;
+            }
+
+        }
+    }
+    void HandleRolling()
+    {
+        if ( Input.GetButtonDown("O_PS4") && (Math.Abs(Input.GetAxis("Vertical")) + Math.Abs(Input.GetAxis("Horizontal")) >= 0.6f)
+        && !isRolling && _characterController.isGrounded)  
+        {
+            StartCoroutine(RollRoutine());
+
+        }
+    }
+    void HandleAttacking()
+    {
+        if ( (Input.GetKeyDown(KeyCode.E)) || (Input.GetButtonDown("Cuadrado_PS4")) )
+        {
+            isAttacking = true;
+        }
+    }
+
+    public IEnumerator RollRoutine()
+    {
+        isRolling = true;
+        float auxSpeed = moveSpeed;
+        _characterController.height -= 0.5f;
+        _characterController.center -= new Vector3(0f, 0.25f, 0f);
+        moveSpeed = rollSpeed;
+        yield return new WaitForSeconds(0.5f);
+        moveSpeed = auxSpeed;
+        _characterController.center = Vector3.zero;
+        _characterController.height += 0.5f;
+        isRolling = false;
+    }
+
+    public IEnumerator AttackRoutine()
+    {
+        isAttacking = true;
+        float auxSpeed = moveSpeed;
+        moveSpeed = 0;
+        yield return new WaitForSeconds(1.4f);
+        moveSpeed = auxSpeed;
+        isAttacking = false;
+    }
+}

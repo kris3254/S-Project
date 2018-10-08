@@ -1,0 +1,275 @@
+fileFormatVersion: 2
+guid: 6feb16e159364e54cbf0c1a032d7c298
+timeCreated: 1529490595
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Ellipse004
+    100002: Line002
+    100004: Line003
+    100006: Line004
+    100008: Line005
+    100010: Line008
+    100012: Line009
+    100014: Line010
+    100016: Line011
+    100018: Line012
+    100020: Line013
+    100022: Line014
+    100024: Line015
+    100026: Line020
+    100028: Line021
+    100030: Line024
+    100032: Line027
+    100034: Line028
+    100036: Line029
+    100038: Object007
+    100040: Object008
+    100042: Pinbolos
+    100044: //RootNode
+    100046: Sphere001
+    100048: Sphere011
+    100050: Sphere012
+    100052: Sphere014
+    100054: Sphere016
+    100056: Sphere017
+    100058: Sphere018
+    100060: Sphere019
+    100062: Sphere020
+    100064: Sphere022
+    100066: Sphere023
+    100068: Sphere024
+    100070: Sphere025
+    100072: Sphere026
+    100074: valla
+    400000: Ellipse004
+    400002: Line002
+    400004: Line003
+    400006: Line004
+    400008: Line005
+    400010: Line008
+    400012: Line009
+    400014: Line010
+    400016: Line011
+    400018: Line012
+    400020: Line013
+    400022: Line014
+    400024: Line015
+    400026: Line020
+    400028: Line021
+    400030: Line024
+    400032: Line027
+    400034: Line028
+    400036: Line029
+    400038: Object007
+    400040: Object008
+    400042: Pinbolos
+    400044: //RootNode
+    400046: Sphere001
+    400048: Sphere011
+    400050: Sphere012
+    400052: Sphere014
+    400054: Sphere016
+    400056: Sphere017
+    400058: Sphere018
+    400060: Sphere019
+    400062: Sphere020
+    400064: Sphere022
+    400066: Sphere023
+    400068: Sphere024
+    400070: Sphere025
+    400072: Sphere026
+    400074: valla
+    2100000: 'Material #1453'
+    2100002: 'Material #142'
+    2100004: 'Material #1455'
+    2100006: 'Material #1454'
+    2100008: 'Material #39'
+    2100010: gold
+    2100012: 'Material #25'
+    2100014: 'Material #2397'
+    2100016: 'Material #27'
+    2300000: Line003
+    2300002: Line004
+    2300004: Line005
+    2300006: Line008
+    2300008: Line009
+    2300010: Line010
+    2300012: Line011
+    2300014: Line012
+    2300016: Line013
+    2300018: Line014
+    2300020: Line015
+    2300022: Line020
+    2300024: Line021
+    2300026: Line024
+    2300028: Line027
+    2300030: Line029
+    2300032: Object007
+    2300034: Object008
+    2300036: Pinbolos
+    2300038: Sphere001
+    2300040: Sphere011
+    2300042: Sphere012
+    2300044: Sphere014
+    2300046: Sphere016
+    2300048: Sphere017
+    2300050: Sphere018
+    2300052: Sphere019
+    2300054: Sphere020
+    2300056: Sphere022
+    2300058: Sphere023
+    2300060: Sphere024
+    2300062: Sphere025
+    2300064: Sphere026
+    2300066: valla
+    3300000: Line003
+    3300002: Line004
+    3300004: Line005
+    3300006: Line008
+    3300008: Line009
+    3300010: Line010
+    3300012: Line011
+    3300014: Line012
+    3300016: Line013
+    3300018: Line014
+    3300020: Line015
+    3300022: Line020
+    3300024: Line021
+    3300026: Line024
+    3300028: Line027
+    3300030: Line029
+    3300032: Object007
+    3300034: Object008
+    3300036: Pinbolos
+    3300038: Sphere001
+    3300040: Sphere011
+    3300042: Sphere012
+    3300044: Sphere014
+    3300046: Sphere016
+    3300048: Sphere017
+    3300050: Sphere018
+    3300052: Sphere019
+    3300054: Sphere020
+    3300056: Sphere022
+    3300058: Sphere023
+    3300060: Sphere024
+    3300062: Sphere025
+    3300064: Sphere026
+    3300066: valla
+    4300000: Line003
+    4300002: Line004
+    4300004: Line005
+    4300006: Line008
+    4300008: Line009
+    4300010: Line010
+    4300012: Line011
+    4300014: Object007
+    4300016: Sphere026
+    4300018: Sphere025
+    4300020: Sphere023
+    4300022: Sphere022
+    4300024: Sphere020
+    4300026: Line027
+    4300028: Sphere001
+    4300030: Sphere011
+    4300032: Sphere012
+    4300034: Sphere014
+    4300036: Sphere016
+    4300038: Sphere019
+    4300040: Sphere018
+    4300042: Line029
+    4300044: Line024
+    4300046: Line021
+    4300048: Line020
+    4300050: Line015
+    4300052: Sphere024
+    4300054: Line014
+    4300056: Line013
+    4300058: Line012
+    4300060: Object008
+    4300062: valla
+    4300064: Pinbolos
+    4300066: Sphere017
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
