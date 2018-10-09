@@ -8,6 +8,7 @@ public class playerControllerCustom : MonoBehaviour
     #region variables   
     public float jumpForce = 15f;
     public float moveSpeed = 10f;
+	private float maxSpeed;
     public float gravityScale = 4f;
     public float rotateSpeed = 5f;
     public float rollSpeed = 20;
@@ -27,6 +28,9 @@ public class playerControllerCustom : MonoBehaviour
 
     [HideInInspector]
     public bool isAttacking;
+	private bool attackCombo1 = false;
+	private bool attackCombo2 = false;
+	private bool attackCombo2Time = true;
 
     private int _lerpSpeed = 1;
     private Color _colorModoSaru = new Color(1, 1, 1, 1);
@@ -49,16 +53,17 @@ public class playerControllerCustom : MonoBehaviour
 
         _rgbColorFilter.ColorRGB = _colorModoSaru;
         _anomalyFilter.Intensity = 0;
-    }
+		maxSpeed = moveSpeed;
+	}
 
     void Update()
     {
         HandleGroundedMovement();
         HandleAirMovement();
         HandlePlayerRotation();
+		HandleAttacking();
         HandleAnimations();
         HandleGuardianMode();
-        HandleAttacking();
     }
 
     void HandlePlayerRotation()
@@ -74,7 +79,21 @@ public class playerControllerCustom : MonoBehaviour
     {
         anim.SetBool("IsRolling", isRolling);
         anim.SetBool("IsGrounded", _characterController.isGrounded);
-        anim.SetBool("IsAttacking", isAttacking);
+
+		anim.SetBool ("AttackCombo2",attackCombo2);
+		if (attackCombo2 && anim.GetCurrentAnimatorStateInfo(0).IsName("AttackCombo2")) {
+			StartCoroutine (SlowSpeed());
+			attackCombo2 = false;
+		}
+		if (attackCombo1) {
+			anim.SetTrigger ("AttackCombo1");
+			if(anim.GetCurrentAnimatorStateInfo(0).IsName("AttackCombo1")){
+				StartCoroutine (SlowSpeed());
+			}
+			attackCombo1 = false;
+		}
+
+		anim.SetBool ("AttackCombo2", attackCombo2);
         anim.SetFloat("speed", (Mathf.Abs(Input.GetAxis("Vertical")) + Mathf.Abs(Input.GetAxis("Horizontal"))));
     }
     void HandleAirMovement()
@@ -147,9 +166,18 @@ public class playerControllerCustom : MonoBehaviour
     }
     void HandleAttacking()
     {
-        if ( (Input.GetKeyDown(KeyCode.E)) || (Input.GetButtonDown("Cuadrado_PS4")) )
-        {
-            isAttacking = true;
+		if ((Input.GetKeyDown (KeyCode.E)) || (Input.GetButtonDown ("Cuadrado_PS4"))) {
+			if (modoGuardian)
+				return;
+
+			if (anim.GetCurrentAnimatorStateInfo(0).IsName("AttackCombo1")){
+				attackCombo2 = true;
+			}
+
+			attackCombo1 = true;
+
+		
+			isAttacking = true;
         }
     }
 
@@ -176,4 +204,11 @@ public class playerControllerCustom : MonoBehaviour
         moveSpeed = auxSpeed;
         isAttacking = false;
     }
+		
+	IEnumerator SlowSpeed(){
+		moveSpeed = maxSpeed/2;
+		yield return new WaitForSeconds (anim.GetCurrentAnimatorStateInfo(0).length);
+		moveSpeed = maxSpeed;
+	}
+
 }
