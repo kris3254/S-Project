@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: StylizedWater_Mobile
-  m_Shader: {fileID: 4800000, guid: 1dcaa891fd50ac749a178732c0268a03, type: 3}
+  m_Shader: {fileID: 4800000, guid: 86282aca396e36c47943004c99dcacfd, type: 3}
   m_ShaderKeywords: _WORLDSPACETILIBG_ON _WORLDSPACETILING_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
@@ -27,7 +27,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Shadermap:
-        m_Texture: {fileID: 2800000, guid: 70cb27519c820d444866b0bce58e44fa, type: 3}
+        m_Texture: {fileID: -1511549886, guid: e3d849a71cf1896458f0932f079b66a3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -38,7 +38,7 @@ Material:
     - _Glossiness: 1
     - _HighlightPanning: 0
     - _NormalStrength: 1
-    - _RefractionAmount: 0
+    - _RefractionAmount: 0.2
     - _RimDistance: 0
     - _RimSize: 2
     - _Rimfalloff: 0.3
@@ -47,13 +47,13 @@ Material:
     - _SurfaceHightlighttiling: 0.35
     - _Surfacehightlightsize: 0.741
     - _Tessellation: 0.1
-    - _Tiling: 0.783
-    - _Transparency: 0.676
+    - _Tiling: 0.891
+    - _Transparency: 0.447
     - _UseIntersectionHighlight: 0
     - _WaveSize: 5
     - _Wavesspeed: 1
     - _Wavesstrength: 0
-    - _Wavetint: 0
+    - _Wavetint: -0.062
     - _Worldspacetiling: 1
     m_Colors:
     - _FresnelColor: {r: 0, g: 0, b: 0, a: 0}
