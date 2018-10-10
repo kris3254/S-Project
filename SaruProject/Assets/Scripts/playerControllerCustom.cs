@@ -73,14 +73,12 @@ public class playerControllerCustom : MonoBehaviour
     void HandleIsGrounded()
     {
         RaycastHit hit;
+        _isGrounded = _characterController.isGrounded;
         if(Physics.Raycast(transform.position,Vector3.down,out hit ,distanceToGround))
         {
             _isGrounded = true;
         }
-        else
-        {
-            _isGrounded = false;
-        }
+
     }
     void HandlePlayerRotation()
     {
