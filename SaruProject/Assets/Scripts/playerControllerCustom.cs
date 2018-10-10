@@ -13,6 +13,8 @@ public class playerControllerCustom : MonoBehaviour
     public float rotateSpeed = 5f;
     public float rollSpeed = 20;
 
+    public float distanceToGround;
+
     public Transform pivot;
     public GameObject playerModel;
     public Animator anim;
@@ -36,6 +38,7 @@ public class playerControllerCustom : MonoBehaviour
     private Color _colorModoSaru = new Color(1, 1, 1, 1);
     private Color _colorModoGuardian = new Color(1, 0, 1, 1);
     private float _lerpTime = 0;
+    private bool _isGrounded = true;
 
     private CameraFilterPack_Color_RGB _rgbColorFilter;
     private CameraFilterPack_3D_Anomaly _anomalyFilter;
@@ -58,6 +61,7 @@ public class playerControllerCustom : MonoBehaviour
 
     void Update()
     {
+        HandleIsGrounded();
         HandleGroundedMovement();
         HandleAirMovement();
         HandlePlayerRotation();
@@ -66,6 +70,18 @@ public class playerControllerCustom : MonoBehaviour
         HandleGuardianMode();
     }
 
+    void HandleIsGrounded()
+    {
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position,Vector3.down,out hit ,distanceToGround))
+        {
+            _isGrounded = true;
+        }
+        else
+        {
+            _isGrounded = false;
+        }
+    }
     void HandlePlayerRotation()
     {
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
@@ -78,7 +94,7 @@ public class playerControllerCustom : MonoBehaviour
     void HandleAnimations()
     {
         anim.SetBool("IsRolling", isRolling);
-        anim.SetBool("IsGrounded", _characterController.isGrounded);
+        anim.SetBool("IsGrounded", _isGrounded);
 
 		anim.SetBool ("AttackCombo2",attackCombo2);
 		if (attackCombo2 && anim.GetCurrentAnimatorStateInfo(0).IsName("AttackCombo2")) {
@@ -98,16 +114,14 @@ public class playerControllerCustom : MonoBehaviour
     }
     void HandleAirMovement()
     {
+        _moveDirection.y = _moveDirection.y + (Physics.gravity.y * gravityScale * Time.deltaTime);
         if (_characterController.isGrounded)
         {
-            _moveDirection.y = 0f;
             if ( (Input.GetButtonDown("Jump")) || (Input.GetButtonDown("X_PS4")))
             {
                 _moveDirection.y = jumpForce;
-
             }
-        }
-        _moveDirection.y = _moveDirection.y + (Physics.gravity.y * gravityScale * Time.deltaTime);
+        }        
     }
     void HandleGroundedMovement()
     {
