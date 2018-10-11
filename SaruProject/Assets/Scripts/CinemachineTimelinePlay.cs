@@ -7,20 +7,15 @@ using UnityEngine.Timeline;
 public class CinemachineTimelinePlay : MonoBehaviour {
 
     public PlayableDirector playableDirector;
-    private bool isFirstTime;
-
-    private void Start()
-    {
-        isFirstTime = true;
-    }
+ 
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.gameObject.tag == "Player") && (isFirstTime == true))
+        if ((other.gameObject.tag == "Player"))
         {
             Debug.Log("Saru Entra Puente");
-            playableDirector.enabled = true;
-            isFirstTime = false;
+            playableDirector.Play();
         }
+
     }
 
 }
