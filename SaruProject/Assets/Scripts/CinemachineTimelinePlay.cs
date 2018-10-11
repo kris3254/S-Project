@@ -15,6 +15,7 @@ public class CinemachineTimelinePlay : MonoBehaviour {
         if ((other.gameObject.tag == "Player"))
         {
             Debug.Log("Saru Entra Puente");
+            secondPlayableDirector.Stop();
             firstPlayableDirector.Play();
         }
 
@@ -25,6 +26,7 @@ public class CinemachineTimelinePlay : MonoBehaviour {
         if ((other.gameObject.tag == "Player"))
         {
             Debug.Log("Saru Sale Puente");
+            firstPlayableDirector.Stop();
             secondPlayableDirector.Play();
         }
     }
