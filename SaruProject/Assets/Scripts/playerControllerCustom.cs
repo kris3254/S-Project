@@ -33,6 +33,8 @@ public class playerControllerCustom : MonoBehaviour
 	private bool attackCombo1 = false;
 	private bool attackCombo2 = false;
 	private bool attackCombo2Time = true;
+	public bool canAttack = false;
+	public BoxCollider cayadoCollider;
 
     private int _lerpSpeed = 1;
     private Color _colorModoSaru = new Color(1, 1, 1, 1);
@@ -96,11 +98,13 @@ public class playerControllerCustom : MonoBehaviour
 
 		anim.SetBool ("AttackCombo2",attackCombo2);
 		if (attackCombo2 && anim.GetCurrentAnimatorStateInfo(0).IsName("AttackCombo2")) {
+			cayadoCollider.enabled = true;
 			StartCoroutine (SlowSpeed());
 			attackCombo2 = false;
 		}
 		if (attackCombo1) {
 			anim.SetTrigger ("AttackCombo1");
+			cayadoCollider.enabled = true;
 			if(anim.GetCurrentAnimatorStateInfo(0).IsName("AttackCombo1")){
 				StartCoroutine (SlowSpeed());
 			}
@@ -179,7 +183,7 @@ public class playerControllerCustom : MonoBehaviour
     void HandleAttacking()
     {
 		if ((Input.GetKeyDown (KeyCode.E)) || (Input.GetButtonDown ("Cuadrado_PS4"))) {
-			if (modoGuardian)
+			if (modoGuardian || !canAttack)
 				return;
 
 			if (anim.GetCurrentAnimatorStateInfo(0).IsName("AttackCombo1")){
@@ -187,8 +191,7 @@ public class playerControllerCustom : MonoBehaviour
 			}
 
 			attackCombo1 = true;
-
-		
+					
 			isAttacking = true;
         }
     }
@@ -220,6 +223,7 @@ public class playerControllerCustom : MonoBehaviour
 	IEnumerator SlowSpeed(){
 		moveSpeed = maxSpeed/2;
 		yield return new WaitForSeconds (anim.GetCurrentAnimatorStateInfo(0).length);
+		cayadoCollider.enabled = false;
 		moveSpeed = maxSpeed;
 	}
 

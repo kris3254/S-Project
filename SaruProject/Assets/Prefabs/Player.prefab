@@ -3056,10 +3056,10 @@ BoxCollider:
   m_GameObject: {fileID: 1858789476857768}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0.58052987, y: 0.6902128, z: 0.7798832}
-  m_Center: {x: 0.055683903, y: 0.014405288, z: 1.9002212}
+  m_Size: {x: 0.58052987, y: 0.6902128, z: 1.0855604}
+  m_Center: {x: 0.05567655, y: 0.014391998, z: 2.0530658}
 --- !u!95 &95415343262856638
 Animator:
   serializedVersion: 3
@@ -3163,6 +3163,8 @@ MonoBehaviour:
   playerMesh: {fileID: 1963804342382690}
   isRolling: 0
   isAttacking: 0
+  canAttack: 0
+  cayadoCollider: {fileID: 65549263519888720}
 --- !u!119 &119770513569222406
 Projector:
   m_ObjectHideFlags: 1

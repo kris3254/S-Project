@@ -5,6 +5,8 @@ using UnityEngine;
 public class ActivadorCayado : MonoBehaviour {
 
     public GameObject cayadoPlayer;
+	[SerializeField]
+	playerControllerCustom pController;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,5 +22,6 @@ public class ActivadorCayado : MonoBehaviour {
     void ActivarCayadoPlayer()
     {
         cayadoPlayer.SetActive(true);
+		pController.canAttack = true;
     }
 }
