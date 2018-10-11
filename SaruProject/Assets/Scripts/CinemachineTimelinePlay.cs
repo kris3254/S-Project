@@ -6,16 +6,27 @@ using UnityEngine.Timeline;
 
 public class CinemachineTimelinePlay : MonoBehaviour {
 
-    public PlayableDirector playableDirector;
- 
+    public PlayableDirector firstPlayableDirector;
+    public PlayableDirector secondPlayableDirector;
+
+
     private void OnTriggerEnter(Collider other)
     {
         if ((other.gameObject.tag == "Player"))
         {
             Debug.Log("Saru Entra Puente");
-            playableDirector.Play();
+            firstPlayableDirector.Play();
         }
 
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if ((other.gameObject.tag == "Player"))
+        {
+            Debug.Log("Saru Sale Puente");
+            secondPlayableDirector.Play();
+        }
     }
 
 }
