@@ -84,7 +84,7 @@ public class playerControllerCustom : MonoBehaviour
     }
     void HandlePlayerRotation()
     {
-        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        if ((Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0) && !isRolling)
         {
             transform.rotation = Quaternion.Euler(0f, pivot.rotation.eulerAngles.y, 0f);
             Quaternion newRotation = Quaternion.LookRotation(new Vector3(_moveDirection.x, 0f, _moveDirection.z));
@@ -119,7 +119,7 @@ public class playerControllerCustom : MonoBehaviour
         _moveDirection.y = _moveDirection.y + (Physics.gravity.y * gravityScale * Time.deltaTime);
         if (_characterController.isGrounded)
         {
-            if ( (Input.GetButtonDown("Jump")) || (Input.GetButtonDown("X_PS4")))
+            if (( (Input.GetButtonDown("Jump")) || (Input.GetButtonDown("X_PS4")) ) && !isRolling)
             {
                 _moveDirection.y = jumpForce;
             }
@@ -127,13 +127,20 @@ public class playerControllerCustom : MonoBehaviour
     }
     void HandleGroundedMovement()
     {
-
-        float yStore = _moveDirection.y;
-        _moveDirection = (transform.forward * Input.GetAxis("Vertical")) + (transform.right * Input.GetAxis("Horizontal"));
-        //normalize the player movement so diagonal movement is not twice as fast as single axis movement
-        _moveDirection = (_moveDirection.magnitude > 1) ? _moveDirection.normalized * moveSpeed : _moveDirection * moveSpeed;
-        _moveDirection.y = yStore;
-        _characterController.Move(_moveDirection * Time.deltaTime);
+        if (isRolling)
+        {
+            Vector3 rollDirection = playerModel.transform.forward * rollSpeed;
+            Debug.Log("RollDirection = " + rollDirection);
+            _characterController.Move(rollDirection * Time.deltaTime);
+        }
+        else { 
+            float yStore = _moveDirection.y;
+            _moveDirection = (transform.forward * Input.GetAxis("Vertical")) + (transform.right * Input.GetAxis("Horizontal"));
+            //normalize the player movement so diagonal movement is not twice as fast as single axis movement
+            _moveDirection = (_moveDirection.magnitude > 1) ? _moveDirection.normalized * moveSpeed : _moveDirection * moveSpeed;
+            _moveDirection.y = yStore;
+            _characterController.Move(_moveDirection * Time.deltaTime);
+        }
         HandleRolling();
     }
     void HandleGuardianMode()
@@ -177,7 +184,6 @@ public class playerControllerCustom : MonoBehaviour
         && !isRolling && _characterController.isGrounded)  
         {
             StartCoroutine(RollRoutine());
-
         }
     }
     void HandleAttacking()
@@ -203,7 +209,7 @@ public class playerControllerCustom : MonoBehaviour
         _characterController.height -= 0.5f;
         _characterController.center -= new Vector3(0f, 0.25f, 0f);
         moveSpeed = rollSpeed;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.75f);
         moveSpeed = auxSpeed;
         _characterController.center = Vector3.zero;
         _characterController.height += 0.5f;
