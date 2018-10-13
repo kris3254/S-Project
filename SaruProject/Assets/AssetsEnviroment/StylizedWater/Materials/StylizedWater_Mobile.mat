@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: StylizedWater_Mobile
-  m_Shader: {fileID: 4800000, guid: 3e68e9ba39901254fafeda5264030a21, type: 3}
+  m_Shader: {fileID: 4800000, guid: 1dcaa891fd50ac749a178732c0268a03, type: 3}
   m_ShaderKeywords: _WORLDSPACETILIBG_ON _WORLDSPACETILING_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
@@ -18,11 +18,19 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _DummyTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Normals:
         m_Texture: {fileID: 2800000, guid: 47848cb89e6284647931207c962c96db, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Reflection:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ReflectionTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -32,30 +40,37 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Cutoff: 0.5
-    - _Depth: 6.2
+    - _Depth: 3.3
     - _Depthdarkness: 0
     - _Fresnelexponent: 0
     - _Glossiness: 1
     - _HighlightPanning: 0
     - _NormalStrength: 1
+    - _ReflectionStrength: 0
     - _RefractionAmount: 0.2
     - _RimDistance: 0
-    - _RimSize: 2
-    - _Rimfalloff: 0.35
-    - _Rimtiling: 1.9999999
+    - _RimSize: 0.57
+    - _Rimfalloff: 0.24
+    - _Rimtiling: 2.3999996
     - _SurfaceHighlight: 0.17
     - _SurfaceHightlighttiling: 0.35
     - _Surfacehightlightsize: 0.741
-    - _Tessellation: 0.1
+    - _Tessellation: 0
     - _Tiling: 0.891
     - _Transparency: 0.634
+    - _Unlit: 0
     - _UseIntersectionHighlight: 0
+    - _WaveFoam: 0
+    - _WaveHeight: 0
     - _WaveSize: 5
     - _Wavesspeed: 0.84
-    - _Wavesstrength: 0
+    - _Wavesstrength: 0.206
     - _Wavetint: -0.062
     - _Worldspacetiling: 1
+    - __dirty: 1
     m_Colors:
     - _FresnelColor: {r: 0, g: 0, b: 0, a: 0}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
-    - _WaterColor: {r: 0.48529398, g: 0.53144, b: 1, a: 0.538}
+    - _WaterColor: {r: 0.48529398, g: 0.53144, b: 1, a: 1}
+    - _WaterShallowColor: {r: 0.4191175, g: 0.7596349, b: 1, a: 0}
+    - _WaveDirection: {r: 0, g: 0, b: 0, a: 0}
