@@ -33,14 +33,14 @@ MonoBehaviour:
     m_Settings:
       method: 0
       fxaaSettings:
-        preset: 2
+        preset: 3
       taaSettings:
         jitterSpread: 0.75
         sharpen: 0.3
         stationaryBlending: 0.95
         motionBlending: 0.85
   ambientOcclusion:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       intensity: 0.94
       radius: 0.3
@@ -69,7 +69,7 @@ MonoBehaviour:
       screenEdgeMask:
         intensity: 0.03
   depthOfField:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       focusDistance: 10
       aperture: 5.6
@@ -77,10 +77,10 @@ MonoBehaviour:
       useCameraFov: 0
       kernelSize: 1
   motionBlur:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
-      shutterAngle: 72
-      sampleCount: 6
+      shutterAngle: 0
+      sampleCount: 14
       frameBlending: 0
   eyeAdaptation:
     m_Enabled: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
         texture: {fileID: 0}
         intensity: 3
   colorGrading:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       tonemapping:
         tonemapper: 1
@@ -121,21 +121,21 @@ MonoBehaviour:
         neutralWhiteClip: 3.79
       basic:
         postExposure: 0
-        temperature: 20
-        tint: 5
-        hueShift: 0
-        saturation: 1.51
+        temperature: -20
+        tint: -43
+        hueShift: 6
+        saturation: 1.25
         contrast: 0.84
       channelMixer:
-        red: {x: 1, y: 0.03, z: -0.8}
+        red: {x: 0.47, y: 0.72, z: 0.59}
         green: {x: 0, y: 1, z: 0}
         blue: {x: 0, y: 0, z: 1}
         currentEditingChannel: 0
       colorWheels:
         mode: 1
         log:
-          slope: {r: 0.47287238, g: 0.7040174, b: 1, a: 0}
-          power: {r: 0.9226003, g: 1, b: 0.9999995, a: 0}
+          slope: {r: 1, g: 0.7238537, b: 0.3702461, a: 0}
+          power: {r: 0.69435465, g: 0.74715257, b: 1, a: 0.18241042}
           offset: {r: 0.69207966, g: 0.722409, b: 1, a: 0}
         linear:
           lift: {r: 0, g: 0, b: 0, a: 0}
@@ -293,7 +293,7 @@ MonoBehaviour:
       size: 1
       luminanceContribution: 0.8
   vignette:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       mode: 0
       color: {r: 0, g: 0, b: 0, a: 1}

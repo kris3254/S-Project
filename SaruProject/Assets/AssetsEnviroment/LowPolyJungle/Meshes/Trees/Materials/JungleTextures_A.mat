@@ -128,7 +128,7 @@ Material:
     - __outline_gui_dummy__: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0.5735294, g: 0.20242214, b: 0.20242214, a: 1}
     - _HColor: {r: 0.97794116, g: 0.8688402, b: 0.81974477, a: 1}
     - _HighlightColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
