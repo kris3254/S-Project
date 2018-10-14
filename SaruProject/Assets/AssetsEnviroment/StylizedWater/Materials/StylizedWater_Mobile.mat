@@ -56,7 +56,7 @@ Material:
     - _SurfaceHightlighttiling: 0.35
     - _Surfacehightlightsize: 0.741
     - _Tessellation: 0
-    - _Tiling: 0.891
+    - _Tiling: 0.878
     - _Transparency: 0.634
     - _Unlit: 0
     - _UseIntersectionHighlight: 0
@@ -64,7 +64,7 @@ Material:
     - _WaveHeight: 0
     - _WaveSize: 5
     - _Wavesspeed: 0.84
-    - _Wavesstrength: 0.206
+    - _Wavesstrength: 0
     - _Wavetint: -0.062
     - _Worldspacetiling: 1
     - __dirty: 1
