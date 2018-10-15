@@ -13,9 +13,12 @@ public class SpecialAttacks : MonoBehaviour {
 
 	//El orden viene dado por el orden escrito en attackType
 	bool[] canUseSpecificAttack;
+	public Transform saruTransform;
 
 	[Header("Fire")]
 	public GameObject firePrefab;
+	public float timeBetweenFireAttack = 2f;
+	public Vector3 offsetDistanceToShoot = new Vector3 (0,1,0);
 
 	// Use this for initialization
 	void Start () {
@@ -28,11 +31,11 @@ public class SpecialAttacks : MonoBehaviour {
 
 		//Debug.Log ("Prueba -> "+Input.GetAxis ("R2_PS4")	);
 		if (Input.GetAxisRaw ("R2_PS4") == 1) {
-			Debug.Log ("Input bien");
+			
 			switch(actualType){
 
 			case attackType.Fire:
-				if (canUseSpecificAttack [0]) {
+				if (canUseSpecificAttack [(int)attackType.Fire]) {
 					FireAttack ();
 				}
 				break;
@@ -55,10 +58,18 @@ public class SpecialAttacks : MonoBehaviour {
 
 	void FireAttack(){
 		Debug.Log ("Dispara Fuego");
+		GameObject fire = Instantiate (firePrefab, saruTransform.position+offsetDistanceToShoot, saruTransform.rotation) as GameObject;
+		canUseSpecificAttack [(int)attackType.Fire] = false;
+		StartCoroutine (TimeWait((int)attackType.Fire,timeBetweenFireAttack));
+	}
+
+	IEnumerator TimeWait(int typeOfUse, float delay){
+		yield return new WaitForSeconds (delay);
+		canUseSpecificAttack [typeOfUse] = true;
 	}
 
 	public void ActivateFire(){
-		canUseSpecificAttack [0] = true;
+		canUseSpecificAttack [(int)attackType.Fire] = true;
 		actualType = attackType.Fire;
 	}
 }
