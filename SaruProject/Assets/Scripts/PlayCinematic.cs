@@ -24,6 +24,7 @@ public class PlayCinematic : MonoBehaviour {
     public Camera mainCamera;
 
     public Transform respawnTransform;
+	public SpecialAttacks saruSpecialAttacks;
 
     private void Awake()
     {
@@ -69,6 +70,9 @@ public class PlayCinematic : MonoBehaviour {
             cinematicCamera.depth = 0;
             cameraForPlayingCinematics.SetActive(true);
             isFirstTime = false;
+
+			//Se activa el uso del poder de fuego
+			saruSpecialAttacks.ActivateFire();
         }
             
     }
