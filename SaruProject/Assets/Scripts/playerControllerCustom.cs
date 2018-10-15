@@ -26,6 +26,7 @@ public class playerControllerCustom : MonoBehaviour
 
     private CharacterController _characterController;
     private Vector3 _moveDirection;
+    private float _actSpeed;
     public bool isRolling;
 
     [HideInInspector]
@@ -41,6 +42,7 @@ public class playerControllerCustom : MonoBehaviour
     private Color _colorModoGuardian = new Color(1, 0, 1, 1);
     private float _lerpTime = 0;
     private bool _isGrounded = true;
+    private bool _lastFrameGrounded;
 
     private CameraFilterPack_Color_RGB _rgbColorFilter;
     private CameraFilterPack_3D_Anomaly _anomalyFilter;
@@ -72,13 +74,24 @@ public class playerControllerCustom : MonoBehaviour
         HandleGuardianMode();
     }
 
+    private void FixedUpdate()
+    {
+        
+    }
     void HandleIsGrounded()
     {
         RaycastHit hit;
+        _lastFrameGrounded = _characterController.isGrounded;
         _isGrounded = _characterController.isGrounded;
         if(Physics.Raycast(transform.position,Vector3.down,out hit ,distanceToGround))
         {
+            Debug.Log(hit.transform.name);
             _isGrounded = true;
+        }
+
+        if (_characterController.isGrounded == true && _lastFrameGrounded == false)
+        {
+            _moveDirection.y = 0;
         }
 
     }
@@ -112,25 +125,35 @@ public class playerControllerCustom : MonoBehaviour
 		}
 
 		anim.SetBool ("AttackCombo2", attackCombo2);
-        anim.SetFloat("speed", (Mathf.Abs(Input.GetAxis("Vertical")) + Mathf.Abs(Input.GetAxis("Horizontal"))));
+
+        _actSpeed = (Mathf.Abs(Input.GetAxis("Vertical")) + Mathf.Abs(Input.GetAxis("Horizontal")));
+        anim.SetFloat("speed", _actSpeed);
     }
     void HandleAirMovement()
     {
-        _moveDirection.y = _moveDirection.y + (Physics.gravity.y * gravityScale * Time.deltaTime);
-        if (_characterController.isGrounded)
+
+
+        if (_isGrounded)
         {
-            if (( (Input.GetButtonDown("Jump")) || (Input.GetButtonDown("X_PS4")) ) && !isRolling)
+           
+         
+            if (((Input.GetButtonDown("Jump")) || (Input.GetButtonDown("X_PS4"))) && !isRolling)
             {
                 _moveDirection.y = jumpForce;
+                anim.SetBool("IsGrounded", _isGrounded);
             }
-        }        
+        }
+        else
+        {
+            _moveDirection.y = _moveDirection.y + (Physics.gravity.y * gravityScale * Time.deltaTime);
+        }
+        
     }
     void HandleGroundedMovement()
     {
         if (isRolling)
         {
             Vector3 rollDirection = playerModel.transform.forward * rollSpeed;
-            Debug.Log("RollDirection = " + rollDirection);
             _characterController.Move(rollDirection * Time.deltaTime);
         }
         else { 
@@ -180,9 +203,9 @@ public class playerControllerCustom : MonoBehaviour
     }
     void HandleRolling()
     {
-        if ( Input.GetButtonDown("O_PS4") && (Math.Abs(Input.GetAxis("Vertical")) + Math.Abs(Input.GetAxis("Horizontal")) >= 0.6f)
-        && !isRolling && _characterController.isGrounded)  
+        if ( Input.GetButtonDown("O_PS4") && _actSpeed >= 0.6f && !isRolling && _isGrounded)  
         {
+            Debug.Log("Actual Speed = " + _actSpeed);
             StartCoroutine(RollRoutine());
         }
     }
