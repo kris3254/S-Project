@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 415082}
   - component: {fileID: 19815082}
   - component: {fileID: 19915082}
+  - component: {fileID: 95096014798165120}
   m_Layer: 0
   m_Name: Firefly01ParticleSys
   m_TagString: Untagged
@@ -23,9 +24,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 115082}
-  m_LocalRotation: {x: 0.7071066, y: 0, z: 0, w: -0.70710695}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.7071066, y: -0, z: -0, w: -0.70710695}
+  m_LocalPosition: {x: 5.0854926, y: 3.2967606, z: -41.463074}
+  m_LocalScale: {x: 4.113083, y: 3.7214646, z: 1.2323674}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -90,7 +91,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 0
+  randomSeed: 2116820370
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -180,7 +181,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.2352941, g: 1, b: 0.62028396, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -243,7 +244,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0.08
-      minScalar: 0.005
+      minScalar: 0.51
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -526,10 +527,10 @@ ParticleSystem:
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
-    donutRadius: 0.2
+    donutRadius: 0.01
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1.1503321, y: 1, z: 1}
+    m_Scale: {x: 1.0114433, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -543,7 +544,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.48082262
       mode: 0
       spread: 0
       speed:
@@ -638,7 +639,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 1.8
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -980,8 +981,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.57254905, g: 0, b: 1, a: 0}
-        key1: {r: 0, g: 1, b: 1, a: 1}
+        key0: {r: 0, g: 1, b: 0.25517225, a: 0}
+        key1: {r: 0.4876357, g: 0.9558824, b: 0.47091264, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 1}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -3522,3 +3523,20 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 115082}
   m_IsPrefabParent: 1
+--- !u!95 &95096014798165120
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115082}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e637baa5f3663ff47a1bbfd3649b9ab8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
