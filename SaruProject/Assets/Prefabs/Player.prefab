@@ -3149,7 +3149,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actualType: 0
+  saruTransform: {fileID: 4697694607974818}
   firePrefab: {fileID: 1800795906859322, guid: aa4bab1cf3133414b97e02bd50f44d8a, type: 2}
+  timeBetweenFireAttack: 2
+  offsetDistanceToShoot: {x: 0, y: 1, z: 0}
 --- !u!114 &114700150676932786
 MonoBehaviour:
   m_ObjectHideFlags: 1
