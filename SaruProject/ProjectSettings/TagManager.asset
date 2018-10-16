@@ -7,7 +7,7 @@ TagManager:
   - Level
   - FxTemporaire
   - Enemy
-  - Flammable
+  - FireBall
   layers:
   - Default
   - TransparentFX

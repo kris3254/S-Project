@@ -1682,7 +1682,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1813735274010998}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -115.67926, y: 66.58355, z: 254.82262}
+  m_LocalPosition: {x: -2461.7, y: 622.1, z: 487.6}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 4782080834706320}
@@ -3154,7 +3154,7 @@ MonoBehaviour:
   saruTransform: {fileID: 4697694607974818}
   firePrefab: {fileID: 1800795906859322, guid: aa4bab1cf3133414b97e02bd50f44d8a, type: 2}
   timeBetweenFireAttack: 2
-  offsetDistanceToShoot: {x: 0, y: 1, z: 0}
+  offsetDistanceToShoot: {x: 0.5, y: 1, z: -0.5}
 --- !u!114 &114700150676932786
 MonoBehaviour:
   m_ObjectHideFlags: 1

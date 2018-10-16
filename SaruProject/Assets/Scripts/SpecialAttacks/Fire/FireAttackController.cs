@@ -5,32 +5,28 @@ using UnityEngine;
 public class FireAttackController : MonoBehaviour {
 
 	public float speed;//velocidad de desplazamiento del proyectil
-    public float firingTime;// tiempo que el objeto inflamable contra el que choca el proyectil va a estar ardiendo antes de desaparecer
-    public float lifeTime;//Tiempo de vida del proyectil de fuego
-    private GameObject flammableObject;//El objeto contra el que choca ha de tener tag de inflamable si queremos que arda, y un particle System como componente asociado
+    public int lifetime;//tiempo de vida de la bola de fuego (usado para controlar el que siempre se destruya la bola de fuego aunk no impacte con un objeto inflamable
+                        // si lo hace, se destruye automaticamente, sino pasado este lifetime
+    private Rigidbody rigid;
 
 
-	// Update is called once per frame
-	void Update () {
-		transform.Translate (Vector3.forward * speed);
-	}
-
-    private void OnTriggerEnter(Collider other)
+    private void Start()
     {
-        if (other.gameObject.tag == "Flammable")// el objeto contra el que choca tiene que tener el tag de objeto inflamable
-        {
-            Debug.Log("Colision con objeto inflamable detectada");
-
-            flammableObject = other.gameObject;
-            //flammableObject.GetComponent<ParticleSystem>().Play();
-            StartCoroutine("EsperarDestruccion");
-        }
+        rigid = gameObject.GetComponent<Rigidbody>();
+        AudioManager.instance.PlaySound("EstatuaFuego");
+        StartCoroutine("WaitForDie");
     }
 
-    IEnumerator EsperarDestruccion()
+    // Update is called once per frame
+    void Update () {
+
+        rigid.AddForce(gameObject.transform.forward * speed * Time.deltaTime);
+	}
+
+    IEnumerator WaitForDie()
     {
-        yield return new WaitForSeconds(firingTime);
-        Destroy(flammableObject);
+        yield return new WaitForSeconds(lifetime);
+        AudioManager.instance.StopSound("EstatuaFuego");
         Destroy(gameObject);
     }
 }
