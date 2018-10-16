@@ -1413,6 +1413,14 @@ Prefab:
       propertyPath: ShapeModule.radiusThickness
       value: 1.0000
       objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
   m_IsPrefabParent: 0
@@ -2516,6 +2524,35 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cd9b05ced83c4c1469a055afa473da17, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &556676918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 593743823}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 556676919}
+  m_Layer: 0
+  m_Name: Missing Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &556676919
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 593743823}
+  m_GameObject: {fileID: 556676918}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2121698448}
+  m_Father: {fileID: 1393992609}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &584347801
 Prefab:
   m_ObjectHideFlags: 0
@@ -3807,6 +3844,14 @@ Prefab:
       propertyPath: ShapeModule.radiusThickness
       value: 1.0000
       objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
   m_IsPrefabParent: 0
@@ -4209,6 +4254,21 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cd9b05ced83c4c1469a055afa473da17, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &777514539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 593743823}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2121698448}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &784091501 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000011694769922, guid: d10f565fe79a8a9428f9ab2b74f264f4,
@@ -7766,6 +7826,14 @@ Prefab:
       propertyPath: ShapeModule.radiusThickness
       value: 1.0000
       objectReference: {fileID: 0}
+    - target: {fileID: 19800010, guid: cee5f0c785dd47d40b4bd7b8ba480076, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800010, guid: cee5f0c785dd47d40b4bd7b8ba480076, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cee5f0c785dd47d40b4bd7b8ba480076, type: 2}
   m_IsPrefabParent: 0
@@ -8263,7 +8331,7 @@ Transform:
   - {fileID: 1594083944}
   - {fileID: 1228189058}
   - {fileID: 170249708}
-  - {fileID: 2121698448}
+  - {fileID: 556676919}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9608,7 +9676,7 @@ MonoBehaviour:
     loop: 0
     audioSource: {fileID: 0}
   - name: GolpeCayado2
-    clip: {fileID: 8300000, guid: 7ff84b05ba9c5cc43a250c1b07d9dc66, type: 3}
+    clip: {fileID: 8300000, guid: 3502e090ce51e9b47b87b9033e94546f, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -11194,6 +11262,14 @@ Prefab:
       propertyPath: ShapeModule.radiusThickness
       value: 1.0000
       objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
   m_IsPrefabParent: 0
@@ -11800,11 +11876,20 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a7f7818289018948b41c675da3e0cf8, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &2121698448 stripped
+--- !u!4 &2121698448
 Transform:
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 4556099789910998, guid: acea822922b00b149a06179a66bda75a,
     type: 2}
   m_PrefabInternal: {fileID: 593743823}
+  m_GameObject: {fileID: 777514539}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 556676919}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2135070667
 Prefab:
   m_ObjectHideFlags: 0

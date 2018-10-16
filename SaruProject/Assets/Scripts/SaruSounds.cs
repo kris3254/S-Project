@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SaruSounds : MonoBehaviour {
+
     public playerControllerCustom controller;
+
 	public void PasoDerecho()
     {
         int num = Random.Range(0, 1);
@@ -28,7 +30,14 @@ public class SaruSounds : MonoBehaviour {
             AudioManager.instance.PlaySound("PasoPiedra4");
     }
 
-    public void Salto()
+    public void Rodar()
+    {
+        Debug.Log("Evento rodar ejecutado");
+        AudioManager.instance.PlaySound("Rodar");
+
+    }
+
+    public void SaltoS()
     {
         Debug.Log("Evento salto ejecutado");
         int num = Random.Range(0, 2);
@@ -37,13 +46,6 @@ public class SaruSounds : MonoBehaviour {
             AudioManager.instance.PlaySound("Salto1");
         else
             AudioManager.instance.PlaySound("Salto2");
-    }
-
-    public void Rodar()
-    {
-        Debug.Log("Evento rodar ejecutado");
-        AudioManager.instance.PlaySound("Rodar");
-
     }
 
     public void MoverCayado()

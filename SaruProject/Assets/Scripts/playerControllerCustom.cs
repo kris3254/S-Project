@@ -37,7 +37,7 @@ public class playerControllerCustom : MonoBehaviour
 	public bool canAttack = false;
 	public BoxCollider cayadoCollider;
 
-    private int _lerpSpeed = 1;
+    private float _lerpSpeed = 2f;
     private Color _colorModoSaru = new Color(1, 1, 1, 1);
     private Color _colorModoGuardian = new Color(1, 0, 1, 1);
     private float _lerpTime = 0;
@@ -85,7 +85,7 @@ public class playerControllerCustom : MonoBehaviour
         _isGrounded = _characterController.isGrounded;
         if(Physics.Raycast(transform.position,Vector3.down,out hit ,distanceToGround))
         {
-            Debug.Log(hit.transform.name);
+            //Debug.Log(hit.transform.name);
             _isGrounded = true;
         }
 
@@ -180,12 +180,10 @@ public class playerControllerCustom : MonoBehaviour
                 if (modoGuardian)
                 {
                     playerMesh.GetComponent<Renderer>().material.mainTexture = textures[0];
-                    AudioManager.instance.PlaySound("ModoGuardian");
                 }
                 else
                 {
                     playerMesh.GetComponent<Renderer>().material.mainTexture = textures[1];
-                    AudioManager.instance.PlaySound("ModoSaru");
 
                 }
                 _lerpTime += Time.deltaTime * _lerpSpeed;
@@ -194,6 +192,11 @@ public class playerControllerCustom : MonoBehaviour
             }
             else if (_lerpTime > 1)
             {
+                if (modoGuardian)
+                    AudioManager.instance.PlaySound("ModoGuardian");
+                else
+                    AudioManager.instance.PlaySound("ModoSaru");
+
                 modoGuardian = !modoGuardian;
                 _cambiandoModo = false;
                 _lerpTime = 0;
