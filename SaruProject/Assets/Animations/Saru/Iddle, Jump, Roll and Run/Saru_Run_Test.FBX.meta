@@ -208,14 +208,14 @@ ModelImporter:
       curves: []
       events:
       - time: 0.09167241
-        functionName: PasoDerecho
+        functionName: ActivarPieIzquierdo
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.52428716
-        functionName: PasoIzquierdo
+        functionName: ActivarPieIzquierdo
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

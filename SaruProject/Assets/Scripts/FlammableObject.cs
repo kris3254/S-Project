@@ -6,7 +6,8 @@ public class FlammableObject : MonoBehaviour {
 
     public float firingTime;// tiempo que el objeto inflamable contra el que choca el proyectil va a estar ardiendo antes de desaparecer
     public ParticleSystem[] ParticlesArray;//conjunto de particulas de fuego que el objeto inflamable inflamable que contiene este script ha de contener
-                                            //han de estar todas con el playOnAwake desactivado 
+                                           //han de estar todas con el playOnAwake desactivado 
+    public GameObject particleSmoke;
 
     private void OnCollisionEnter(Collision other)
     {
@@ -27,6 +28,7 @@ public class FlammableObject : MonoBehaviour {
         }
         yield return new WaitForSeconds(firingTime);
         AudioManager.instance.StopSound("EstatuaFuego");
+        particleSmoke.SetActive(true);
         Destroy(gameObject);
         
     }
