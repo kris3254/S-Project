@@ -27,8 +27,9 @@ public class FlammableObject : MonoBehaviour {
             p.Play();
         }
         yield return new WaitForSeconds(firingTime);
-        AudioManager.instance.StopSound("EstatuaFuego");
         particleSmoke.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        AudioManager.instance.StopSound("EstatuaFuego");
         Destroy(gameObject);
         
     }
