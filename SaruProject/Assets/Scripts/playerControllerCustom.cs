@@ -164,13 +164,20 @@ public class playerControllerCustom : MonoBehaviour
             Vector3 rollDirection = playerModel.transform.forward * rollSpeed;
             _characterController.Move(rollDirection * Time.deltaTime);
         }
-        else { 
+        else if (!isDead)
+        {
             float yStore = _moveDirection.y;
             _moveDirection = (transform.forward * Input.GetAxis("Vertical")) + (transform.right * Input.GetAxis("Horizontal"));
             //normalize the player movement so diagonal movement is not twice as fast as single axis movement
             _moveDirection = (_moveDirection.magnitude > 1) ? _moveDirection.normalized * moveSpeed : _moveDirection * moveSpeed;
             _moveDirection.y = yStore;
             _characterController.Move(_moveDirection * Time.deltaTime);
+        }
+        else {
+            float yStore = _moveDirection.y;
+            _moveDirection = transform.up * yStore;
+            _characterController.Move(_moveDirection * Time.deltaTime);
+
         }
         HandleRolling();
     }

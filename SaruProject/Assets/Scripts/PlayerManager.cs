@@ -37,32 +37,36 @@ public class PlayerManager : MonoBehaviour {
 
     public void DecrementHealth(int healthToLose)
     {
-        Debug.Log("Recibo daño");
-        health -= healthToLose;
-
-        int num = Random.Range(0, 2);
-
-        if (num == 1)
-            AudioManager.instance.PlaySound("RecibirDanio1");
-        else
-            AudioManager.instance.PlaySound("RecibirDanio2");
-
-        UIManager.instance.CameraShake();
-
-        //audioSourcePlayer.clip = losingHealthSound;
-        //audioSourcePlayer.Play();
-        if (health<=0)
+        if (!controller.isDead)
         {
-            controller.isAttacking = false;
-            controller.isRolling = false;
-            controller.isDead = true;
-            health = 0;
-            Debug.Log("El player ha muerto");
-            StartCoroutine(RespawnLevelAfterDeath(1.5f));
-         
+            Debug.Log("Recibo daño");
+            health -= healthToLose;
+
+            int num = Random.Range(0, 2);
+
+            if (num == 1)
+                AudioManager.instance.PlaySound("RecibirDanio1");
+            else
+                AudioManager.instance.PlaySound("RecibirDanio2");
+
+            UIManager.instance.CameraShake();
+
+            //audioSourcePlayer.clip = losingHealthSound;
+            //audioSourcePlayer.Play();
+            if (health <= 0)
+            {
+                controller.isAttacking = false;
+                controller.isRolling = false;
+                controller.isDead = true;
+                health = 0;
+                Debug.Log("El player ha muerto");
+                StartCoroutine(RespawnLevelAfterDeath(1.5f));
+
+            }
+            else
+                UIManager.instance.UpdateHealthHUD();//actualizamos el hud con el nuevo valor de vidas del player
         }
-        else
-        UIManager.instance.UpdateHealthHUD();//actualizamos el hud con el nuevo valor de vidas del player
+       
        
 
     }
