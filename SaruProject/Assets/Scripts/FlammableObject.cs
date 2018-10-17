@@ -8,6 +8,8 @@ public class FlammableObject : MonoBehaviour {
     public ParticleSystem[] ParticlesArray;//conjunto de particulas de fuego que el objeto inflamable inflamable que contiene este script ha de contener
                                            //han de estar todas con el playOnAwake desactivado 
     public GameObject particleSmoke;
+    public bool isFinalDemoTree;
+    public DemoEnd demoEnd;
 
     private void OnCollisionEnter(Collision other)
     {
@@ -28,6 +30,11 @@ public class FlammableObject : MonoBehaviour {
         }
         yield return new WaitForSeconds(firingTime);
         particleSmoke.SetActive(true);
+        if (isFinalDemoTree)
+        {
+            yield return new WaitForSeconds(0.5f);
+            demoEnd.StartFade();
+        }
         yield return new WaitForSeconds(0.5f);
         AudioManager.instance.StopSound("EstatuaFuego");
         Destroy(gameObject);
