@@ -316,7 +316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1219982445741966
 GameObject:
   m_ObjectHideFlags: 1
@@ -1698,8 +1698,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1813735274010998}
-  m_LocalRotation: {x: 0.0053746067, y: -0.01173909, z: -0.04414593, w: 0.99894166}
-  m_LocalPosition: {x: -122.10092, y: 79.586784, z: 234.98077}
+  m_LocalRotation: {x: 0, y: 0, z: -0.06975647, w: 0.9975641}
+  m_LocalPosition: {x: -122.1, y: 79.8, z: 235.5}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 4782080834706320}
@@ -1707,7 +1707,7 @@ Transform:
   - {fileID: 4615717139473678}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.55600005, y: -1.371, z: -5.0670004}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -8}
 --- !u!4 &4103975054385312
 Transform:
   m_ObjectHideFlags: 1
@@ -3181,11 +3181,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59472a6d591c8fb428b1d320770a3c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pController: {fileID: 114700150676932786}
   actualType: 0
   saruTransform: {fileID: 4697694607974818}
   firePrefab: {fileID: 1800795906859322, guid: aa4bab1cf3133414b97e02bd50f44d8a, type: 2}
   timeBetweenFireAttack: 2
-  offsetDistanceToShoot: {x: 0, y: 2, z: 0}
+  offsetDistanceToShoot: {x: 0, y: 1, z: 0.11}
+  timeFireAnim: 1
 --- !u!114 &114700150676932786
 MonoBehaviour:
   m_ObjectHideFlags: 1

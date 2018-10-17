@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpecialAttacks : MonoBehaviour {
 
+	public playerControllerCustom pController;
+
 	public enum attackType{
 		Fire,
 		Air
@@ -19,6 +21,7 @@ public class SpecialAttacks : MonoBehaviour {
 	public GameObject firePrefab;
 	public float timeBetweenFireAttack = 2f;
 	public Vector3 offsetDistanceToShoot = new Vector3 (0,1,0);
+	public float timeFireAnim = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -58,8 +61,15 @@ public class SpecialAttacks : MonoBehaviour {
 
 	void FireAttack(){
 		Debug.Log ("Dispara Fuego");
-		GameObject fire = Instantiate (firePrefab, saruTransform.position+offsetDistanceToShoot, saruTransform.rotation) as GameObject;
+		pController.FireAttackAnim ();
+
 		canUseSpecificAttack [(int)attackType.Fire] = false;
+
+		Invoke ("AttackEffect",timeFireAnim);
+	}
+
+	void AttackEffect(){
+		GameObject fire = Instantiate (firePrefab, saruTransform.position+offsetDistanceToShoot.x*saruTransform.right+offsetDistanceToShoot.y*saruTransform.up+offsetDistanceToShoot.z*saruTransform.forward, saruTransform.rotation) as GameObject;
 		StartCoroutine (TimeWait((int)attackType.Fire,timeBetweenFireAttack));
 	}
 

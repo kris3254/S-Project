@@ -49,6 +49,8 @@ public class playerControllerCustom : MonoBehaviour
 
     private bool _cambiandoModo = false;
 
+	public bool canDoThings = true;
+
     #endregion
 
     void Start()
@@ -65,6 +67,9 @@ public class playerControllerCustom : MonoBehaviour
 
     void Update()
     {
+		if (!canDoThings)
+			return;
+
         HandleIsGrounded();
         HandleGroundedMovement();
         HandleAirMovement();
@@ -259,4 +264,7 @@ public class playerControllerCustom : MonoBehaviour
 		moveSpeed = maxSpeed;
 	}
 
+	public void FireAttackAnim(){
+		anim.SetTrigger ("FireAttack");
+	}
 }

@@ -24,7 +24,7 @@ public class PlayCinematic : MonoBehaviour {
     public Camera mainCamera;
 
     public Transform respawnTransform;
-	public SpecialAttacks saruSpecialAttacks;
+	public playerControllerCustom  pController;
 
     private void Awake()
     {
@@ -54,7 +54,7 @@ public class PlayCinematic : MonoBehaviour {
         cameraForPlayingCinematics.SetActive(false);
         mainCamera.depth = 0;
         vp.loopPointReached -= EndReached;
-
+		pController.canDoThings = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -71,8 +71,7 @@ public class PlayCinematic : MonoBehaviour {
             cameraForPlayingCinematics.SetActive(true);
             isFirstTime = false;
 
-			//Se activa el uso del poder de fuego
-			saruSpecialAttacks.ActivateFire();
+			pController.canDoThings = false;
         }
             
     }
