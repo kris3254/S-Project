@@ -9,7 +9,7 @@ public class WaterDamage : MonoBehaviour {
         if(other.gameObject.tag=="Player")
         {
             int health = PlayerManager.instance.GetHealthValue();
-            PlayerManager.instance.DecrementHealth(health);
+            PlayerManager.instance.InstantDead();
         }
     }
 }

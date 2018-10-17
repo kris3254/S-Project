@@ -10,7 +10,7 @@ public class PlayerManager : MonoBehaviour {
     public float timeToTakeHealthWithParticles;//valor de tiempo que tenemos que estar en contacto con el sistema de particulas de fuego para perder un punto de vida
     
     public int health;//numero de vidas del player
-    private bool playerIsHittedWithParticles;//booleano para garantizar que unicamente se nos quita un punto de vida por cada tiempo especificado aunk sigamos en contacto con el sistema de particulas
+    public bool playerIsHittedWithParticles;//booleano para garantizar que unicamente se nos quita un punto de vida por cada tiempo especificado aunk sigamos en contacto con el sistema de particulas
     public playerControllerCustom controller;
 
     [HideInInspector]
@@ -37,6 +37,7 @@ public class PlayerManager : MonoBehaviour {
 
     public void DecrementHealth(int healthToLose)
     {
+        Debug.Log("Recibo daño");
         health -= healthToLose;
 
         int num = Random.Range(0, 2);
@@ -47,22 +48,39 @@ public class PlayerManager : MonoBehaviour {
             AudioManager.instance.PlaySound("RecibirDanio2");
 
         UIManager.instance.CameraShake();
+
         //audioSourcePlayer.clip = losingHealthSound;
         //audioSourcePlayer.Play();
         if (health<=0)
         {
             controller.isAttacking = false;
             controller.isRolling = false;
+            controller.isDead = true;
             health = 0;
             Debug.Log("El player ha muerto");
-            UIManager.instance.UpdateHealthHUD();//actualizamos el hud con el nuevo valor de vidas del player
-            LevelManager.instance.Respawn();
-            UIManager.instance.FadeInOutEffect();
+            StartCoroutine(RespawnLevelAfterDeath(1.5f));
+         
         }
         else
         UIManager.instance.UpdateHealthHUD();//actualizamos el hud con el nuevo valor de vidas del player
        
 
+    }
+
+    public void InstantDead()
+    {
+        int num = Random.Range(0, 2);
+
+        if (num == 1)
+            AudioManager.instance.PlaySound("RecibirDanio1");
+        else
+            AudioManager.instance.PlaySound("RecibirDanio2");
+
+        health = 0;
+        Debug.Log("El player ha muerto por Instant Dead");
+        UIManager.instance.UpdateHealthHUD();//actualizamos el hud con el nuevo valor de vidas del player
+        LevelManager.instance.Respawn();
+        UIManager.instance.FadeInOutEffect();
     }
 
     //Este metodo no tiene sentido de momento (la vida solo se resetea a 3 cuando respawneamos) o cuando atravesamos un checkpoint
@@ -122,7 +140,6 @@ public class PlayerManager : MonoBehaviour {
             {
                 DecrementHealth(3);
                 StartCoroutine(DamagePlayerWithParticles(timeToTakeHealthWithParticles));
-
             }
 
         }
@@ -133,6 +150,16 @@ public class PlayerManager : MonoBehaviour {
     {
         playerIsHittedWithParticles = false;
         yield return (new WaitForSeconds(time));
+        playerIsHittedWithParticles = true;
+    }
+
+    IEnumerator RespawnLevelAfterDeath(float time)
+    {
+        yield return new WaitForSeconds(time);
+        controller.isDead = false;
+        UIManager.instance.UpdateHealthHUD();//actualizamos el hud con el nuevo valor de vidas del player
+        LevelManager.instance.Respawn();
+        UIManager.instance.FadeInOutEffect();
         playerIsHittedWithParticles = true;
     }
 

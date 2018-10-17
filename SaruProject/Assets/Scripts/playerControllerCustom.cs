@@ -28,6 +28,7 @@ public class playerControllerCustom : MonoBehaviour
     private Vector3 _moveDirection;
     private float _actSpeed;
     public bool isRolling;
+    public bool isDead = false;
 
     [HideInInspector]
     public bool isAttacking;
@@ -43,6 +44,7 @@ public class playerControllerCustom : MonoBehaviour
     private float _lerpTime = 0;
     private bool _isGrounded = true;
     private bool _lastFrameGrounded;
+    
 
     private CameraFilterPack_Color_RGB _rgbColorFilter;
     private CameraFilterPack_3D_Anomaly _anomalyFilter;
@@ -113,6 +115,7 @@ public class playerControllerCustom : MonoBehaviour
     {
         anim.SetBool("IsRolling", isRolling);
         anim.SetBool("IsGrounded", _isGrounded);
+        anim.SetBool("IsDead", isDead);
 
 		anim.SetBool ("AttackCombo2",attackCombo2);
 		if (attackCombo2 && anim.GetCurrentAnimatorStateInfo(0).IsName("AttackCombo2")) {
