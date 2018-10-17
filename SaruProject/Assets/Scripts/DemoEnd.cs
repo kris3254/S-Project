@@ -59,6 +59,8 @@ public class DemoEnd : MonoBehaviour {
             if (continueLoop = false)
             {
                 yield return new WaitForSeconds(5f);
+                fadePanel.SetActive(false);
+                fadeImage.SetActive(false);
                 SceneManager.LoadScene("MainMenu");
             }
         }
