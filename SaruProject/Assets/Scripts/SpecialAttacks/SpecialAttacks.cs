@@ -33,7 +33,7 @@ public class SpecialAttacks : MonoBehaviour {
 	void Update () {
 
 		//Debug.Log ("Prueba -> "+Input.GetAxis ("R2_PS4")	);
-		if (Input.GetAxisRaw ("R2_PS4") == 1) {
+		if (Input.GetAxisRaw ("R2_PS4") == 1 && pController.canDoThings == true) {
 			
 			switch(actualType){
 
@@ -82,4 +82,5 @@ public class SpecialAttacks : MonoBehaviour {
 		canUseSpecificAttack [(int)attackType.Fire] = true;
 		actualType = attackType.Fire;
 	}
+
 }
