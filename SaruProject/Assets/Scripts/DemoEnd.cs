@@ -39,9 +39,8 @@ public class DemoEnd : MonoBehaviour {
         bool continueLoop = true;
         yield return new WaitForSeconds(0.5f);
         pController.canDoThings = false;
-        yield return new WaitForSeconds(0.5f);
         playableDirector.Play();
-        yield return new WaitForSeconds(18f);
+        yield return new WaitForSeconds(12f);
         float timeStartedLerping = Time.time;
         float timeSinceStarted = Time.time - timeStartedLerping;
         float percentageComplete = timeSinceStarted / 3f;
@@ -53,12 +52,15 @@ public class DemoEnd : MonoBehaviour {
             {
                 continueLoop = false;
                 percentageComplete = 1;
-                yield return new WaitForSeconds(10f);
-                SceneManager.LoadScene("MainMenu");
             }
             fadePanel.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(initialAlpha, finalAlpha, percentageComplete);
             fadeImage.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(initialAlpha, finalAlpha, percentageComplete);
             yield return new WaitForEndOfFrame();
+            if (continueLoop = false)
+            {
+                yield return new WaitForSeconds(5f);
+                SceneManager.LoadScene("MainMenu");
+            }
         }
 
     }
