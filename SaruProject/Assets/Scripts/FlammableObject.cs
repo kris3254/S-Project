@@ -30,13 +30,14 @@ public class FlammableObject : MonoBehaviour {
         }
         yield return new WaitForSeconds(firingTime);
         particleSmoke.SetActive(true);
+        AudioManager.instance.StopSound("EstatuaFuego");
+
         if (isFinalDemoTree)
         {
             yield return new WaitForSeconds(0.5f);
             demoEnd.StartFade();
         }
         yield return new WaitForSeconds(0.5f);
-        AudioManager.instance.StopSound("EstatuaFuego");
         Destroy(gameObject);
         
     }

@@ -39,6 +39,7 @@ public class DemoEnd : MonoBehaviour {
         bool continueLoop = true;
         yield return new WaitForSeconds(0.5f);
         pController.canDoThings = false;
+        AudioManager.instance.PlaySound("MusicaPoblado");
         playableDirector.Play();
         yield return new WaitForSeconds(12f);
         float timeStartedLerping = Time.time;
@@ -56,11 +57,14 @@ public class DemoEnd : MonoBehaviour {
             fadePanel.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(initialAlpha, finalAlpha, percentageComplete);
             fadeImage.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(initialAlpha, finalAlpha, percentageComplete);
             yield return new WaitForEndOfFrame();
-            if (continueLoop = false)
+            if (continueLoop == false)
             {
                 yield return new WaitForSeconds(5f);
                 fadePanel.SetActive(false);
                 fadeImage.SetActive(false);
+                AudioManager.instance.StopSound("MusicaPoblado");
+                AudioManager.instance.PlaySound("MusicaMenuPpal");
+
                 SceneManager.LoadScene("MainMenu");
             }
         }

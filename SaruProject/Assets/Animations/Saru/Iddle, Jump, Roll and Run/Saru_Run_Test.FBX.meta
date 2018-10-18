@@ -214,8 +214,22 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.11013486
+        functionName: PasoDerecho
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.52428716
         functionName: ActivarPieIzquierdo
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.55092776
+        functionName: PasoDerecho
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
