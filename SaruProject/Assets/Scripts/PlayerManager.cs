@@ -57,6 +57,7 @@ public class PlayerManager : MonoBehaviour {
             {
                 controller.isAttacking = false;
                 controller.isRolling = false;
+                controller.cambiandoModo = true;
                 controller.isDead = true;
                 health = 0;
                 Debug.Log("El player ha muerto");

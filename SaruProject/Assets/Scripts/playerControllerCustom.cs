@@ -49,7 +49,7 @@ public class playerControllerCustom : MonoBehaviour
     private CameraFilterPack_Color_RGB _rgbColorFilter;
     private CameraFilterPack_3D_Anomaly _anomalyFilter;
 
-    private bool _cambiandoModo = false;
+    public bool cambiandoModo = false;
 
 	public bool canDoThings = true;
 
@@ -185,10 +185,10 @@ public class playerControllerCustom : MonoBehaviour
     {
         if ( (Input.GetKeyDown(KeyCode.G)) || (Input.GetButtonDown("L1_PS4")) )
         {
-            _cambiandoModo = true;
+            cambiandoModo = true;
         }
 
-        if (_cambiandoModo)
+        if (cambiandoModo)
         {
             if (_lerpTime <= 1)
             {
@@ -213,7 +213,7 @@ public class playerControllerCustom : MonoBehaviour
                     AudioManager.instance.PlaySound("ModoSaru");
 
                 modoGuardian = !modoGuardian;
-                _cambiandoModo = false;
+                cambiandoModo = false;
                 _lerpTime = 0;
             }
 

@@ -5,6 +5,8 @@ using UnityEngine;
 //Script que modela el comportamiento de un miniorbe, nada mas cargarse la escena, cada uno incrementa la variable del levelManager que contiene la cantidad total
 //de miniorbes del nivel. Además, al recogerlos el player se actualiza el num de miniorbes que el player ha recogido hasta ese momento en el nivel.
 public class Miniorbe: MonoBehaviour {
+    public playerControllerCustom saru;
+    public ParticleSystem pickupParticles;
 
 	// Use this for initialization
 	void Start () {
@@ -18,9 +20,11 @@ public class Miniorbe: MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && !saru.modoGuardian)
         {
             LevelManager.instance.AddMiniOrbToPlayerCount();
+            var particles = Instantiate(pickupParticles, transform.position, Quaternion.identity);
+            particles.Play();
             AudioManager.instance.PlaySound("RecogerMiniorbe");
             Destroy(gameObject);
         }
