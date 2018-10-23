@@ -22,6 +22,7 @@ public class SpecialAttacks : MonoBehaviour {
 	public float timeBetweenFireAttack = 2f;
 	public Vector3 offsetDistanceToShoot = new Vector3 (0,1,0);
 	public float timeFireAnim = 1;
+	public float delayIfGuardianMode = 0.8f;
 
 	// Use this for initialization
 	void Start () {
@@ -39,7 +40,14 @@ public class SpecialAttacks : MonoBehaviour {
 
 			case attackType.Fire:
 				if (canUseSpecificAttack [(int)attackType.Fire]) {
-					FireAttack ();
+					canUseSpecificAttack [(int)attackType.Fire] = false;
+					if (pController.modoGuardian) {
+						pController.cambiandoModo = true;
+						Invoke ("FireAttack", delayIfGuardianMode);
+					} else {
+						FireAttack ();
+					}
+
 				}
 				break;
 			
@@ -60,10 +68,7 @@ public class SpecialAttacks : MonoBehaviour {
 	}
 
 	void FireAttack(){
-		Debug.Log ("Dispara Fuego");
 		pController.FireAttackAnim ();
-
-		canUseSpecificAttack [(int)attackType.Fire] = false;
 
 		Invoke ("AttackEffect",timeFireAnim);
 	}
