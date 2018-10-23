@@ -49,7 +49,7 @@ MonoBehaviour:
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
-    m_BlendOutDuration: 1.75
+    m_BlendOutDuration: 1.5
     m_MixInCurve:
       serializedVersion: 2
       m_Curve:
@@ -97,18 +97,18 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: CM cam Bridge
     m_Version: 1
-  - m_Start: 0.25
+  - m_Start: 0.5
     m_ClipIn: 0
     m_Asset: {fileID: 114920088393065792, guid: 2d7a678c27bca1d419b7859d478d3f4f,
       type: 2}
     m_UnderlyingAsset: {fileID: 114509429420051312, guid: 2d7a678c27bca1d419b7859d478d3f4f,
       type: 2}
-    m_Duration: 4.75
+    m_Duration: 4.5
     m_TimeScale: 1
     m_ParentTrack: {fileID: 114187857660185566}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 1.75
+    m_BlendInDuration: 1.5
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
@@ -155,7 +155,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: CM FreeLook1
+    m_DisplayName: CM cam Saru
     m_Version: 1
 --- !u!114 &114289150737061496
 MonoBehaviour:

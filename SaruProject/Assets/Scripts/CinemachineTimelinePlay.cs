@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
+using Cinemachine;
 
 public class CinemachineTimelinePlay : MonoBehaviour {
 
     public PlayableDirector firstPlayableDirector;
     public PlayableDirector secondPlayableDirector;
 
+    public CinemachineBrain cinemachineBrain;
+
 
     private void OnTriggerEnter(Collider other)
     {
         if ((other.gameObject.tag == "Player"))
         {
-            Debug.Log("Saru Entra Puente");
-            secondPlayableDirector.Stop();
-            firstPlayableDirector.Play();
+            StartCoroutine("EntryAnimation");
         }
 
     }
@@ -25,10 +26,22 @@ public class CinemachineTimelinePlay : MonoBehaviour {
     {
         if ((other.gameObject.tag == "Player"))
         {
-            Debug.Log("Saru Sale Puente");
-            firstPlayableDirector.Stop();
-            secondPlayableDirector.Play();
+            StartCoroutine("ExitAnimation");
         }
+    }
+
+    IEnumerator EntryAnimation()
+    {
+        yield return new WaitUntil(() => cinemachineBrain.IsBlending == false);
+        secondPlayableDirector.Stop();
+        firstPlayableDirector.Play();
+    }
+
+    IEnumerator ExitAnimation()
+    {
+        yield return new WaitUntil(() => cinemachineBrain.IsBlending == false);
+        firstPlayableDirector.Stop();
+        secondPlayableDirector.Play();
     }
 
 }
