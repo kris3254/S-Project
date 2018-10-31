@@ -55,6 +55,8 @@ public class UIManager : MonoBehaviour {
 	Text dialogText;
 	public GameObject dialogPanel;
 	public float timeBetweenDialogTexts;
+	bool canEnter = true;
+	public float cdForInput = 0.2f;
 
 
     private void Awake()
@@ -69,9 +71,18 @@ public class UIManager : MonoBehaviour {
     }
 
 	void Update(){
-		if (dialogPanel.activeSelf && Input.GetAxisRaw ("X_PS4")==0) {
+		if (dialogPanel.activeSelf && Input.GetAxisRaw ("X_PS4")==1 && canEnter) {
+			canEnter = false;
+			Invoke ("CanEnterNow",cdForInput);
 			ChangeText ();
 		}
+		if(conceptPanel.activeSelf && Input.GetAxisRaw("O_PS4")==1){
+			conceptPanel.SetActive(false);
+		}
+	}
+
+	void CanEnterNow(){
+		canEnter = true;
 	}
 
     //Metodo que inicializa todos los elementos del HUD, activando los deseados y desactivando los temporales
@@ -341,6 +352,7 @@ public class UIManager : MonoBehaviour {
 
     //Este metodo llama a una corrutina que va mostrando los distintos mensajes (gameobjects con textos y/o imagenes) cada timeBetweenDialogTexts.
     //todos los mensajes (desactivados) a mostrar que pertenezcan a un mismo dialogo tienen que estar contenidos en un gameObject padre (activo) dentro del panel DialogPanel
+    /*
     public void ShowDialog(GameObject[] texts)
     {
         StopAllCoroutines();
@@ -379,7 +391,7 @@ public class UIManager : MonoBehaviour {
         }
         dialogPanel.SetActive(false);
     }
-
+	*/
 
     public void UpdateNumMiniOrbsLevelText(int numMiniOrbsLevel)
     {
