@@ -5,7 +5,7 @@ using UnityEngine;
 public class CitizenInteractable : MonoBehaviour {
 
     public GameObject triangleInteractable;
-    public GameObject[] dialogTexts;
+	public string[] dialogTexts;
     private bool isOnTrigger = false;
 
 
@@ -14,7 +14,10 @@ public class CitizenInteractable : MonoBehaviour {
         if (isOnTrigger && ((Input.GetKeyDown(KeyCode.T)) || (Input.GetButtonDown("Triangle_PS4"))) )
         {
             Debug.Log("El player ha entrado en el area del ciudadano y ha pulsado la tecla de dialogo");
-            UIManager.instance.ShowDialog(dialogTexts);
+			foreach (string dialog in dialogTexts) {
+				UIManager.instance.AddDialogText (dialog);
+			}
+            //UIManager.instance.ShowDialog(dialogTexts);
         }
     }
     private void OnTriggerEnter(Collider other)

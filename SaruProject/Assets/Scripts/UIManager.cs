@@ -44,13 +44,17 @@ public class UIManager : MonoBehaviour {
     public GameObject tutorialPanel;//panel que contiene todos los objetos de UI relacionados con el tutorial
     public float tutorialMessageOnScreenTime; //variable que contiene el tiempo que el mensaje tutorial va a permanecer en pantalla.
 
-    public GameObject dialogPanel;
-    public float timeBetweenDialogTexts;
-
     public Image collecionableImage;
     public Text numMiniOrbsLevelText;
     public Text numMiniOrbsPlayerText;
     public Text separadorNumOrbes;
+
+	//Dialogos
+	Queue<string> textsToShow = new Queue<string>();
+	[SerializeField]
+	Text dialogText;
+	public GameObject dialogPanel;
+	public float timeBetweenDialogTexts;
 
 
     private void Awake()
@@ -64,7 +68,11 @@ public class UIManager : MonoBehaviour {
         InitializeHud();
     }
 
-
+	void Update(){
+		if (dialogPanel.activeSelf && Input.GetAxisRaw ("X_PS4")==0) {
+			ChangeText ();
+		}
+	}
 
     //Metodo que inicializa todos los elementos del HUD, activando los deseados y desactivando los temporales
     public void InitializeHud()
@@ -411,7 +419,26 @@ public class UIManager : MonoBehaviour {
         separadorNumOrbes.gameObject.SetActive(true);
     }
 
-    
+	public void AddDialogText(string text){
+		textsToShow.Enqueue (text);
+		if (!dialogPanel.activeSelf) {
+			dialogPanel.SetActive (true);
+			dialogText.text = text;
+			Invoke ("ChangeText", timeBetweenDialogTexts);
+		}
+			
+	}
+
+	void ChangeText(){
+		textsToShow.Dequeue ();
+		CancelInvoke ("ChangeText");
+		if (textsToShow.Count <= 0)
+			dialogPanel.SetActive (false);
+		else {
+			dialogText.text = textsToShow.Peek ();
+			Invoke ("ChangeText", timeBetweenDialogTexts);
+		}
+	}
 
 
 
