@@ -29,7 +29,7 @@ public class SpawnPoint : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if ((other.gameObject.tag == "Player") && (!other.gameObject.GetComponent<playerControllerCustom>().modoGuardian) && ((Input.GetButtonDown("Triangle_PS4")) ) )
+        if ((other.gameObject.tag == "Player") && (!other.gameObject.GetComponent<playerControllerCustom>().modoGuardian))
         {
             AudioManager.instance.PlaySound("ActivarCheckpoint");
             sphereCheckpoint.gameObject.SetActive(true);

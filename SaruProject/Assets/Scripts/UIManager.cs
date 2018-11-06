@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour {
 
     public static UIManager instance = null;
 
+    public playerControllerCustom pController;
+
     public Image maskImage;//Imagen de la mascara de Saru
     public Image life1;//imagen de uno de los elementos de vida del player
     public Image life2;//imagen de uno de los elementos de vida del player
@@ -444,12 +446,16 @@ public class UIManager : MonoBehaviour {
 	void ChangeText(){
 		textsToShow.Dequeue ();
 		CancelInvoke ("ChangeText");
-		if (textsToShow.Count <= 0)
-			dialogPanel.SetActive (false);
-		else {
-			dialogText.text = textsToShow.Peek ();
-			Invoke ("ChangeText", timeBetweenDialogTexts);
-		}
+        if (textsToShow.Count <= 0)
+        {
+            pController.canDoThings = true;
+            dialogPanel.SetActive(false);
+        }
+        else
+        {
+            dialogText.text = textsToShow.Peek();
+            Invoke("ChangeText", timeBetweenDialogTexts);
+        }
 	}
 
 

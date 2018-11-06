@@ -6,6 +6,7 @@ public class CitizenInteractable : MonoBehaviour {
 
     public GameObject triangleInteractable;
 	public string[] dialogTexts;
+    public playerControllerCustom pController;
     private bool isOnTrigger = false;
 
 
@@ -13,6 +14,8 @@ public class CitizenInteractable : MonoBehaviour {
     {
         if (isOnTrigger && ((Input.GetKeyDown(KeyCode.T)) || (Input.GetButtonDown("Triangle_PS4"))) )
         {
+            pController.anim.SetFloat("speed", 0f);
+            pController.canDoThings = false;
             Debug.Log("El player ha entrado en el area del ciudadano y ha pulsado la tecla de dialogo");
 			foreach (string dialog in dialogTexts) {
 				UIManager.instance.AddDialogText (dialog);
