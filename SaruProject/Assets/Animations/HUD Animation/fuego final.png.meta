@@ -1,0 +1,1227 @@
+fileFormatVersion: 2
+guid: 9a475a9afe29ef14191344c54a01fb16
+timeCreated: 1541612466
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: fuego final_0
+    21300002: fuego final_1
+    21300004: fuego final_2
+    21300006: fuego final_3
+    21300008: fuego final_4
+    21300010: fuego final_5
+    21300012: fuego final_6
+    21300014: fuego final_7
+    21300016: fuego final_8
+    21300018: fuego final_9
+    21300020: fuego final_10
+    21300022: fuego final_11
+    21300024: fuego final_12
+    21300026: fuego final_13
+    21300028: fuego final_14
+    21300030: fuego final_15
+    21300032: fuego final_16
+    21300034: fuego final_17
+    21300036: fuego final_18
+    21300038: fuego final_19
+    21300040: fuego final_20
+    21300042: fuego final_21
+    21300044: fuego final_22
+    21300046: fuego final_23
+    21300048: fuego final_24
+    21300050: fuego final_25
+    21300052: fuego final_26
+    21300054: fuego final_27
+    21300056: fuego final_28
+    21300058: fuego final_29
+    21300060: fuego final_30
+    21300062: fuego final_31
+    21300064: fuego final_32
+    21300066: fuego final_33
+    21300068: fuego final_34
+    21300070: fuego final_35
+    21300072: fuego final_36
+    21300074: fuego final_37
+    21300076: fuego final_38
+    21300078: fuego final_39
+    21300080: fuego final_40
+    21300082: fuego final_41
+    21300084: fuego final_42
+    21300086: fuego final_43
+    21300088: fuego final_44
+    21300090: fuego final_45
+    21300092: fuego final_46
+    21300094: fuego final_47
+    21300096: fuego final_48
+    21300098: fuego final_49
+    21300100: fuego final_50
+    21300102: fuego final_51
+    21300104: fuego final_52
+    21300106: fuego final_53
+    21300108: fuego final_54
+    21300110: fuego final_55
+    21300112: fuego final_56
+    21300114: fuego final_57
+    21300116: fuego final_58
+    21300118: fuego final_59
+    21300120: fuego final_60
+    21300122: fuego final_61
+    21300124: fuego final_62
+    21300126: fuego final_63
+    21300128: fuego final_64
+    21300130: fuego final_65
+    21300132: fuego final_66
+    21300134: fuego final_67
+    21300136: fuego final_68
+    21300138: fuego final_69
+    21300140: fuego final_70
+    21300142: fuego final_71
+    21300144: fuego final_72
+    21300146: fuego final_73
+    21300148: fuego final_74
+    21300150: fuego final_75
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fuego final_0
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 5131
+        width: 672
+        height: 683
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_1
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 5133
+        width: 673
+        height: 681
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_2
+      rect:
+        serializedVersion: 2
+        x: 2177
+        y: 5143
+        width: 667
+        height: 666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_3
+      rect:
+        serializedVersion: 2
+        x: 3174
+        y: 5148
+        width: 672
+        height: 665
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_4
+      rect:
+        serializedVersion: 2
+        x: 4170
+        y: 5155
+        width: 673
+        height: 653
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_5
+      rect:
+        serializedVersion: 2
+        x: 5174
+        y: 5154
+        width: 670
+        height: 649
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_6
+      rect:
+        serializedVersion: 2
+        x: 6174
+        y: 5156
+        width: 672
+        height: 646
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_7
+      rect:
+        serializedVersion: 2
+        x: 7172
+        y: 5156
+        width: 670
+        height: 646
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_8
+      rect:
+        serializedVersion: 2
+        x: 8177
+        y: 5154
+        width: 667
+        height: 643
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_9
+      rect:
+        serializedVersion: 2
+        x: 9179
+        y: 5155
+        width: 666
+        height: 641
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_10
+      rect:
+        serializedVersion: 2
+        x: 10172
+        y: 5159
+        width: 665
+        height: 636
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_11
+      rect:
+        serializedVersion: 2
+        x: 11177
+        y: 5154
+        width: 662
+        height: 638
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_12
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 4158
+        width: 648
+        height: 632
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_13
+      rect:
+        serializedVersion: 2
+        x: 1187
+        y: 4146
+        width: 643
+        height: 643
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_14
+      rect:
+        serializedVersion: 2
+        x: 2189
+        y: 4140
+        width: 638
+        height: 649
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_15
+      rect:
+        serializedVersion: 2
+        x: 3182
+        y: 4124
+        width: 646
+        height: 665
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_16
+      rect:
+        serializedVersion: 2
+        x: 4181
+        y: 4099
+        width: 647
+        height: 690
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_17
+      rect:
+        serializedVersion: 2
+        x: 5177
+        y: 4093
+        width: 650
+        height: 694
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_18
+      rect:
+        serializedVersion: 2
+        x: 6173
+        y: 4088
+        width: 655
+        height: 699
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_19
+      rect:
+        serializedVersion: 2
+        x: 7164
+        y: 4087
+        width: 667
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_20
+      rect:
+        serializedVersion: 2
+        x: 8154
+        y: 4087
+        width: 673
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_21
+      rect:
+        serializedVersion: 2
+        x: 9156
+        y: 4078
+        width: 672
+        height: 711
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_22
+      rect:
+        serializedVersion: 2
+        x: 10146
+        y: 4078
+        width: 685
+        height: 705
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_23
+      rect:
+        serializedVersion: 2
+        x: 11149
+        y: 4078
+        width: 678
+        height: 703
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_24
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 3080
+        width: 679
+        height: 696
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_25
+      rect:
+        serializedVersion: 2
+        x: 1146
+        y: 3085
+        width: 688
+        height: 690
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_26
+      rect:
+        serializedVersion: 2
+        x: 2150
+        y: 3085
+        width: 699
+        height: 691
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_27
+      rect:
+        serializedVersion: 2
+        x: 3155
+        y: 3085
+        width: 697
+        height: 694
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_28
+      rect:
+        serializedVersion: 2
+        x: 4148
+        y: 3086
+        width: 706
+        height: 695
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_29
+      rect:
+        serializedVersion: 2
+        x: 5156
+        y: 3091
+        width: 706
+        height: 696
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_30
+      rect:
+        serializedVersion: 2
+        x: 6162
+        y: 3092
+        width: 705
+        height: 705
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_31
+      rect:
+        serializedVersion: 2
+        x: 7164
+        y: 3092
+        width: 701
+        height: 707
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_32
+      rect:
+        serializedVersion: 2
+        x: 8171
+        y: 3103
+        width: 696
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_33
+      rect:
+        serializedVersion: 2
+        x: 9174
+        y: 3109
+        width: 696
+        height: 701
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_34
+      rect:
+        serializedVersion: 2
+        x: 10181
+        y: 3109
+        width: 696
+        height: 711
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_35
+      rect:
+        serializedVersion: 2
+        x: 11195
+        y: 3115
+        width: 678
+        height: 705
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_36
+      rect:
+        serializedVersion: 2
+        x: 2388
+        y: 2829
+        width: 55
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_37
+      rect:
+        serializedVersion: 2
+        x: 3385
+        y: 2828
+        width: 62
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_38
+      rect:
+        serializedVersion: 2
+        x: 4381
+        y: 2823
+        width: 68
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_39
+      rect:
+        serializedVersion: 2
+        x: 5385
+        y: 2827
+        width: 61
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_40
+      rect:
+        serializedVersion: 2
+        x: 6385
+        y: 2827
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_41
+      rect:
+        serializedVersion: 2
+        x: 7381
+        y: 2828
+        width: 63
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_42
+      rect:
+        serializedVersion: 2
+        x: 8385
+        y: 2828
+        width: 60
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_43
+      rect:
+        serializedVersion: 2
+        x: 9385
+        y: 2830
+        width: 57
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_44
+      rect:
+        serializedVersion: 2
+        x: 10400
+        y: 2842
+        width: 30
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_45
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 2109
+        width: 673
+        height: 711
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_46
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 2119
+        width: 671
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_47
+      rect:
+        serializedVersion: 2
+        x: 2212
+        y: 2090
+        width: 671
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_48
+      rect:
+        serializedVersion: 2
+        x: 3211
+        y: 2084
+        width: 670
+        height: 737
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_49
+      rect:
+        serializedVersion: 2
+        x: 4213
+        y: 2084
+        width: 664
+        height: 742
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_50
+      rect:
+        serializedVersion: 2
+        x: 5213
+        y: 2083
+        width: 672
+        height: 743
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_51
+      rect:
+        serializedVersion: 2
+        x: 6209
+        y: 2130
+        width: 672
+        height: 696
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_52
+      rect:
+        serializedVersion: 2
+        x: 7210
+        y: 2130
+        width: 668
+        height: 696
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_53
+      rect:
+        serializedVersion: 2
+        x: 8203
+        y: 2133
+        width: 676
+        height: 694
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_54
+      rect:
+        serializedVersion: 2
+        x: 9205
+        y: 2142
+        width: 670
+        height: 694
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_55
+      rect:
+        serializedVersion: 2
+        x: 10187
+        y: 2148
+        width: 688
+        height: 684
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_56
+      rect:
+        serializedVersion: 2
+        x: 11177
+        y: 2149
+        width: 691
+        height: 687
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_57
+      rect:
+        serializedVersion: 2
+        x: 6497
+        y: 2090
+        width: 44
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_58
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 1146
+        width: 705
+        height: 682
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_59
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 1147
+        width: 690
+        height: 694
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_60
+      rect:
+        serializedVersion: 2
+        x: 2166
+        y: 1148
+        width: 695
+        height: 699
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_61
+      rect:
+        serializedVersion: 2
+        x: 3164
+        y: 1153
+        width: 703
+        height: 695
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_62
+      rect:
+        serializedVersion: 2
+        x: 4169
+        y: 1152
+        width: 691
+        height: 705
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_63
+      rect:
+        serializedVersion: 2
+        x: 5166
+        y: 1146
+        width: 699
+        height: 714
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_64
+      rect:
+        serializedVersion: 2
+        x: 6173
+        y: 1146
+        width: 696
+        height: 714
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_65
+      rect:
+        serializedVersion: 2
+        x: 7170
+        y: 1134
+        width: 705
+        height: 732
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_66
+      rect:
+        serializedVersion: 2
+        x: 8172
+        y: 1124
+        width: 701
+        height: 747
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_67
+      rect:
+        serializedVersion: 2
+        x: 9174
+        y: 1123
+        width: 701
+        height: 752
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_68
+      rect:
+        serializedVersion: 2
+        x: 10172
+        y: 1128
+        width: 705
+        height: 753
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_69
+      rect:
+        serializedVersion: 2
+        x: 11168
+        y: 1125
+        width: 706
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_70
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 117
+        width: 714
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_71
+      rect:
+        serializedVersion: 2
+        x: 1164
+        y: 116
+        width: 714
+        height: 783
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_72
+      rect:
+        serializedVersion: 2
+        x: 2156
+        y: 115
+        width: 729
+        height: 789
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_73
+      rect:
+        serializedVersion: 2
+        x: 3162
+        y: 116
+        width: 719
+        height: 786
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_74
+      rect:
+        serializedVersion: 2
+        x: 4163
+        y: 115
+        width: 719
+        height: 784
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fuego final_75
+      rect:
+        serializedVersion: 2
+        x: 5156
+        y: 115
+        width: 724
+        height: 783
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
