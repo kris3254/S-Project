@@ -447,6 +447,20 @@ public class UIManager : MonoBehaviour {
         life2.gameObject.SetActive(false);
         life3.gameObject.SetActive(false);
 
+        okaruLife1.gameObject.SetActive(false);
+        okaruLife2.gameObject.SetActive(false);
+        okaruLife3.gameObject.SetActive(false);
+
+        if (saruHUDActive == true)
+        {
+            saruHUD.SetActive(false);
+        }
+
+        if (saruHUDActive == false)
+        {
+            okaruHUD.SetActive(false);
+        }
+
         collecionableImage.gameObject.SetActive(false);
         numMiniOrbsLevelText.gameObject.SetActive(false);
         numMiniOrbsPlayerText.gameObject.SetActive(false);
@@ -459,6 +473,20 @@ public class UIManager : MonoBehaviour {
         life1.gameObject.SetActive(true);
         life2.gameObject.SetActive(true);
         life3.gameObject.SetActive(true);
+
+        okaruLife1.gameObject.SetActive(true);
+        okaruLife2.gameObject.SetActive(true);
+        okaruLife3.gameObject.SetActive(true);
+
+        if (saruHUDActive == true)
+        {
+            saruHUD.SetActive(true);
+        }
+
+        if (saruHUDActive == false)
+        {
+            okaruHUD.SetActive(true);
+        }
 
         collecionableImage.gameObject.SetActive(true);
         numMiniOrbsLevelText.gameObject.SetActive(true);
