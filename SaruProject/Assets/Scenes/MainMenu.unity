@@ -1437,6 +1437,26 @@ Prefab:
       propertyPath: ShapeModule.radiusThickness
       value: 1.0000
       objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
   m_IsPrefabParent: 0
@@ -3303,6 +3323,26 @@ Prefab:
     - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
       propertyPath: ShapeModule.radiusThickness
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
       propertyPath: ShapeModule.radiusThickness
@@ -7882,6 +7922,26 @@ Prefab:
       propertyPath: ShapeModule.radiusThickness
       value: 1.0000
       objectReference: {fileID: 0}
+    - target: {fileID: 19800010, guid: cee5f0c785dd47d40b4bd7b8ba480076, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800010, guid: cee5f0c785dd47d40b4bd7b8ba480076, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800010, guid: cee5f0c785dd47d40b4bd7b8ba480076, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800010, guid: cee5f0c785dd47d40b4bd7b8ba480076, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800010, guid: cee5f0c785dd47d40b4bd7b8ba480076, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cee5f0c785dd47d40b4bd7b8ba480076, type: 2}
   m_IsPrefabParent: 0
@@ -9807,6 +9867,18 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     audioSource: {fileID: 0}
+  - name: CorrerHierba
+    clip: {fileID: 8300000, guid: ecb8194e665fa3e419ef087609179d59, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: CorrerHierba2
+    clip: {fileID: 8300000, guid: ffcc526125766c849a2e6961458b63c1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
 --- !u!4 &1684709664
 Transform:
   m_ObjectHideFlags: 0
@@ -10759,6 +10831,26 @@ Prefab:
     - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
       propertyPath: ShapeModule.radiusThickness
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
       propertyPath: ShapeModule.radiusThickness
