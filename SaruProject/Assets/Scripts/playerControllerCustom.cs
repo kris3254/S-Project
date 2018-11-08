@@ -186,6 +186,7 @@ public class playerControllerCustom : MonoBehaviour
         if ( (Input.GetKeyDown(KeyCode.G)) || (Input.GetButtonDown("L1_PS4")) )
         {
             cambiandoModo = true;
+            UIManager.instance.ChangeHUD();
         }
 
         if (cambiandoModo)

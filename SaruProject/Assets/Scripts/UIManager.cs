@@ -14,10 +14,17 @@ public class UIManager : MonoBehaviour {
 
     public playerControllerCustom pController;
 
-    public Image maskImage;//Imagen de la mascara de Saru
     public Image life1;//imagen de uno de los elementos de vida del player
     public Image life2;//imagen de uno de los elementos de vida del player
     public Image life3;//imagen de uno de los elementos de vida del player
+
+    public Image okaruLife1;
+    public Image okaruLife2;
+    public Image okaruLife3;
+
+    public bool saruHUDActive = true;
+    public GameObject saruHUD;
+    public GameObject okaruHUD;
 
     public GameObject pausePanel;//panel del menu de pausa con los botones continue, continue from last checkpoint, restart game y collectables
     public GameObject continuePauseMenuButton;
@@ -90,7 +97,6 @@ public class UIManager : MonoBehaviour {
     //Metodo que inicializa todos los elementos del HUD, activando los deseados y desactivando los temporales
     public void InitializeHud()
     {
-        maskImage.gameObject.SetActive(true);
         life1.gameObject.SetActive(true);
         life2.gameObject.SetActive(true);
         life3.gameObject.SetActive(true);
@@ -134,24 +140,36 @@ public class UIManager : MonoBehaviour {
                 life1.gameObject.SetActive(false);
                 life2.gameObject.SetActive(false);
                 life3.gameObject.SetActive(false);
+                okaruLife1.gameObject.SetActive(false);
+                okaruLife2.gameObject.SetActive(false);
+                okaruLife3.gameObject.SetActive(false);
                 break;
 
             case 1:
                 life1.gameObject.SetActive(true);
                 life2.gameObject.SetActive(false);
                 life3.gameObject.SetActive(false);
+                okaruLife1.gameObject.SetActive(true);
+                okaruLife2.gameObject.SetActive(false);
+                okaruLife3.gameObject.SetActive(false);
                 break;
 
             case 2:
                 life1.gameObject.SetActive(true);
                 life2.gameObject.SetActive(true);
                 life3.gameObject.SetActive(false);
+                okaruLife1.gameObject.SetActive(true);
+                okaruLife2.gameObject.SetActive(true);
+                okaruLife3.gameObject.SetActive(false);
                 break;
 
             case 3:
                 life1.gameObject.SetActive(true);
                 life2.gameObject.SetActive(true);
                 life3.gameObject.SetActive(true);
+                okaruLife1.gameObject.SetActive(true);
+                okaruLife2.gameObject.SetActive(true);
+                okaruLife3.gameObject.SetActive(true);
                 break;
 
         }
@@ -256,7 +274,24 @@ public class UIManager : MonoBehaviour {
         LevelManager.instance.UnlockPauseMenu();
     }
 
+    public void ChangeHUD()
+    {
+        if(saruHUDActive == true)
+        {
+            okaruHUD.SetActive(true);
+            saruHUD.SetActive(false);
+            saruHUDActive = false;
+            return;
+        }
 
+        if (saruHUDActive == false)
+        {
+            saruHUD.SetActive(true);
+            okaruHUD.SetActive(false);
+            saruHUDActive = true;
+            return;
+        }
+    }
 
     public void FadeInOutEffect()
     {
@@ -411,7 +446,6 @@ public class UIManager : MonoBehaviour {
         life1.gameObject.SetActive(false);
         life2.gameObject.SetActive(false);
         life3.gameObject.SetActive(false);
-        maskImage.gameObject.SetActive(false);
 
         collecionableImage.gameObject.SetActive(false);
         numMiniOrbsLevelText.gameObject.SetActive(false);
@@ -425,7 +459,6 @@ public class UIManager : MonoBehaviour {
         life1.gameObject.SetActive(true);
         life2.gameObject.SetActive(true);
         life3.gameObject.SetActive(true);
-        maskImage.gameObject.SetActive(true);
 
         collecionableImage.gameObject.SetActive(true);
         numMiniOrbsLevelText.gameObject.SetActive(true);
