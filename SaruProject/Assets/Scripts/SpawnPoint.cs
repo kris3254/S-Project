@@ -18,20 +18,11 @@ public class SpawnPoint : MonoBehaviour
         isFirstTime = true;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if ((other.gameObject.tag == "Player"))
-        {
-            AudioManager.instance.PlaySound("CheckPointSound");
-        }
-
-    }
 
     private void OnTriggerStay(Collider other)
     {
         if ((other.gameObject.tag == "Player") && (!other.gameObject.GetComponent<playerControllerCustom>().modoGuardian))
         {
-            AudioManager.instance.PlaySound("ActivarCheckpoint");
             sphereCheckpoint.gameObject.SetActive(true);
             checkPointLight.gameObject.SetActive(true);
             //Iluminar la lucecita del checkpoint
@@ -45,7 +36,6 @@ public class SpawnPoint : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         isFirstTime = false;
-        AudioManager.instance.StopSound("CheckPointSound");
     }
      
 

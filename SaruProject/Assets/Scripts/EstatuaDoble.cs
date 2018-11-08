@@ -71,10 +71,7 @@ public class EstatuaDoble : MonoBehaviour
                     break;
 
             }
-            if(saruCanSee)
-                AudioManager.instance.PlaySound("EstatuaFuego");
-            else
-                AudioManager.instance.PlaySound("EstatuaLaser");
+            
 
 
         }
@@ -89,11 +86,6 @@ public class EstatuaDoble : MonoBehaviour
             sistemaParticulasUp.Stop();//para corregir el bug consistente en que si en el momento en el que salgo del trigger y para todas las corrutina, el sistema de particulas
                                        //esta activado, nunca se desactivan, y queremos que al salir siempre se desactiven ademas de detener la ejecucion de las corrutinas
             sistemaParticulasDown.Stop();
-
-            if (saruCanSee)
-                AudioManager.instance.StopSound("EstatuaFuego");
-            else
-                AudioManager.instance.StopSound("EstatuaLaser");
 
 
         }

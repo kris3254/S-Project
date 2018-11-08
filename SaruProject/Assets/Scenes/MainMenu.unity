@@ -590,7 +590,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -856,6 +856,30 @@ Prefab:
     - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
       propertyPath: ShapeModule.radiusThickness
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
       propertyPath: ShapeModule.radiusThickness
@@ -3323,6 +3347,30 @@ Prefab:
     - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
       propertyPath: ShapeModule.radiusThickness
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
       propertyPath: ShapeModule.radiusThickness
@@ -7942,6 +7990,30 @@ Prefab:
       propertyPath: ShapeModule.radiusThickness
       value: 1.0000
       objectReference: {fileID: 0}
+    - target: {fileID: 19800010, guid: cee5f0c785dd47d40b4bd7b8ba480076, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800010, guid: cee5f0c785dd47d40b4bd7b8ba480076, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800010, guid: cee5f0c785dd47d40b4bd7b8ba480076, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800010, guid: cee5f0c785dd47d40b4bd7b8ba480076, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800010, guid: cee5f0c785dd47d40b4bd7b8ba480076, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800010, guid: cee5f0c785dd47d40b4bd7b8ba480076, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cee5f0c785dd47d40b4bd7b8ba480076, type: 2}
   m_IsPrefabParent: 0
@@ -9663,18 +9735,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listaSonidos:
-  - name: CheckPointSound
-    clip: {fileID: 8300000, guid: ec63152356cf24c4fa35a2b0f9debba9, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
-    audioSource: {fileID: 0}
-  - name: PobladoFuego
-    clip: {fileID: 8300000, guid: 937dbb3109457cb43a5b2e11b9400246, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
-    audioSource: {fileID: 0}
   - name: RecogerMiniorbe
     clip: {fileID: 8300000, guid: 7b180ce59256565418bfa3d3ff536bb3, type: 3}
     volume: 1
@@ -9693,23 +9753,11 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     audioSource: {fileID: 0}
-  - name: EstatuaFuego
-    clip: {fileID: 8300000, guid: 48823508191000f44880801043d1769e, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
-    audioSource: {fileID: 0}
   - name: GritoMuerte
     clip: {fileID: 8300000, guid: 4bc2cf3d7102c944ba5cf1732db46d74, type: 3}
     volume: 1
     pitch: 1
     loop: 0
-    audioSource: {fileID: 0}
-  - name: EstatuaLaser
-    clip: {fileID: 8300000, guid: 2adc3b269e0fc2647be15613c7d21337, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
     audioSource: {fileID: 0}
   - name: PasoPiedra1
     clip: {fileID: 8300000, guid: 283ba0ecf5dc02b4088363fde1f7ac38, type: 3}
@@ -9845,18 +9893,6 @@ MonoBehaviour:
     audioSource: {fileID: 0}
   - name: RecogerColeccionable
     clip: {fileID: 8300000, guid: 71209c25270babc4eb9b3b926aca2212, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    audioSource: {fileID: 0}
-  - name: MusicaEpicaCayado
-    clip: {fileID: 8300000, guid: 9e6dd8129c37c014e9f8f0cf2914a820, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    audioSource: {fileID: 0}
-  - name: ActivarCheckpoint
-    clip: {fileID: 8300000, guid: ee4ec25ea9cd8714d83a7dfce09872e5, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -10831,6 +10867,30 @@ Prefab:
     - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
       propertyPath: ShapeModule.radiusThickness
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: b4adb91270ab1be4b8a2d9d2621bceea, type: 2}
       propertyPath: ShapeModule.radiusThickness

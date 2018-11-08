@@ -42,8 +42,8 @@ GameObject:
   m_Name: Object005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1266905643290838
 GameObject:
@@ -75,8 +75,8 @@ GameObject:
   m_Name: Object006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1330950388229692
 GameObject:
@@ -92,8 +92,8 @@ GameObject:
   m_Name: Object004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1336646245916116
 GameObject:
@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 4243362102348150}
   - component: {fileID: 114227908091896974}
   - component: {fileID: 65521885171820594}
+  - component: {fileID: 82897660981302824}
   m_Layer: 0
   m_Name: StatueInstantDeath
   m_TagString: Untagged
@@ -126,8 +127,8 @@ GameObject:
   m_Name: Object009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1468559771409980
 GameObject:
@@ -143,8 +144,8 @@ GameObject:
   m_Name: Object007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1477099592282596
 GameObject:
@@ -160,8 +161,8 @@ GameObject:
   m_Name: Object003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1479266583196028
 GameObject:
@@ -178,8 +179,8 @@ GameObject:
   m_Name: Crystal07 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1763859078397672
 GameObject:
@@ -195,8 +196,8 @@ GameObject:
   m_Name: Object008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1804039843468868
 GameObject:
@@ -230,8 +231,8 @@ GameObject:
   m_Name: Crystal07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4032954821410982
 Transform:
@@ -285,8 +286,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1336646245916116}
-  m_LocalRotation: {x: -0.011317794, y: 0.8470373, z: -0.007099905, w: 0.5313655}
-  m_LocalPosition: {x: 3.11, y: 9.5, z: -22.57}
+  m_LocalRotation: {x: -0.013033432, y: 0.97543764, z: -0.0029378226, w: 0.21987031}
+  m_LocalPosition: {x: 170.75, y: 16.099, z: -46.209}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4069423480823332}
@@ -296,7 +297,7 @@ Transform:
   - {fileID: 4032954821410982}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 115.798004, z: -1.531}
+  m_LocalEulerAnglesHint: {x: 0, y: 154.595, z: -1.531}
 --- !u!4 &4272444220680960
 Transform:
   m_ObjectHideFlags: 1
@@ -305,7 +306,7 @@ Transform:
   m_GameObject: {fileID: 1330950388229692}
   m_LocalRotation: {x: 0.00000008146034, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -12.93792, y: 1.0471478, z: 0.30746067}
-  m_LocalScale: {x: 1.280575, y: 1.280575, z: 0.90228456}
+  m_LocalScale: {x: 1.3774928, y: 1.4977059, z: 0.90228456}
   m_Children: []
   m_Father: {fileID: 4069423480823332}
   m_RootOrder: 1
@@ -369,7 +370,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1141070787313756}
   m_LocalRotation: {x: -0, y: -0.27283522, z: -0, w: 0.9620608}
-  m_LocalPosition: {x: 0.4, y: 1.551, z: 0.62}
+  m_LocalPosition: {x: 0.396, y: 1.714, z: 0.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4243362102348150}
@@ -795,6 +796,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9.909832, y: 4.0512924, z: 12.27276}
   m_Center: {x: -0.049686767, y: 1.8078766, z: 5.636367}
+--- !u!82 &82897660981302824
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1336646245916116}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2adc3b269e0fc2647be15613c7d21337, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 8
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95594429053560556
 Animator:
   serializedVersion: 3
@@ -830,6 +911,8 @@ MonoBehaviour:
   firingTimeMode5Down: 0
   sistemaParticulasUp: {fileID: 198905941214115704}
   sistemaParticulasDown: {fileID: 198471103139667724}
+  saruController: {fileID: 0}
+  saruCanSee: 1
 --- !u!135 &135392832615347342
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -4149,7 +4232,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1104680597
+  randomSeed: -1507881263
   InitialModule:
     serializedVersion: 3
     enabled: 1

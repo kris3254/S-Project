@@ -499,7 +499,18 @@ public class UIManager : MonoBehaviour {
 		if (!dialogPanel.activeSelf) {
 			dialogPanel.SetActive (true);
 			dialogText.text = text;
-			Invoke ("ChangeText", timeBetweenDialogTexts);
+            int n = Random.Range(0, 2);
+            switch (n)
+            {
+                case 0:
+                    AudioManager.instance.PlaySound("CiudadanoHablando1");
+                    break;
+                case 1:
+                    AudioManager.instance.PlaySound("CiudadanoHablando2");
+                    break;
+            }
+
+            Invoke("ChangeText", timeBetweenDialogTexts);
 		}
 			
 	}
@@ -514,6 +525,16 @@ public class UIManager : MonoBehaviour {
         }
         else
         {
+            int n = Random.Range(0, 2);
+            switch (n)
+            {
+                case 0:
+                    AudioManager.instance.PlaySound("CiudadanoHablando1");
+                    break;
+                case 1:
+                    AudioManager.instance.PlaySound("CiudadanoHablando2");
+                    break;
+            }
             dialogText.text = textsToShow.Peek();
             Invoke("ChangeText", timeBetweenDialogTexts);
         }
