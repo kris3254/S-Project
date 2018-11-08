@@ -196,11 +196,12 @@ public class playerControllerCustom : MonoBehaviour
                 if (modoGuardian)
                 {
                     playerMesh.GetComponent<Renderer>().material.mainTexture = textures[0];
+                    playerMesh.GetComponent<Renderer>().materials[1].SetFloat("OKARU", 0);
                 }
                 else
                 {
                     playerMesh.GetComponent<Renderer>().material.mainTexture = textures[1];
-
+                    playerMesh.GetComponent<Renderer>().materials[1].SetFloat("OKARU", 1);
                 }
                 _lerpTime += Time.deltaTime * _lerpSpeed;
                 _rgbColorFilter.ColorRGB = (!modoGuardian) ? Color.Lerp(_colorModoSaru, _colorModoGuardian, _lerpTime) : Color.Lerp(_colorModoGuardian, _colorModoSaru, _lerpTime);

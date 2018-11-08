@@ -17,6 +17,7 @@
 		_Distort("Distort", Range(0,1)) = 0.2
 		[MaterialToggle] SHAPE("Use Mask Texture", Float) = 0
 		[MaterialToggle] SHAPEX("Mulitply Noise", Float) = 0
+		[Toggle(OKARU)] OKARU("Modo Okaru", Float) = 0
 		_ShapeTex("Mask", 2D) = "white" {}
 
 	}
@@ -29,11 +30,13 @@
 
 		Pass
 	{
+		Cull front
 		CGPROGRAM
 #pragma vertex vert
 #pragma fragment frag
 #pragma multi_compile _ SHAPE_ON
 #pragma multi_compile _ SHAPEX_ON
+
 		// make fog work
 #pragma multi_compile_fog
 
@@ -58,11 +61,17 @@
 	float4 _DistortTex_ST, _ShapeTex_ST, _NoiseTex_ST;
 	float4 _ColorA, _ColorB, _TintA, _TintB;
 	float _Offset,   _ScrollX, _ScrollY;
-	float _Height, _Edge, _Distort, _Hard;
-	v2f vert(appdata v)
+	float _Height, _Edge, _Distort, _Hard,OKARU;
+	
+	v2f vert(appdata v,float4 normal:NORMAL)
 	{
 		v2f o;
 		o.vertex = UnityObjectToClipPos(v.vertex);
+		float3 normalLine = mul((float3x3) UNITY_MATRIX_MV, normal);
+		normalLine.x *= UNITY_MATRIX_P[0][0];
+		normalLine.y *= UNITY_MATRIX_P[1][1];
+		o.vertex.xy += normalLine.xy * 0.01;
+		
 		o.uv = TRANSFORM_TEX(v.uv, _NoiseTex); // -enable scaling and offset
 		o.uv2 = TRANSFORM_TEX(v.uv, _ShapeTex); // for the textures
 		o.uv3 = TRANSFORM_TEX(v.uv, _DistortTex); // we are using-
@@ -95,6 +104,9 @@
 
 		float4 flamecolored2 = flamerim * gradientTint; // coloured flame edge
 		float4 finalcolor = flamecolored + flamecolored2; // combined edge and flames
+		if (!OKARU) {
+			finalcolor = 0;
+		}
 		return finalcolor;
 
 
