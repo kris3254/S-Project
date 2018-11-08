@@ -8,7 +8,7 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: DarkMagic Flames
   m_Shader: {fileID: 4800000, guid: bdeff5b4a4614fb48a661d0e15f043b4, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: SHAPE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -64,7 +64,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _NoiseTex:
         m_Texture: {fileID: 2800000, guid: 727babd9f1ef0be468453f0751e57c13, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 1.6, y: 1.88}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
@@ -75,24 +75,24 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ShapeTex:
-        m_Texture: {fileID: 2800000, guid: b7606014164a8bf4da6e320f5fef5f75, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: f71f658d2f20fdf42b41170b8319e02d, type: 3}
+        m_Scale: {x: 3, y: 7.08}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - DISTORTMAIN: 0
-    - SHAPE: 0
+    - SHAPE: 1
     - SHAPEX: 0
     - _BumpScale: 1
     - _Cutoff: -0.26
     - _DetailNormalMapScale: 1
-    - _Distort: 0.221
+    - _Distort: 0.613
     - _DstBlend: 0
-    - _Edge: 0.151
+    - _Edge: 1.27
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Hard: 40
-    - _Height: 0.77
+    - _Hard: 1.5
+    - _Height: 3.5
     - _MainDistort: 0.5
     - _MainScroll: 1.12
     - _MainScrollX: 0
@@ -100,11 +100,11 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Offset: -0.22
+    - _Offset: -0.72
     - _OffsetT: 1
     - _Parallax: 0.02
-    - _ScrollX: 0.8
-    - _ScrollY: -3.01
+    - _ScrollX: 3.3
+    - _ScrollY: -2.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
