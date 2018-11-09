@@ -23,7 +23,23 @@ public class PermitirAnimaciones : MonoBehaviour {
 
     public void FinishedAnimation()
     {
-        Debug.Log("Hola");
         pController.canDoThings = true;
     }
+
+    /* 
+     * En pController Input L1 añadir canDoThings == true 
+     * 
+     if (pController.modoGuardian) {
+						pController.cambiandoModo = true;
+						Invoke ("AnimDelay", delayIfGuardianMode);
+					} else {
+						AnimDelay ();
+					}
+
+    void AnimDelay()
+    {
+        pController.canDothings = true ? false : true;
+    }
+
+    */
 }

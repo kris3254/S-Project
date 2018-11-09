@@ -191,6 +191,7 @@ public class playerControllerCustom : MonoBehaviour
         {
             cambiandoModo = true;
             UIManager.instance.ChangeHUD();
+            anim.SetTrigger("ChangeMode");
         }
 
         if (cambiandoModo)
@@ -214,9 +215,18 @@ public class playerControllerCustom : MonoBehaviour
             else if (_lerpTime > 1)
             {
                 if (modoGuardian)
+                {
                     AudioManager.instance.PlaySound("ModoGuardian");
+                    anim.SetLayerWeight(0, 1);
+                    anim.SetLayerWeight(1, 0);
+
+                }
                 else
+                {
                     AudioManager.instance.PlaySound("ModoSaru");
+                    anim.SetLayerWeight(0, 0);
+                    anim.SetLayerWeight(1, 1);
+                }
 
                 modoGuardian = !modoGuardian;
                 cambiandoModo = false;
