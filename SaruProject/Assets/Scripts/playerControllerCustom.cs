@@ -54,6 +54,10 @@ public class playerControllerCustom : MonoBehaviour
 
 	public bool canDoThings = true;
 
+    //el layer dentro del animator para el modo mono
+    const int saruModeLayer = 0;
+    //el layer dentro del animator para el modo guardian
+    const int guardianModeLayer = 1;
     #endregion
 
     void Start()
@@ -191,7 +195,8 @@ public class playerControllerCustom : MonoBehaviour
         {
             cambiandoModo = true;
             UIManager.instance.ChangeHUD();
-            anim.SetTrigger("ChangeMode");
+            //anim.SetTrigger("Change");
+            //anim.SetBool("ChangeMode", modoGuardian);
         }
 
         if (cambiandoModo)
@@ -202,11 +207,15 @@ public class playerControllerCustom : MonoBehaviour
                 {
                     playerMesh.GetComponent<Renderer>().material.mainTexture = textures[0];
                     playerMesh.GetComponent<Renderer>().materials[1].SetFloat("OKARU", 0);
+                    anim.SetLayerWeight(saruModeLayer, _lerpTime);
+                    anim.SetLayerWeight(guardianModeLayer, 1-_lerpTime);
                 }
                 else
                 {
                     playerMesh.GetComponent<Renderer>().material.mainTexture = textures[1];
                     playerMesh.GetComponent<Renderer>().materials[1].SetFloat("OKARU", 1);
+                    anim.SetLayerWeight(saruModeLayer, 1 - _lerpTime);
+                    anim.SetLayerWeight(guardianModeLayer,  _lerpTime);
                 }
                 _lerpTime += Time.deltaTime * _lerpSpeed;
                 _rgbColorFilter.ColorRGB = (!modoGuardian) ? Color.Lerp(_colorModoSaru, _colorModoGuardian, _lerpTime) : Color.Lerp(_colorModoGuardian, _colorModoSaru, _lerpTime);
@@ -217,15 +226,15 @@ public class playerControllerCustom : MonoBehaviour
                 if (modoGuardian)
                 {
                     AudioManager.instance.PlaySound("ModoGuardian");
-                    anim.SetLayerWeight(0, 1);
-                    anim.SetLayerWeight(1, 0);
+                    anim.SetLayerWeight(saruModeLayer, 1);
+                    anim.SetLayerWeight(guardianModeLayer, 0);
 
                 }
                 else
                 {
                     AudioManager.instance.PlaySound("ModoSaru");
-                    anim.SetLayerWeight(0, 0);
-                    anim.SetLayerWeight(1, 1);
+                    anim.SetLayerWeight(saruModeLayer, 0);
+                    anim.SetLayerWeight(guardianModeLayer, 1);
                 }
 
                 modoGuardian = !modoGuardian;

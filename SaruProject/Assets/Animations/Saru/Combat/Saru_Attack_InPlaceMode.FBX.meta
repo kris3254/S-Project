@@ -159,7 +159,7 @@ ModelImporter:
     3300000: Cylinder002
     4300000: SaruLowPoly
     4300002: Cylinder002
-    7400000: Take 001
+    7400000: Saru attack in place mode
     9500000: //RootNode
     13700000: SaruLowPoly
   externalObjects: {}
@@ -190,7 +190,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: Saru attack in place mode
       takeName: Take 001
       firstFrame: 0
       lastFrame: 40
