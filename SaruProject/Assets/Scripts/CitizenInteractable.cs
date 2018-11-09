@@ -28,6 +28,7 @@ public class CitizenInteractable : MonoBehaviour {
         if(other.gameObject.tag=="Player")
         {
             Debug.Log("El player ha entrado en el area del ciudadano");
+            pController.modoGuardianActivado = true;
             triangleInteractable.gameObject.SetActive(true);
             isOnTrigger = true;
         }

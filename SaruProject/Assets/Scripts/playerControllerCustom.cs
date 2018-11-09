@@ -20,6 +20,7 @@ public class playerControllerCustom : MonoBehaviour
     public Animator anim;
     public Camera cam;
     public bool modoGuardian = false;
+    public bool modoGuardianActivado = false;
 
     public Texture[] textures;
     public GameObject playerMesh;
@@ -78,7 +79,10 @@ public class playerControllerCustom : MonoBehaviour
         HandlePlayerRotation();
 		HandleAttacking();
         HandleAnimations();
-        HandleGuardianMode();
+        if (modoGuardianActivado)
+        {
+            HandleGuardianMode();
+        }
     }
 
     private void FixedUpdate()
