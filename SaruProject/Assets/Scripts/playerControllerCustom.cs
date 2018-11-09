@@ -40,7 +40,7 @@ public class playerControllerCustom : MonoBehaviour
 
     private float _lerpSpeed = 2f;
     private Color _colorModoSaru = new Color(1, 1, 1, 1);
-    private Color _colorModoGuardian = new Color(1, 0, 1, 1);
+    private Color _colorModoGuardian = new Color(0.58f, 0.33f, 0.87f, 1);
     private float _lerpTime = 0;
     private bool _isGrounded = true;
     private bool _lastFrameGrounded;
