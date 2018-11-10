@@ -12,6 +12,7 @@ public class PlayerManager : MonoBehaviour {
     public int health;//numero de vidas del player
     public bool playerIsHittedWithParticles;//booleano para garantizar que unicamente se nos quita un punto de vida por cada tiempo especificado aunk sigamos en contacto con el sistema de particulas
     public playerControllerCustom controller;
+    public float timeToRespawn = 0.5f;
 
     [HideInInspector]
     public List<Sprite> collectablesList;//Conjunto de imagenes de los coleccionables que el jugador ha descubierto hasta ese momento.
@@ -37,7 +38,7 @@ public class PlayerManager : MonoBehaviour {
 
     public void DecrementHealth(int healthToLose)
     {
-        if (!controller.isDead)
+        if (!controller.stop)
         {
             Debug.Log("Recibo daño");
             health -= healthToLose;
@@ -53,23 +54,20 @@ public class PlayerManager : MonoBehaviour {
 
             //audioSourcePlayer.clip = losingHealthSound;
             //audioSourcePlayer.Play();
+            UIManager.instance.UpdateHealthHUD();//actualizamos el hud con el nuevo valor de vidas del player
             if (health <= 0)
             {
                 controller.isAttacking = false;
                 controller.isRolling = false;
                 controller.cambiandoModo = true;
                 controller.isDead = true;
+                controller.stop = true;
                 health = 0;
                 Debug.Log("El player ha muerto");
-                StartCoroutine(RespawnLevelAfterDeath(1.5f));
+                StartCoroutine(RespawnLevelAfterDeath(timeToRespawn));
 
-            }
-            else
-                UIManager.instance.UpdateHealthHUD();//actualizamos el hud con el nuevo valor de vidas del player
+            }       
         }
-       
-       
-
     }
 
     public void InstantDead()
@@ -168,9 +166,19 @@ public class PlayerManager : MonoBehaviour {
         playerIsHittedWithParticles = true;
     }
 
-    
+    //este metodo hace que el modelo de saru mire a una posicion
+    public void LookAtPosition(Vector3 lookAt)
+    {
+        Vector3 relativePos = lookAt - controller.playerModel.transform.position;
+        controller.playerModel.transform.LookAt( lookAt);
+        controller.playerModel.transform.rotation = new Quaternion(0f, controller.playerModel.transform.localRotation.y, 0f, controller.playerModel.transform.localRotation.z);
+        controller.cam.transform.LookAt(lookAt);
+    }
 
-   
+    private void Update()
+    {
+    }
+
 
 
 

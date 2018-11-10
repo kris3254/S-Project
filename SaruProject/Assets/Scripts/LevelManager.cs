@@ -88,10 +88,12 @@ public class LevelManager : MonoBehaviour {
     
     IEnumerator RespawnCorroutine(float f)
     {
-        PlayerManager.instance.gameObject.SetActive(false);
+        //PlayerManager.instance.gameObject.SetActive(false);
         yield return new WaitForSeconds(f);
+        //PlayerManager.instance.gameObject.SetActive(true);
+        PlayerManager.instance.controller.stop = false;
         PlayerManager.instance.gameObject.transform.position = lastPlayerSpawnPoint.position;//modifico su posicion y le asigno la del ultimo SpawnPoint atravesado
-        PlayerManager.instance.gameObject.SetActive(true);
+        PlayerManager.instance.LookAtPosition(lastPlayerSpawnPoint.GetChild(0).transform.position);
         PlayerManager.instance.SetHealth(3);// reseteo su vida a 3
     }
 

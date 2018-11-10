@@ -30,6 +30,7 @@ public class playerControllerCustom : MonoBehaviour
     private float _actSpeed;
     public bool isRolling;
     public bool isDead = false;
+    public bool stop = false;
 
     [HideInInspector]
     public bool isAttacking;
@@ -174,7 +175,7 @@ public class playerControllerCustom : MonoBehaviour
             Vector3 rollDirection = playerModel.transform.forward * rollSpeed;
             _characterController.Move(rollDirection * Time.deltaTime);
         }
-        else if (!isDead)
+        else if (!stop)
         {
             float yStore = _moveDirection.y;
             _moveDirection = (transform.forward * Input.GetAxis("Vertical")) + (transform.right * Input.GetAxis("Horizontal"));
@@ -196,7 +197,7 @@ public class playerControllerCustom : MonoBehaviour
         if ( (Input.GetKeyDown(KeyCode.G)) || (Input.GetButtonDown("L1_PS4")) )
         {
             cambiandoModo = true;
-            UIManager.instance.ChangeHUD();
+           
             //anim.SetTrigger("Change");
             //anim.SetBool("ChangeMode", modoGuardian);
          
@@ -251,6 +252,7 @@ public class playerControllerCustom : MonoBehaviour
                 }
                 cambiandoModo = false;
                 _lerpTime = 0;
+                UIManager.instance.ChangeHUD();
             }
 
         }
