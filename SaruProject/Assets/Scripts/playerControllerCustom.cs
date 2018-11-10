@@ -45,6 +45,7 @@ public class playerControllerCustom : MonoBehaviour
     private float _lerpTime = 0;
     private bool _isGrounded = true;
     private bool _lastFrameGrounded;
+    private float initialSpeed;
     
 
     private CameraFilterPack_Color_RGB _rgbColorFilter;
@@ -70,6 +71,7 @@ public class playerControllerCustom : MonoBehaviour
         _rgbColorFilter.ColorRGB = _colorModoSaru;
         _anomalyFilter.Intensity = 0;
 		maxSpeed = moveSpeed;
+        initialSpeed = maxSpeed;
 	}
 
     void Update()
@@ -197,6 +199,7 @@ public class playerControllerCustom : MonoBehaviour
             UIManager.instance.ChangeHUD();
             //anim.SetTrigger("Change");
             //anim.SetBool("ChangeMode", modoGuardian);
+         
         }
 
         if (cambiandoModo)
@@ -238,6 +241,14 @@ public class playerControllerCustom : MonoBehaviour
                 }
 
                 modoGuardian = !modoGuardian;
+                if (modoGuardian == true)
+                {
+                    moveSpeed = maxSpeed * 1.25f;
+                }
+                else
+                {
+                    moveSpeed = initialSpeed;
+                }
                 cambiandoModo = false;
                 _lerpTime = 0;
             }
