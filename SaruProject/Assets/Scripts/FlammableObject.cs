@@ -11,6 +11,8 @@ public class FlammableObject : MonoBehaviour {
     public bool isFinalDemoTree;
     public DemoEnd demoEnd;
 
+    public playerControllerCustom pController;
+
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "FireBall")// el objeto contra el que choca es una bola de fuego
@@ -35,6 +37,8 @@ public class FlammableObject : MonoBehaviour {
         if (isFinalDemoTree)
         {
             yield return new WaitForSeconds(0.5f);
+            pController.canDoThings = false;
+            pController.anim.SetFloat("speed", 0f);
             demoEnd.StartFade();
         }
         yield return new WaitForSeconds(0.5f);
