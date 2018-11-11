@@ -72,8 +72,10 @@ public class PlayCinematic : MonoBehaviour {
             isFirstTime = false;
 
 			pController.canDoThings = false;
+            pController.anim.SetFloat("speed", 0f);
+
         }
-            
+
     }
 
 

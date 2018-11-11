@@ -8,7 +8,7 @@ public class SaruSounds : MonoBehaviour {
 
 	public void PasoDerecho()
     {
-        int num = Random.Range(0, 1);
+        int num = Random.Range(0, 2);
 
         if(num==1)
         {
