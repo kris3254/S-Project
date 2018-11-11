@@ -13,11 +13,11 @@ public class ShowTutorialMessage : MonoBehaviour {
     {
         if ((other.gameObject.tag == "Player") && (isFirstTime))
         {
-			foreach (string dialog in tutorialMessagesToShow) {
+            isFirstTime = false;
+            foreach (string dialog in tutorialMessagesToShow) {
 				UIManager.instance.AddDialogText (dialog);
 			}
-            //UIManager.instance.ShowTutorialMessage(tutorialMessagesToShow);
-            isFirstTime = false;    
+            //UIManager.instance.ShowTutorialMessage(tutorialMessagesToShow);            
         }
     }
 }
