@@ -64,7 +64,7 @@ public class PlayerManager : MonoBehaviour {
             {
                 controller.isAttacking = false;
                 controller.isRolling = false;
-                controller.cambiandoModo = true;
+                controller.cambiandoModo = false;
                 controller.isDead = true;
                 controller.stop = true;
                 health = 0;
