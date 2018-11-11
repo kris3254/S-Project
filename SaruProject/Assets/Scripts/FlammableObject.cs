@@ -37,6 +37,7 @@ public class FlammableObject : MonoBehaviour {
         if (isFinalDemoTree)
         {
             yield return new WaitForSeconds(0.5f);
+            pController.canDoThings = false;
             pController.anim.SetFloat("speed", 0f);
             demoEnd.StartFade();
         }
