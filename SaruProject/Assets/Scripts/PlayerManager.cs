@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 
 //este script lo tiene atachado el propio player del juego
 public class PlayerManager : MonoBehaviour {
@@ -13,6 +14,7 @@ public class PlayerManager : MonoBehaviour {
     public bool playerIsHittedWithParticles;//booleano para garantizar que unicamente se nos quita un punto de vida por cada tiempo especificado aunk sigamos en contacto con el sistema de particulas
     public playerControllerCustom controller;
     public float timeToRespawn = 0.5f;
+    public CinemachineFreeLook camera;
 
     [HideInInspector]
     public List<Sprite> collectablesList;//Conjunto de imagenes de los coleccionables que el jugador ha descubierto hasta ese momento.
@@ -171,12 +173,35 @@ public class PlayerManager : MonoBehaviour {
     {
         Vector3 relativePos = lookAt - controller.playerModel.transform.position;
         controller.playerModel.transform.LookAt( lookAt);
-        controller.playerModel.transform.rotation = new Quaternion(0f, controller.playerModel.transform.localRotation.y, 0f, controller.playerModel.transform.localRotation.z);
-        controller.cam.transform.LookAt(lookAt);
+        controller.playerModel.transform.localRotation = new Quaternion(0f, controller.playerModel.transform.localRotation.y, 0f, controller.playerModel.transform.localRotation.w);   
     }
 
+
+    public void SetCameraPosition(Vector2 value)
+    {
+        camera.m_XAxis.Value = value.x;
+        camera.m_YAxis.Value = value.y;
+    }
+
+    public Vector2 GetCameraPosition()
+    {
+        return new Vector2(camera.m_XAxis.Value, camera.m_YAxis.Value);
+    }
+
+    //borrar de aqui  pa abajo
     private void Update()
     {
+        //para optener la posicion que queremos de en la camara
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            Debug.Log( " // X Value: " +  camera.m_XAxis.Value.ToString() + " // Y Value: " + camera.m_YAxis.Value.ToString());
+        }
+
+        //para quitar puntos de vida
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            LevelManager.instance.Respawn();
+        }
     }
 
 

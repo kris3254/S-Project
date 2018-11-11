@@ -207,7 +207,7 @@ public class UIManager : MonoBehaviour {
     {
         AudioManager.instance.PlaySound("ElegirOpcionMenu");
         LevelManager.instance.ResumeGame();
-        LevelManager.instance.UpdateSpawnPoint(LevelManager.instance.initialRespawnPosition);//establecemos como posicion de respawn la de inicializacion
+        LevelManager.instance.UpdateSpawnPoint(LevelManager.instance.initialRespawnPosition, LevelManager.instance.positionCameraRespawn);//establecemos como posicion de respawn la de inicializacion
         LevelManager.instance.Respawn();//respawneamos al player en esta posicion
         Debug.Log("Restart Game Pressed");
     }

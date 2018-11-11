@@ -11,6 +11,7 @@ public class SpawnPoint : MonoBehaviour
     public GameObject checkPointLight;//desactivarla en la escena
     public GameObject sphereCheckpoint;//Desactivarla en la escena
     private bool isFirstTime;
+    public Vector2 positionCamera = new Vector2(214f, 0.3f);
 
 
     private void Start()
@@ -26,7 +27,7 @@ public class SpawnPoint : MonoBehaviour
             sphereCheckpoint.gameObject.SetActive(true);
             checkPointLight.gameObject.SetActive(true);
             //Iluminar la lucecita del checkpoint
-            LevelManager.instance.UpdateSpawnPoint(playerSpawnTransform);
+            LevelManager.instance.UpdateSpawnPoint(playerSpawnTransform,positionCamera);
             if (isFirstTime)
                 PlayerManager.instance.SetHealth(3);
         }

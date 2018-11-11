@@ -20,7 +20,8 @@ public class LevelManager : MonoBehaviour {
 
     public float respawnDelay;//retardo que se produce antes de ejecutarse el metodo de respawn del player (tener en cuenta la duracion del efecto FadeInOut al morir), con 2s de respawnDelay queda perfectamente secuenciado con el FadeInOut
     public Transform initialRespawnPosition;//variable representa la posicion de respawn por defecto (por si el player muere antes de pasar por un respawn point)
-    private Transform lastPlayerSpawnPoint;//transform correspondiente al SpawnPoint que el player atraviesa
+    public Vector2 positionCameraRespawn; // la posicon de la camara en el respawn respwan;
+    public Transform lastPlayerSpawnPoint;//transform correspondiente al SpawnPoint que el player atraviesa
 
     private bool isPaused;
 
@@ -37,7 +38,7 @@ public class LevelManager : MonoBehaviour {
         isPaused = false;
         numMiniOrbesLevel = 0;
         numMiniOrbesPlayer = 0;
-        UpdateSpawnPoint(initialRespawnPosition);//inicializamos con una posicion inicial de respawn por defecto
+        UpdateSpawnPoint(initialRespawnPosition, Vector2.zero);//inicializamos con una posicion inicial de respawn por defecto
         flagPauseMenu = true;
     }
 
@@ -80,9 +81,10 @@ public class LevelManager : MonoBehaviour {
 
 
     //Metodo al que llamamos desde el spawnPoint, para actualizar como posicion de respawneo el último punto de respawn atravesado por el jugador
-    public void UpdateSpawnPoint(Transform playerSpawnPoint)
+    public void UpdateSpawnPoint(Transform playerSpawnPoint, Vector2 positionCamera)
     {
         lastPlayerSpawnPoint = playerSpawnPoint;
+        positionCameraRespawn = positionCamera;
     }
 
     
@@ -94,6 +96,7 @@ public class LevelManager : MonoBehaviour {
         PlayerManager.instance.controller.stop = false;
         PlayerManager.instance.gameObject.transform.position = lastPlayerSpawnPoint.position;//modifico su posicion y le asigno la del ultimo SpawnPoint atravesado
         PlayerManager.instance.LookAtPosition(lastPlayerSpawnPoint.GetChild(0).transform.position);
+        PlayerManager.instance.SetCameraPosition(positionCameraRespawn);
         PlayerManager.instance.SetHealth(3);// reseteo su vida a 3
     }
 

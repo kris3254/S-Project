@@ -9,15 +9,17 @@ public class CinemachineTimelinePlay : MonoBehaviour {
 
     public PlayableDirector firstPlayableDirector;
     public PlayableDirector secondPlayableDirector;
-
+    
     public CinemachineBrain cinemachineBrain;
 
+    Vector2 positionCamera;
 
     private void OnTriggerEnter(Collider other)
     {
         if ((other.gameObject.tag == "Player"))
         {
             StartCoroutine("EntryAnimation");
+            positionCamera = PlayerManager.instance.GetCameraPosition();
         }
 
     }
@@ -27,6 +29,7 @@ public class CinemachineTimelinePlay : MonoBehaviour {
         if ((other.gameObject.tag == "Player"))
         {
             StartCoroutine("ExitAnimation");
+            PlayerManager.instance.SetCameraPosition(positionCamera);
         }
     }
 
