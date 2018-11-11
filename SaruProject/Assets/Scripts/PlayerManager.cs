@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Cinemachine;
+using System;
 
 //este script lo tiene atachado el propio player del juego
 public class PlayerManager : MonoBehaviour {
@@ -19,6 +20,7 @@ public class PlayerManager : MonoBehaviour {
     [HideInInspector]
     public List<Sprite> collectablesList;//Conjunto de imagenes de los coleccionables que el jugador ha descubierto hasta ese momento.
 
+    public event EventHandler ShakeCamera;
     private void Awake()
     {
         if (instance == null)
@@ -44,8 +46,9 @@ public class PlayerManager : MonoBehaviour {
         {
             Debug.Log("Recibo daño");
             health -= healthToLose;
+            ShakeCamera(this,new EventArgs());
 
-            int num = Random.Range(0, 2);
+            int num = UnityEngine.Random.Range(0, 2);
 
             if (num == 1)
                 AudioManager.instance.PlaySound("RecibirDanio1");
@@ -74,7 +77,7 @@ public class PlayerManager : MonoBehaviour {
 
     public void InstantDead()
     {
-        int num = Random.Range(0, 2);
+        int num = UnityEngine.Random.Range(0, 2);
 
         if (num == 1)
             AudioManager.instance.PlaySound("RecibirDanio1");
@@ -200,7 +203,7 @@ public class PlayerManager : MonoBehaviour {
         //para quitar puntos de vida
         if (Input.GetKeyDown(KeyCode.M))
         {
-            LevelManager.instance.Respawn();
+            DecrementHealth(1);
         }
     }
 
