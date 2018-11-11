@@ -59,14 +59,32 @@ public class UIManager : MonoBehaviour {
     public Text separadorNumOrbes;
 
 	//Dialogos
-	Queue<string> textsToShow = new Queue<string>();
+	Queue<textObjectActions> textsToShow = new Queue<textObjectActions>();
 	[SerializeField]
 	Text dialogText;
 	public GameObject dialogPanel;
 	public float timeBetweenDialogTexts;
 	bool canEnter = true;
-	public float cdForInput = 0.2f;
+	bool canEnterInput = true;
+	public float cdForInput = 3.2f;
 
+
+	private class textObjectActions
+	{
+		public string text;
+		public MonoBehaviour script;
+		public string initMethod;
+		public string endMethod;
+		public bool isTuto;
+
+		public textObjectActions(string textIn, MonoBehaviour scriptIn, string initMethodIn, string endMethodIn, bool isTutoIn){
+			text = textIn;
+			script = scriptIn;
+			initMethod = initMethodIn;
+			endMethod = endMethodIn;
+			isTuto = isTutoIn;
+		}
+	}
 
     private void Awake()
     {
@@ -80,8 +98,8 @@ public class UIManager : MonoBehaviour {
     }
 
 	void Update(){
-		if (dialogPanel.activeSelf && Input.GetAxisRaw ("X_PS4")==1 && canEnter) {
-			canEnter = false;
+		if (dialogPanel.activeSelf && Input.GetAxisRaw ("X_PS4")==1 && canEnter && canEnterInput) {
+			canEnterInput = false;
 			Invoke ("CanEnterNow",cdForInput);
 			ChangeText ();
 		}
@@ -91,7 +109,7 @@ public class UIManager : MonoBehaviour {
 	}
 
 	void CanEnterNow(){
-		canEnter = true;
+		canEnterInput = true;
 	}
 
     //Metodo que inicializa todos los elementos del HUD, activando los deseados y desactivando los temporales
@@ -495,47 +513,68 @@ public class UIManager : MonoBehaviour {
     }
 
 	public void AddDialogText(string text){
-		textsToShow.Enqueue (text);
-		if (!dialogPanel.activeSelf) {
-			dialogPanel.SetActive (true);
-			dialogText.text = text;
-            int n = Random.Range(0, 2);
-            switch (n)
-            {
-                case 0:
-                    AudioManager.instance.PlaySound("CiudadanoHablando1");
-                    break;
-                case 1:
-                    AudioManager.instance.PlaySound("CiudadanoHablando2");
-                    break;
-            }
-
-            Invoke("ChangeText", timeBetweenDialogTexts);
-		}
+		textObjectActions textObject = new textObjectActions (text, null, null, null, false);
+		textsToShow.Enqueue (textObject);
+		if (!dialogPanel.activeSelf)
+			AddNewDialog (textObject);
 			
 	}
 
+	public void AddDialogText(string text, bool isTuto){
+		textObjectActions textObject = new textObjectActions (text, null, null, null, isTuto);
+		textsToShow.Enqueue (textObject);
+		if (!dialogPanel.activeSelf)
+			AddNewDialog (textObject);
+	}
+
+	public void AddDialogText(string text, MonoBehaviour script, string initMethod, string endMethod){
+		textObjectActions textObject = new textObjectActions (text, script, initMethod, endMethod, false);
+		textsToShow.Enqueue (textObject);
+		if (!dialogPanel.activeSelf) {
+			if(script!=null && initMethod!=null)
+				script.SendMessage (initMethod);
+			AddNewDialog (textObject);
+		}
+
+	}
+
+	public void AddDialogText(string text, MonoBehaviour script, string initMethod, string endMethod, bool isTuto){
+		textObjectActions textObject = new textObjectActions (text, script, initMethod, endMethod, isTuto);
+		textsToShow.Enqueue (textObject);
+		if (!dialogPanel.activeSelf) {
+			if(script!=null && initMethod!=null)
+				script.SendMessage (initMethod);
+			AddNewDialog (textObject);
+		}
+
+	}
+
+	void AddNewDialog(textObjectActions objectIn){
+		canEnter = !objectIn.isTuto;
+		dialogPanel.SetActive (true);
+		dialogText.text = objectIn.text;
+
+		Invoke("ChangeText", timeBetweenDialogTexts);
+	}
+
 	void ChangeText(){
-		textsToShow.Dequeue ();
+		textObjectActions objectDequeued = textsToShow.Dequeue ();
+		if(objectDequeued.script!=null && objectDequeued.endMethod!=null)
+			objectDequeued.script.SendMessage (objectDequeued.endMethod);
 		CancelInvoke ("ChangeText");
         if (textsToShow.Count <= 0)
         {
+			canEnter = true;
             pController.canDoThings = true;
             dialogPanel.SetActive(false);
         }
         else
         {
-            int n = Random.Range(0, 2);
-            switch (n)
-            {
-                case 0:
-                    AudioManager.instance.PlaySound("CiudadanoHablando1");
-                    break;
-                case 1:
-                    AudioManager.instance.PlaySound("CiudadanoHablando2");
-                    break;
-            }
-            dialogText.text = textsToShow.Peek();
+			objectDequeued = textsToShow.Peek ();
+			canEnter = !objectDequeued.isTuto;
+			dialogText.text = objectDequeued.text;
+			if(objectDequeued.script!=null && objectDequeued.initMethod!=null)
+				objectDequeued.script.SendMessage (objectDequeued.initMethod);
             Invoke("ChangeText", timeBetweenDialogTexts);
         }
 	}

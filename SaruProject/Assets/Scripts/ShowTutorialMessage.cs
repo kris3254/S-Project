@@ -15,9 +15,17 @@ public class ShowTutorialMessage : MonoBehaviour {
         {
             isFirstTime = false;
             foreach (string dialog in tutorialMessagesToShow) {
-				UIManager.instance.AddDialogText (dialog);
+				UIManager.instance.AddDialogText (dialog, this, "InitMessage", "EndMessage",true);
 			}
             //UIManager.instance.ShowTutorialMessage(tutorialMessagesToShow);            
         }
     }
+
+	private void InitMessage(){
+		Debug.Log ("Empieza");
+	}
+
+	private void EndMessage(){
+		Debug.Log ("Acaba");
+	}
 }

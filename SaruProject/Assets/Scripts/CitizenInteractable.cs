@@ -8,22 +8,30 @@ public class CitizenInteractable : MonoBehaviour {
 	public string[] dialogTexts;
     public playerControllerCustom pController;
     private bool isOnTrigger = false;
+	bool canSendDialog = true;
 
 
     private void Update()
     {
         if (isOnTrigger && ((Input.GetKeyDown(KeyCode.T)) || (Input.GetButtonDown("Triangle_PS4"))) )
         {
+			if (!canSendDialog)
+				return;
             pController.anim.SetFloat("speed", 0f);
             pController.canDoThings = false;
             Debug.Log("El player ha entrado en el area del ciudadano y ha pulsado la tecla de dialogo");
-			foreach (string dialog in dialogTexts) {
-				UIManager.instance.AddDialogText (dialog);
+			for (int i = 0; i < dialogTexts.Length; i++) {
+				if(i!=dialogTexts.Length-1)
+					UIManager.instance.AddDialogText (dialogTexts[i],this, "DoWhenStartText", null);
+				else
+					UIManager.instance.AddDialogText (dialogTexts[i],this, "DoWhenStartText", "DoWhenEndText");
 			}
+			canSendDialog = false;
             //UIManager.instance.ShowDialog(dialogTexts);
         }
     }
-    private void OnTriggerEnter(Collider other)
+
+	private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag=="Player")
         {
@@ -43,4 +51,21 @@ public class CitizenInteractable : MonoBehaviour {
             isOnTrigger = false;
         }
     }
+
+	void DoWhenStartText(){
+		int n = Random.Range(0, 2);
+		switch (n)
+		{
+		case 0:
+			AudioManager.instance.PlaySound("CiudadanoHablando1");
+			break;
+		case 1:
+			AudioManager.instance.PlaySound("CiudadanoHablando2");
+			break;
+		}
+	}
+
+	void DoWhenEndText(){
+		canSendDialog = true;
+	}
 }
