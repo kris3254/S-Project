@@ -8,19 +8,28 @@ public class SaruSounds : MonoBehaviour {
 
 	public void PasoDerecho()
     {
-        int num = Random.Range(0, 2);
+        int num = Random.Range(0, 4);
 
-        if(num==1)
+        switch(num)
         {
-            AudioManager.instance.PlaySound("PasoPiedra1");
-        }
-        else
-        {
-            AudioManager.instance.PlaySound("PasoPiedra2");
+            case 0:
+                AudioManager.instance.PlaySound("PasoPiedra1");
+                break;
+
+            case 1:
+                AudioManager.instance.PlaySound("PasoPiedra2");
+                break;
+
+            case 2:
+                AudioManager.instance.PlaySound("PasoPiedra3");
+                break;
+            case 3:
+                AudioManager.instance.PlaySound("PasoPiedra4");
+                break;
         }
     }
 
-    public void PasoIzquierdo()
+/*    public void PasoIzquierdo()
     {
         int num = Random.Range(0, 2);
 
@@ -29,7 +38,7 @@ public class SaruSounds : MonoBehaviour {
         else
             AudioManager.instance.PlaySound("PasoPiedra4");
     }
-
+    */
     public void Rodar()
     {
         Debug.Log("Evento rodar ejecutado");
