@@ -61,7 +61,7 @@ public class UIManager : MonoBehaviour {
 	//Dialogos
 	Queue<textObjectActions> textsToShow = new Queue<textObjectActions>();
 	[SerializeField]
-	Text dialogText;
+	TMPro .TextMeshProUGUI dialogText;
 	public GameObject dialogPanel;
 	public float timeBetweenDialogTexts;
 	bool canEnter = true;

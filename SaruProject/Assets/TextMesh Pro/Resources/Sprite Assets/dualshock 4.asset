@@ -1,0 +1,654 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 2019389346, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
+  m_Name: dualshock 4
+  m_EditorClassIdentifier: 
+  hashCode: 1602995700
+  material: {fileID: 21170925328564314}
+  materialHashCode: 0
+  spriteSheet: {fileID: 2800000, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  spriteInfoList:
+  - id: 0
+    x: 6
+    y: 463
+    width: 54
+    height: 30
+    xOffset: 0
+    yOffset: 24.3
+    xAdvance: 54
+    scale: 1
+    name: share
+    hashCode: 135622317
+    unicode: 0
+    pivot: {x: -27, y: 15}
+    sprite: {fileID: 21300000, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 1
+    x: 67
+    y: 461
+    width: 55
+    height: 35
+    xOffset: 0
+    yOffset: 30.7
+    xAdvance: 55
+    scale: 1
+    name: options
+    hashCode: 1081422288
+    unicode: 0
+    pivot: {x: -27.5, y: 17.5}
+    sprite: {fileID: 21300002, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 2
+    x: 2
+    y: 386
+    width: 59
+    height: 58
+    xOffset: 0
+    yOffset: 49
+    xAdvance: 59
+    scale: 1
+    name: equis
+    hashCode: 123643067
+    unicode: 0
+    pivot: {x: -29.5, y: 29}
+    sprite: {fileID: 21300004, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 3
+    x: 67
+    y: 386
+    width: 58
+    height: 58
+    xOffset: 0
+    yOffset: 49
+    xAdvance: 58
+    scale: 1
+    name: circulo
+    hashCode: -2065815123
+    unicode: 0
+    pivot: {x: -29, y: 29}
+    sprite: {fileID: 21300006, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 4
+    x: 132
+    y: 386
+    width: 58
+    height: 58
+    xOffset: 0
+    yOffset: 49
+    xAdvance: 58
+    scale: 1
+    name: cuadrado
+    hashCode: -1881762741
+    unicode: 0
+    pivot: {x: -29, y: 29}
+    sprite: {fileID: 21300008, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 5
+    x: 195
+    y: 386
+    width: 58
+    height: 58
+    xOffset: 0
+    yOffset: 49
+    xAdvance: 58
+    scale: 1
+    name: triangulo
+    hashCode: 947006193
+    unicode: 0
+    pivot: {x: -29, y: 29}
+    sprite: {fileID: 21300010, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 6
+    x: 129
+    y: 329
+    width: 61
+    height: 40
+    xOffset: 0
+    yOffset: 31
+    xAdvance: 61
+    scale: 1
+    name: L1
+    hashCode: 2557
+    unicode: 0
+    pivot: {x: -30.5, y: 20}
+    sprite: {fileID: 21300016, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 7
+    x: 194
+    y: 329
+    width: 61
+    height: 40
+    xOffset: 0
+    yOffset: 31
+    xAdvance: 61
+    scale: 1
+    name: R1
+    hashCode: 2723
+    unicode: 0
+    pivot: {x: -30.5, y: 20}
+    sprite: {fileID: 21300018, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 8
+    x: 3
+    y: 322
+    width: 59
+    height: 60
+    xOffset: 0
+    yOffset: 49.3
+    xAdvance: 59
+    scale: 1
+    name: L2
+    hashCode: 2558
+    unicode: 0
+    pivot: {x: -29.5, y: 30}
+    sprite: {fileID: 21300012, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 9
+    x: 68
+    y: 322
+    width: 58
+    height: 60
+    xOffset: 0
+    yOffset: 50
+    xAdvance: 58
+    scale: 1
+    name: R2
+    hashCode: 2720
+    unicode: 0
+    pivot: {x: -29, y: 30}
+    sprite: {fileID: 21300014, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 10
+    x: 2
+    y: 256
+    width: 125
+    height: 63
+    xOffset: -62.5
+    yOffset: 31.5
+    xAdvance: 125
+    scale: 1
+    name: dualshock 4_10
+    hashCode: -1539948342
+    unicode: 0
+    pivot: {x: -62.5, y: 31.5}
+    sprite: {fileID: 21300020, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 11
+    x: 128
+    y: 256
+    width: 63
+    height: 63
+    xOffset: -31.5
+    yOffset: 31.5
+    xAdvance: 63
+    scale: 1
+    name: dualshock 4_11
+    hashCode: -1539948341
+    unicode: 0
+    pivot: {x: -31.5, y: 31.5}
+    sprite: {fileID: 21300022, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 12
+    x: 192
+    y: 256
+    width: 62
+    height: 63
+    xOffset: -31
+    yOffset: 31.5
+    xAdvance: 62
+    scale: 1
+    name: dualshock 4_12
+    hashCode: -1539948344
+    unicode: 0
+    pivot: {x: -31, y: 31.5}
+    sprite: {fileID: 21300024, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 13
+    x: 256
+    y: 256
+    width: 63
+    height: 63
+    xOffset: -31.5
+    yOffset: 31.5
+    xAdvance: 63
+    scale: 1
+    name: dualshock 4_13
+    hashCode: -1539948343
+    unicode: 0
+    pivot: {x: -31.5, y: 31.5}
+    sprite: {fileID: 21300026, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 14
+    x: 321
+    y: 256
+    width: 62
+    height: 63
+    xOffset: -31
+    yOffset: 31.5
+    xAdvance: 62
+    scale: 1
+    name: dualshock 4_14
+    hashCode: -1539948338
+    unicode: 0
+    pivot: {x: -31, y: 31.5}
+    sprite: {fileID: 21300028, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 15
+    x: 384
+    y: 256
+    width: 63
+    height: 63
+    xOffset: -31.5
+    yOffset: 31.5
+    xAdvance: 63
+    scale: 1
+    name: dualshock 4_15
+    hashCode: -1539948337
+    unicode: 0
+    pivot: {x: -31.5, y: 31.5}
+    sprite: {fileID: 21300030, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 16
+    x: 449
+    y: 256
+    width: 63
+    height: 63
+    xOffset: -31.5
+    yOffset: 31.5
+    xAdvance: 63
+    scale: 1
+    name: dualshock 4_16
+    hashCode: -1539948340
+    unicode: 0
+    pivot: {x: -31.5, y: 31.5}
+    sprite: {fileID: 21300032, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 17
+    x: 1
+    y: 193
+    width: 63
+    height: 62
+    xOffset: -31.5
+    yOffset: 31
+    xAdvance: 63
+    scale: 1
+    name: dualshock 4_17
+    hashCode: -1539948339
+    unicode: 0
+    pivot: {x: -31.5, y: 31}
+    sprite: {fileID: 21300034, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 18
+    x: 66
+    y: 193
+    width: 62
+    height: 62
+    xOffset: -31
+    yOffset: 31
+    xAdvance: 62
+    scale: 1
+    name: dualshock 4_18
+    hashCode: -1539948350
+    unicode: 0
+    pivot: {x: -31, y: 31}
+    sprite: {fileID: 21300036, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 19
+    x: 129
+    y: 193
+    width: 63
+    height: 62
+    xOffset: -31.5
+    yOffset: 31
+    xAdvance: 63
+    scale: 1
+    name: dualshock 4_19
+    hashCode: -1539948349
+    unicode: 0
+    pivot: {x: -31.5, y: 31}
+    sprite: {fileID: 21300038, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 20
+    x: 194
+    y: 193
+    width: 125
+    height: 62
+    xOffset: -62.5
+    yOffset: 31
+    xAdvance: 125
+    scale: 1
+    name: dualshock 4_20
+    hashCode: -1539948311
+    unicode: 0
+    pivot: {x: -62.5, y: 31}
+    sprite: {fileID: 21300040, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 21
+    x: 320
+    y: 193
+    width: 63
+    height: 62
+    xOffset: -31.5
+    yOffset: 31
+    xAdvance: 63
+    scale: 1
+    name: dualshock 4_21
+    hashCode: -1539948312
+    unicode: 0
+    pivot: {x: -31.5, y: 31}
+    sprite: {fileID: 21300042, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 22
+    x: 384
+    y: 193
+    width: 62
+    height: 62
+    xOffset: -31
+    yOffset: 31
+    xAdvance: 62
+    scale: 1
+    name: dualshock 4_22
+    hashCode: -1539948309
+    unicode: 0
+    pivot: {x: -31, y: 31}
+    sprite: {fileID: 21300044, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 23
+    x: 448
+    y: 193
+    width: 62
+    height: 62
+    xOffset: -31
+    yOffset: 31
+    xAdvance: 62
+    scale: 1
+    name: dualshock 4_23
+    hashCode: -1539948310
+    unicode: 0
+    pivot: {x: -31, y: 31}
+    sprite: {fileID: 21300046, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 24
+    x: 1
+    y: 129
+    width: 62
+    height: 63
+    xOffset: 0.1
+    yOffset: 52.9
+    xAdvance: 62
+    scale: 1
+    name: L3
+    hashCode: 2559
+    unicode: 0
+    pivot: {x: -31, y: 31.5}
+    sprite: {fileID: 21300048, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 25
+    x: 65
+    y: 128
+    width: 62
+    height: 63
+    xOffset: -31
+    yOffset: 31.5
+    xAdvance: 62
+    scale: 1
+    name: dualshock 4_25
+    hashCode: -1539948308
+    unicode: 0
+    pivot: {x: -31, y: 31.5}
+    sprite: {fileID: 21300050, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 26
+    x: 128
+    y: 128
+    width: 63
+    height: 63
+    xOffset: -31.5
+    yOffset: 31.5
+    xAdvance: 63
+    scale: 1
+    name: dualshock 4_26
+    hashCode: -1539948305
+    unicode: 0
+    pivot: {x: -31.5, y: 31.5}
+    sprite: {fileID: 21300052, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 27
+    x: 193
+    y: 128
+    width: 62
+    height: 63
+    xOffset: -31
+    yOffset: 31.5
+    xAdvance: 62
+    scale: 1
+    name: dualshock 4_27
+    hashCode: -1539948306
+    unicode: 0
+    pivot: {x: -31, y: 31.5}
+    sprite: {fileID: 21300054, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 28
+    x: 257
+    y: 128
+    width: 126
+    height: 63
+    xOffset: -63
+    yOffset: 31.5
+    xAdvance: 126
+    scale: 1
+    name: dualshock 4_28
+    hashCode: -1539948319
+    unicode: 0
+    pivot: {x: -63, y: 31.5}
+    sprite: {fileID: 21300056, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 29
+    x: 384
+    y: 128
+    width: 63
+    height: 63
+    xOffset: -31.5
+    yOffset: 31.5
+    xAdvance: 63
+    scale: 1
+    name: dualshock 4_29
+    hashCode: -1539948320
+    unicode: 0
+    pivot: {x: -31.5, y: 31.5}
+    sprite: {fileID: 21300058, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 30
+    x: 449
+    y: 128
+    width: 62
+    height: 63
+    xOffset: -31
+    yOffset: 31.5
+    xAdvance: 62
+    scale: 1
+    name: dualshock 4_30
+    hashCode: -1539948408
+    unicode: 0
+    pivot: {x: -31, y: 31.5}
+    sprite: {fileID: 21300060, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 31
+    x: 272
+    y: 72
+    width: 94
+    height: 52
+    xOffset: -47
+    yOffset: 26
+    xAdvance: 94
+    scale: 1
+    name: dualshock 4_34
+    hashCode: -1539948404
+    unicode: 0
+    pivot: {x: -47, y: 26}
+    sprite: {fileID: 21300068, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 32
+    x: 403
+    y: 68
+    width: 88
+    height: 56
+    xOffset: -44
+    yOffset: 28
+    xAdvance: 88
+    scale: 1
+    name: dualshock 4_35
+    hashCode: -1539948403
+    unicode: 0
+    pivot: {x: -44, y: 28}
+    sprite: {fileID: 21300070, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 33
+    x: 1
+    y: 65
+    width: 62
+    height: 62
+    xOffset: -4.3
+    yOffset: 49.5
+    xAdvance: 62
+    scale: 1
+    name: R3
+    hashCode: 2721
+    unicode: 0
+    pivot: {x: -31, y: 31}
+    sprite: {fileID: 21300062, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 34
+    x: 65
+    y: 65
+    width: 61
+    height: 61
+    xOffset: -30.5
+    yOffset: 30.5
+    xAdvance: 61
+    scale: 1
+    name: dualshock 4_32
+    hashCode: -1539948406
+    unicode: 0
+    pivot: {x: -30.5, y: 30.5}
+    sprite: {fileID: 21300064, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 35
+    x: 130
+    y: 65
+    width: 61
+    height: 61
+    xOffset: -30.5
+    yOffset: 30.5
+    xAdvance: 61
+    scale: 1
+    name: dualshock 4_33
+    hashCode: -1539948405
+    unicode: 0
+    pivot: {x: -30.5, y: 30.5}
+    sprite: {fileID: 21300066, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 36
+    x: 1
+    y: 14
+    width: 34
+    height: 34
+    xOffset: -17
+    yOffset: 17
+    xAdvance: 34
+    scale: 1
+    name: dualshock 4_36
+    hashCode: -1539948402
+    unicode: 0
+    pivot: {x: -17, y: 17}
+    sprite: {fileID: 21300072, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 37
+    x: 65
+    y: 14
+    width: 34
+    height: 35
+    xOffset: -17
+    yOffset: 17.5
+    xAdvance: 34
+    scale: 1
+    name: dualshock 4_37
+    hashCode: -1539948401
+    unicode: 0
+    pivot: {x: -17, y: 17.5}
+    sprite: {fileID: 21300074, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 38
+    x: 129
+    y: 14
+    width: 35
+    height: 34
+    xOffset: -17.5
+    yOffset: 17
+    xAdvance: 35
+    scale: 1
+    name: dualshock 4_38
+    hashCode: -1539948416
+    unicode: 0
+    pivot: {x: -17.5, y: 17}
+    sprite: {fileID: 21300076, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 39
+    x: 193
+    y: 13
+    width: 34
+    height: 34
+    xOffset: -17
+    yOffset: 17
+    xAdvance: 34
+    scale: 1
+    name: dualshock 4_39
+    hashCode: -1539948415
+    unicode: 0
+    pivot: {x: -17, y: 17}
+    sprite: {fileID: 21300078, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 40
+    x: 281
+    y: 4
+    width: 79
+    height: 56
+    xOffset: -39.5
+    yOffset: 28
+    xAdvance: 79
+    scale: 1
+    name: dualshock 4_40
+    hashCode: -1539948113
+    unicode: 0
+    pivot: {x: -39.5, y: 28}
+    sprite: {fileID: 21300080, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 41
+    x: 406
+    y: 4
+    width: 85
+    height: 56
+    xOffset: -42.5
+    yOffset: 28
+    xAdvance: 85
+    scale: 1
+    name: dualshock 4_41
+    hashCode: -1539948114
+    unicode: 0
+    pivot: {x: -42.5, y: 28}
+    sprite: {fileID: 21300082, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  - id: 42
+    x: 2
+    y: 386
+    width: 59
+    height: 58
+    xOffset: 0
+    yOffset: 49
+    xAdvance: 59
+    scale: 1
+    name: equis
+    hashCode: 123643067
+    unicode: 0
+    pivot: {x: -42.5, y: 28}
+    sprite: {fileID: 21300004, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+  fallbackSpriteAssets: []
+--- !u!21 &21170925328564314
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: TextMeshPro/Sprite
+  m_Shader: {fileID: 4800000, guid: 3a1c68c8292caf046bd21158886c5e40, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 2fc0d7c4803d985459c9c434573cad80, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}

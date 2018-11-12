@@ -40,8 +40,16 @@ public class PlayCinematic : MonoBehaviour {
     {
         if (isStartingCinematic == true)
         StartCoroutine("StartingCinematic");
+        
     }
 
+    private void Update()
+    {
+        if (vp.isPlaying && Input.GetButtonDown("Start_PS4") ) 
+        {
+            vp.frame = (long)vp.frameCount;
+        }
+    }
 
     void EndReached(VideoPlayer videoplayer)
     {
@@ -49,6 +57,7 @@ public class PlayCinematic : MonoBehaviour {
 
         //justo antes de volver a la camara de gameplay muevo al player a la posicion donde finaliza la cinemática
         //solo en el caso de las cinematicas donde suceda esto (la posicion de respawn es !=null)
+
         if (respawnTransform != null)
         {
             PlayerManager.instance.gameObject.SetActive(false);
