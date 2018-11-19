@@ -194,7 +194,7 @@ public class playerControllerCustom : MonoBehaviour
     }
     void HandleGuardianMode()
     {
-        if ( (Input.GetKeyDown(KeyCode.G)) || (Input.GetButtonDown("L1_PS4")) )
+        if ( (Input.GetKeyDown(KeyCode.G)) || (Input.GetButtonDown("L1_PS4")) && PlayerManager.instance.currentEnergy > 0)
         {
             cambiandoModo = true;
            
@@ -245,16 +245,27 @@ public class playerControllerCustom : MonoBehaviour
                 if (modoGuardian == true)
                 {
                     moveSpeed = maxSpeed * 1.25f;
+                    PlayerManager.instance.CancelInvoke("RestoreEnergy");
+                    PlayerManager.instance.InvokeRepeating("DepleteEnergy", Time.deltaTime, Time.deltaTime);
                 }
                 else
                 {
                     moveSpeed = initialSpeed;
+                    PlayerManager.instance.CancelInvoke("DepleteEnergy");
+                    PlayerManager.instance.InvokeRepeating("RestoreEnergy", Time.deltaTime, Time.deltaTime);
+
                 }
                 cambiandoModo = false;
                 _lerpTime = 0;
                 UIManager.instance.ChangeHUD();
             }
+        }
 
+        if (PlayerManager.instance.currentEnergy <= 0)
+        {
+            cambiandoModo = true;
+            PlayerManager.instance.CancelInvoke("DepleteEnergy");
+            PlayerManager.instance.InvokeRepeating("RestoreEnergy", Time.deltaTime, Time.deltaTime);
         }
     }
     void HandleRolling()

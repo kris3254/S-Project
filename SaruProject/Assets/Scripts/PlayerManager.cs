@@ -12,6 +12,15 @@ public class PlayerManager : MonoBehaviour {
     public float timeToTakeHealthWithParticles;//valor de tiempo que tenemos que estar en contacto con el sistema de particulas de fuego para perder un punto de vida
     
     public int health;//numero de vidas del player
+
+    public float maxEnergy = 100f;
+    public float rechargeTime = 12f;
+    public float currentEnergy = 100f;
+    public float energyPerSecond = 10f;
+    public float lowEnergyMultiplier = 1.5f;
+
+    public Text energyText;
+
     public bool playerIsHittedWithParticles;//booleano para garantizar que unicamente se nos quita un punto de vida por cada tiempo especificado aunk sigamos en contacto con el sistema de particulas
     public playerControllerCustom controller;
     public float timeToRespawn = 0.5f;
@@ -37,7 +46,8 @@ public class PlayerManager : MonoBehaviour {
         health = 3;
         playerIsHittedWithParticles = true;
         collectablesList = new List<Sprite>();
-	}
+
+    }
 
 
     public void DecrementHealth(int healthToLose)
@@ -197,19 +207,32 @@ public class PlayerManager : MonoBehaviour {
         //para optener la posicion que queremos de en la camara
         if (Input.GetKeyDown(KeyCode.N))
         {
-            Debug.Log( " // X Value: " +  camera.m_XAxis.Value.ToString() + " // Y Value: " + camera.m_YAxis.Value.ToString());
+            Debug.Log(" // X Value: " + camera.m_XAxis.Value.ToString() + " // Y Value: " + camera.m_YAxis.Value.ToString());
         }
 
         //para quitar puntos de vida
         if (Input.GetKeyDown(KeyCode.M))
         {
             DecrementHealth(1);
-        }
+        }    
     }
 
+    public void DepleteEnergy()
+    { 
+        currentEnergy -= energyPerSecond * Time.deltaTime;
+        energyText.text = "Energy: " + (int)currentEnergy;
+    }
 
+    public void RestoreEnergy()
+    {
+        float rechargeDelta = (maxEnergy / rechargeTime) * Time.deltaTime;
 
+        if (currentEnergy <= 25f)
+            currentEnergy = Mathf.Clamp(currentEnergy + rechargeDelta * lowEnergyMultiplier, 0f, maxEnergy);
+        else
+            currentEnergy = Mathf.Clamp(currentEnergy + rechargeDelta, 0f, maxEnergy);
 
-
+        energyText.text = "Energy: " + (int)currentEnergy;
+    }
 
 }
