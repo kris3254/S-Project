@@ -265,6 +265,7 @@ public class playerControllerCustom : MonoBehaviour
         {
             cambiandoModo = true;
             PlayerManager.instance.CancelInvoke("DepleteEnergy");
+            PlayerManager.instance.CancelInvoke("RestoreEnergy");
             PlayerManager.instance.InvokeRepeating("RestoreEnergy", Time.deltaTime, Time.deltaTime);
         }
     }

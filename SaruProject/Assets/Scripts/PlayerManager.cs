@@ -16,7 +16,7 @@ public class PlayerManager : MonoBehaviour {
     public float maxEnergy = 100f;
     public float rechargeTime = 12f;
     public float currentEnergy = 100f;
-    public float energyPerSecond = 10f;
+    public float energyPerSecond = 12.5f;
     public float lowEnergyMultiplier = 1.5f;
 
     public Text energyText;
@@ -218,8 +218,9 @@ public class PlayerManager : MonoBehaviour {
     }
 
     public void DepleteEnergy()
-    { 
-        currentEnergy -= energyPerSecond * Time.deltaTime;
+    {
+        float depleteDelta = energyPerSecond * Time.deltaTime;
+        currentEnergy = Mathf.Clamp(currentEnergy - depleteDelta, 0f, maxEnergy);
         energyText.text = "Energy: " + (int)currentEnergy;
     }
 
