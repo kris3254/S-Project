@@ -221,7 +221,15 @@ public class PlayerManager : MonoBehaviour {
     {
         float depleteDelta = energyPerSecond * Time.deltaTime;
         currentEnergy = Mathf.Clamp(currentEnergy - depleteDelta, 0f, maxEnergy);
-        energyText.text = "Energy: " + (int)currentEnergy;
+
+        /* energyText.text = "Energy: " + (int)currentEnergy;  //// No es necesario sino para el texto de energia */
+
+        UIManager.instance.energyBar.value = CalculateEnergy();
+    }
+
+    float CalculateEnergy()
+    {
+        return currentEnergy / maxEnergy;
     }
 
     public void RestoreEnergy()
@@ -233,7 +241,9 @@ public class PlayerManager : MonoBehaviour {
         else
             currentEnergy = Mathf.Clamp(currentEnergy + rechargeDelta, 0f, maxEnergy);
 
-        energyText.text = "Energy: " + (int)currentEnergy;
+        /* energyText.text = "Energy: " + (int)currentEnergy; //// No es necesario sino para el texto de energia */
+
+        UIManager.instance.energyBar.value = CalculateEnergy();
     }
 
 }

@@ -22,6 +22,8 @@ public class UIManager : MonoBehaviour {
     public Image okaruLife2;
     public Image okaruLife3;
 
+    public Slider energyBar;
+
     public bool saruHUDActive = true;
     public GameObject saruHUD;
     public GameObject okaruHUD;
@@ -469,6 +471,8 @@ public class UIManager : MonoBehaviour {
         okaruLife2.gameObject.SetActive(false);
         okaruLife3.gameObject.SetActive(false);
 
+        energyBar.gameObject.SetActive(false);
+
         if (saruHUDActive == true)
         {
             saruHUD.SetActive(false);
@@ -495,6 +499,8 @@ public class UIManager : MonoBehaviour {
         okaruLife1.gameObject.SetActive(true);
         okaruLife2.gameObject.SetActive(true);
         okaruLife3.gameObject.SetActive(true);
+
+        energyBar.gameObject.SetActive(true);
 
         if (saruHUDActive == true)
         {
