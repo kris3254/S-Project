@@ -1,0 +1,234 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1711719552824956}
+  m_IsPrefabParent: 1
+--- !u!1 &1711719552824956
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4871962611161324}
+  - component: {fileID: 114703550662796168}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4871962611161324
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1711719552824956}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 80.90678, y: -15.129752, z: -842.5645}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114703550662796168
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1711719552824956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5db98e80e308c9242b9835bec27c8f4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listaSonidos:
+  - name: RecogerMiniorbe
+    clip: {fileID: 8300000, guid: 7b180ce59256565418bfa3d3ff536bb3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: MostrarMensajeTutorial
+    clip: {fileID: 8300000, guid: cab16fb2da883224aa09f7858365764c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: SonidoJungla
+    clip: {fileID: 8300000, guid: 255593c1581fa694fbc3a17d765588a3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    audioSource: {fileID: 0}
+  - name: GritoMuerte
+    clip: {fileID: 8300000, guid: 4bc2cf3d7102c944ba5cf1732db46d74, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: PasoPiedra1
+    clip: {fileID: 8300000, guid: 283ba0ecf5dc02b4088363fde1f7ac38, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: PasoPiedra2
+    clip: {fileID: 8300000, guid: 75b509427fbe76b4c8e81cb97f27e3dd, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: PasoPiedra3
+    clip: {fileID: 8300000, guid: 451791b7a313c0b4eb75d9a2c84d5921, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: PasoPiedra4
+    clip: {fileID: 8300000, guid: 0afd9170d0cbb7744bcbc274c47f572a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: Salto1
+    clip: {fileID: 8300000, guid: 1211a29b375c6e548a4d83fef9ed032a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: Salto2
+    clip: {fileID: 8300000, guid: 41d8b78b6893bdf428c7d347f0e505fe, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: Rodar
+    clip: {fileID: 8300000, guid: 5dff6d0bf1b92d44c932c89557c093d4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: ModoGuardian
+    clip: {fileID: 8300000, guid: 2165cea295f0b2d4c8a6ff704c37bcb7, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: ModoSaru
+    clip: {fileID: 8300000, guid: 515b45b9613d97646a7e2307fcec7eaa, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: MovCayado1
+    clip: {fileID: 8300000, guid: 47ec0742e8df4a1459833833f871de61, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: MovCayado2
+    clip: {fileID: 8300000, guid: 7ff84b05ba9c5cc43a250c1b07d9dc66, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: GolpeCayado1
+    clip: {fileID: 8300000, guid: e05477c25ea09f14e95acd64fb6e7b57, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: GolpeCayado2
+    clip: {fileID: 8300000, guid: 3502e090ce51e9b47b87b9033e94546f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: RecibirDanio1
+    clip: {fileID: 8300000, guid: aebff5e0f50757a46ae05f01761278db, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: RecibirDanio2
+    clip: {fileID: 8300000, guid: fae18d80c4745ff40b5713bc426bd3ed, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: MusicaMenuPpal
+    clip: {fileID: 8300000, guid: 8bc06b84189e6ea4e81aa93d1b331f6c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    audioSource: {fileID: 0}
+  - name: ElegirOpcionMenu
+    clip: {fileID: 8300000, guid: 99117a9cd03c83a418d4fe0026abee49, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: IniciarPartida
+    clip: {fileID: 8300000, guid: 19f10300ceba7384ba84c89b3f86d31c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: AbrirMenuPausa
+    clip: {fileID: 8300000, guid: ef81296d04ae4e44d8de40003e148830, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: CerrarMenuPausa
+    clip: {fileID: 8300000, guid: 6ea7467cb310dfb46a120096bf5d8437, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: CiudadanoHablando1
+    clip: {fileID: 8300000, guid: 0fb6707785c72dd4b9662f82bf80ccca, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: CiudadanoHablando2
+    clip: {fileID: 8300000, guid: be62756d27f430042a34a399c737b760, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: RecogerColeccionable
+    clip: {fileID: 8300000, guid: 71209c25270babc4eb9b3b926aca2212, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: MusicaPoblado
+    clip: {fileID: 8300000, guid: 937dbb3109457cb43a5b2e11b9400246, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: CorrerHierba
+    clip: {fileID: 8300000, guid: ecb8194e665fa3e419ef087609179d59, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: CorrerHierba2
+    clip: {fileID: 8300000, guid: ffcc526125766c849a2e6961458b63c1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
