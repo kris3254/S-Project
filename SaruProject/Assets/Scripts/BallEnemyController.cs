@@ -83,15 +83,12 @@
 //}
 
     
-
-
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class BallEnemyController : MonoBehaviour
+public class BallEnemyController : EnemyBase
 {
 
     public Transform saru;
@@ -111,11 +108,20 @@ public class BallEnemyController : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         initialPosition = transform.position;
+        LevelManager.instance.RespawnEnemies += Respawn;
     }
 
+    override public void TakeDamage(int i)
+    {
+        if (_isDeath)
+            return;
+        Instantiate(ballDeath, ballCenter.position, Quaternion.identity);
+        Die();
+    }
     // Update is called once per frame
     void Update()
     {
+        if (_isDeath) return;
         distanceToSaru = (transform.position - saru.position).magnitude;
         distanceToBaston = (transform.position - baston.position).magnitude;
 
@@ -140,22 +146,26 @@ public class BallEnemyController : MonoBehaviour
 
     public void Explode()
     {
-        Instantiate(ballExplosion, ballCenter.position, Quaternion.identity);
-
-        _isDeath = true;
+        
         PlayerManager.instance.DecrementHealth(1);
+        Instantiate(ballExplosion, ballCenter.position, Quaternion.identity);
 
         //particulas explosion
-        Destroy(this.gameObject, 0.1f);
+        Die();
     }
     public void Die()
-    {
-        Instantiate(ballExplosion, ballCenter.position, Quaternion.identity);
+    {    
         _isDeath = true;
-
         //particulas muerte
         //ballDeath.Play();
-        Destroy(this.gameObject, 0.1f);
+        gameObject.SetActive(false);
+        transform.position = initialPosition;
+    }
+
+    public void Respawn()
+    {
+        _isDeath = false;
+        gameObject.SetActive(true); 
     }
 }
 

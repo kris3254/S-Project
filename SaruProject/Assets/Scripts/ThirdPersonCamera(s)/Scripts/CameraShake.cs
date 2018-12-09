@@ -32,7 +32,7 @@ public class CameraShake : CinemachineExtension
         PlayerManager.instance.ShakeCamera += Shake;
     }
 
-    void Shake(object sender, EventArgs e)
+    void Shake()
     {
         StartCoroutine(TimeShake());
     }

@@ -29,7 +29,8 @@ public class PlayerManager : MonoBehaviour {
     [HideInInspector]
     public List<Sprite> collectablesList;//Conjunto de imagenes de los coleccionables que el jugador ha descubierto hasta ese momento.
 
-    public event EventHandler ShakeCamera;
+    public delegate void EventVoid();
+    public event EventVoid ShakeCamera;
     private void Awake()
     {
         if (instance == null)
@@ -56,7 +57,7 @@ public class PlayerManager : MonoBehaviour {
         {
             Debug.Log("Recibo daño");
             health -= healthToLose;
-            ShakeCamera(this,new EventArgs());
+            ShakeCamera();
 
             int num = UnityEngine.Random.Range(0, 2);
 

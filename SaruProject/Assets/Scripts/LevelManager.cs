@@ -27,6 +27,10 @@ public class LevelManager : MonoBehaviour {
 
     private bool flagPauseMenu;//variable de control para bloquear/desbloquear el que se pueda apretar el menu de pausa
 
+    public delegate void Eventvoid();
+
+    public event Eventvoid RespawnEnemies;
+
     private void Awake()
     {
         if (instance == null)
@@ -98,6 +102,7 @@ public class LevelManager : MonoBehaviour {
         PlayerManager.instance.LookAtPosition(lastPlayerSpawnPoint.GetChild(0).transform.position);
         PlayerManager.instance.SetCameraPosition(positionCameraRespawn);
         PlayerManager.instance.SetHealth(3);// reseteo su vida a 3
+        RespawnEnemies();
     }
 
     //Metodo que pone en pausa el juego y muestra el panel de pausa o muerte en funcion de la vida del player

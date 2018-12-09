@@ -34,6 +34,8 @@ public class playerControllerCustom : MonoBehaviour
 
     [HideInInspector]
     public bool isAttacking;
+    [HideInInspector]
+    public int numberOfAttack = 1;
 	private bool attackCombo1 = false;
 	private bool attackCombo2 = false;
 	private bool attackCombo2Time = true;
@@ -46,8 +48,7 @@ public class playerControllerCustom : MonoBehaviour
     private float _lerpTime = 0;
     private bool _isGrounded = true;
     private bool _lastFrameGrounded;
-    private float initialSpeed;
-    
+    private float initialSpeed;  
 
     private CameraFilterPack_Color_RGB _rgbColorFilter;
     private CameraFilterPack_3D_Anomaly _anomalyFilter;
@@ -74,6 +75,7 @@ public class playerControllerCustom : MonoBehaviour
 		maxSpeed = moveSpeed;
         initialSpeed = maxSpeed;
 	}
+
 
     void Update()
     {
@@ -128,22 +130,7 @@ public class playerControllerCustom : MonoBehaviour
         anim.SetBool("IsGrounded", _isGrounded);
         anim.SetBool("IsDead", isDead);
 
-		anim.SetBool ("AttackCombo2",attackCombo2);
-		if (attackCombo2 && anim.GetCurrentAnimatorStateInfo(0).IsName("AttackCombo2")) {
-			cayadoCollider.enabled = true;
-			StartCoroutine (SlowSpeed());
-			attackCombo2 = false;
-		}
-		if (attackCombo1) {
-			anim.SetTrigger ("AttackCombo1");
-			cayadoCollider.enabled = true;
-			if(anim.GetCurrentAnimatorStateInfo(0).IsName("AttackCombo1")){
-				StartCoroutine (SlowSpeed());
-			}
-			attackCombo1 = false;
-		}
-
-		anim.SetBool ("AttackCombo2", attackCombo2);
+		//anim.SetBool ("AttackCombo2",attackCombo2);
 
         _actSpeed = (Mathf.Abs(Input.GetAxis("Vertical")) + Mathf.Abs(Input.GetAxis("Horizontal")));
         anim.SetFloat("speed", _actSpeed);
@@ -283,12 +270,13 @@ public class playerControllerCustom : MonoBehaviour
 			if (modoGuardian || !canAttack)
 				return;
 
-			if (anim.GetCurrentAnimatorStateInfo(0).IsName("AttackCombo1")){
-				attackCombo2 = true;
-			}
-
-			attackCombo1 = true;
-					
+			if (numberOfAttack==2){
+                anim.SetTrigger("AttackCombo2");
+            }
+            else
+            {
+                anim.SetTrigger("AttackCombo1");
+            }		
 			isAttacking = true;
         }
     }
@@ -317,12 +305,19 @@ public class playerControllerCustom : MonoBehaviour
         isAttacking = false;
     }
 		
-	IEnumerator SlowSpeed(){
+	public void EnterAttack(){
+        numberOfAttack++;
 		moveSpeed = maxSpeed/2;
-		yield return new WaitForSeconds (anim.GetCurrentAnimatorStateInfo(0).length);
-		cayadoCollider.enabled = false;
-		moveSpeed = maxSpeed;
-	}
+		cayadoCollider.enabled = true;
+        isAttacking = true;
+    }
+
+    public void ExitAttack()
+    {
+        moveSpeed = maxSpeed;
+        cayadoCollider.enabled = false;
+        isAttacking = false;
+    }
 
 	public void FireAttackAnim(){
 		anim.SetTrigger ("FireAttack");
