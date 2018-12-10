@@ -131,6 +131,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd8ff522cb13094ea3c299686199725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114625355720034430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9428eb98bd62a54c9e8840ec812c940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!206 &206011885760931920
 BlendTree:
   m_ObjectHideFlags: 3
@@ -6885,7 +6896,8 @@ AnimatorState:
   m_Transitions:
   - {fileID: 1101699729771098944}
   - {fileID: 1101613230942103344}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 114625355720034430}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1

@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 65758573384417480}
   - component: {fileID: 114134309686936088}
   - component: {fileID: 95584177653248256}
+  - component: {fileID: 114304727526282212}
+  - component: {fileID: 114302052099719490}
   m_Layer: 0
   m_Name: bastonULT
   m_TagString: Untagged
@@ -37,13 +39,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1470130431989384}
-  m_LocalRotation: {x: -0.7030113, y: -0.24188876, z: 0.0943014, w: 0.66209686}
-  m_LocalPosition: {x: 159.8, y: 16.766424, z: -836.7983}
+  m_LocalRotation: {x: -0.71959376, y: -0.0025265804, z: -0.001326161, w: 0.69438946}
+  m_LocalPosition: {x: 159.8, y: 17.42654, z: -836.7932}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -62.289, y: -103.109, z: 90.768005}
+  m_LocalEulerAnglesHint: {x: -87.955, y: -177.429, z: 177.117}
 --- !u!23 &23351864511642266
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -95,8 +97,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.670665, y: 3.560796, z: 5.4755883}
-  m_Center: {x: -0.64276075, y: 0.13241349, z: -0.44765714}
+  m_Size: {x: 10.603442, y: 12.77, z: 4.4553556}
+  m_Center: {x: 2.82, y: -12.3, z: -1.69}
 --- !u!95 &95584177653248256
 Animator:
   serializedVersion: 3
@@ -127,3 +129,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cayadoPlayer: {fileID: 0}
   pController: {fileID: 0}
+--- !u!114 &114302052099719490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1470130431989384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eda0367538326834f8fe19a0a61cd698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraForPlayingCinematics: {fileID: 0}
+  cinematicVideoClip: {fileID: 32900000, guid: 3bc0e7efa96fcba459de83c801fd55d8, type: 3}
+  startingVideoClip: {fileID: 0}
+  mainCamera: {fileID: 0}
+  respawnTransform: {fileID: 0}
+  pController: {fileID: 0}
+  isStartingCinematic: 0
+--- !u!114 &114304727526282212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1470130431989384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eda0367538326834f8fe19a0a61cd698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraForPlayingCinematics: {fileID: 0}
+  cinematicVideoClip: {fileID: 32900000, guid: 3bc0e7efa96fcba459de83c801fd55d8, type: 3}
+  startingVideoClip: {fileID: 0}
+  mainCamera: {fileID: 0}
+  respawnTransform: {fileID: 0}
+  pController: {fileID: 0}
+  isStartingCinematic: 0
