@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 65758573384417480}
   - component: {fileID: 114134309686936088}
   - component: {fileID: 95584177653248256}
-  - component: {fileID: 114304727526282212}
   - component: {fileID: 114302052099719490}
   m_Layer: 0
   m_Name: bastonULT
@@ -130,24 +129,6 @@ MonoBehaviour:
   cayadoPlayer: {fileID: 0}
   pController: {fileID: 0}
 --- !u!114 &114302052099719490
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1470130431989384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eda0367538326834f8fe19a0a61cd698, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraForPlayingCinematics: {fileID: 0}
-  cinematicVideoClip: {fileID: 32900000, guid: 3bc0e7efa96fcba459de83c801fd55d8, type: 3}
-  startingVideoClip: {fileID: 0}
-  mainCamera: {fileID: 0}
-  respawnTransform: {fileID: 0}
-  pController: {fileID: 0}
-  isStartingCinematic: 0
---- !u!114 &114304727526282212
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
