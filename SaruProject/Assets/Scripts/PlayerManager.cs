@@ -214,7 +214,8 @@ public class PlayerManager : MonoBehaviour {
         //para quitar puntos de vida
         if (Input.GetKeyDown(KeyCode.M))
         {
-            DecrementHealth(1);
+            //DecrementHealth(1);
+            LevelManager.instance.Respawn();
         }    
     }
 
