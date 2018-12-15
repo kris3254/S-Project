@@ -121,9 +121,12 @@ public class BallEnemyController : EnemyBase
     // Update is called once per frame
     void Update()
     {
+        if (ballCenter.position.y < 14)
+        {
+            Debug.Log(ballCenter.position.y);
+        }
         if (_isDeath) return;
         distanceToSaru = (transform.position - saru.position).magnitude;
-        distanceToBaston = (transform.position - baston.position).magnitude;
 
         if (distanceToSaru < 15f)
         {

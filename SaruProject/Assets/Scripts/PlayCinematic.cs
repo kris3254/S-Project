@@ -45,7 +45,7 @@ public class PlayCinematic : MonoBehaviour {
 
     private void Update()
     {
-        if (vp.isPlaying && Input.GetButtonDown("Start_PS4") ) 
+        if (vp.isPlaying && (Input.GetButtonDown("Start_PS4") || Input.GetKeyDown(KeyCode.V)) ) 
         {
             vp.frame = (long)vp.frameCount;
         }
