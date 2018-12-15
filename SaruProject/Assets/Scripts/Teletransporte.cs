@@ -63,7 +63,7 @@ public class Teletransporte : MonoBehaviour {
 
     void MovePlayer(int  position)
     {
-        if(position > positionSpawn.Length)  
+        if(position >= positionSpawn.Length)  
                 return; 
         player.transform.position = positionSpawn[position].position;
     }
