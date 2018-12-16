@@ -18,7 +18,7 @@ public class CinemachineTimelinePlay : MonoBehaviour {
     {
         if ((other.gameObject.tag == "Player"))
         {
-            StartCoroutine("EntryAnimation");
+            StartCoroutine(EntryAnimation());
             positionCamera = PlayerManager.instance.GetCameraPosition();
         }
 
@@ -28,7 +28,7 @@ public class CinemachineTimelinePlay : MonoBehaviour {
     {
         if ((other.gameObject.tag == "Player"))
         {
-            StartCoroutine("ExitAnimation");
+            StartCoroutine(ExitAnimation());
             PlayerManager.instance.SetCameraPosition(positionCamera);
         }
     }

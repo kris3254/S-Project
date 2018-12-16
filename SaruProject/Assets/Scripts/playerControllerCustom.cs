@@ -2,10 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
+
+
 
 public class playerControllerCustom : MonoBehaviour
 {
     #region variables   
+    private enum EnemyPosition { derecha, izquierda }
     public float jumpForce = 15f;
     public float moveSpeed = 10f;
 	private float maxSpeed;
@@ -41,6 +45,7 @@ public class playerControllerCustom : MonoBehaviour
 	private bool attackCombo2Time = true;
 	public bool canAttack = false;
 	public BoxCollider cayadoCollider;
+    [SerializeField]public List<Transform> enemiesClose;
 
     private float _lerpSpeed = 2f;
     private Color _colorModoSaru = new Color(1, 1, 1, 1);
@@ -48,7 +53,14 @@ public class playerControllerCustom : MonoBehaviour
     private float _lerpTime = 0;
     private bool _isGrounded = true;
     private bool _lastFrameGrounded;
-    private float initialSpeed;  
+    private float initialSpeed;
+    [SerializeField]
+    private bool _battleMode;
+    private float _angleEnemy = 200;
+    private Transform _enemyTarget = null;
+    [SerializeField]
+    private CinemachineVirtualCamera _cameraBattleMode;
+    private CinemachineBrain _cameraBrain;
 
     private CameraFilterPack_Color_RGB _rgbColorFilter;
     private CameraFilterPack_3D_Anomaly _anomalyFilter;
@@ -66,7 +78,7 @@ public class playerControllerCustom : MonoBehaviour
     void Start()
     {
         _characterController = GetComponent<CharacterController>();
-
+        _cameraBrain = cam.GetComponent<CinemachineBrain>();
         _rgbColorFilter = cam.GetComponent<CameraFilterPack_Color_RGB>();
         _anomalyFilter = cam.GetComponent<CameraFilterPack_3D_Anomaly>();
 
@@ -91,6 +103,10 @@ public class playerControllerCustom : MonoBehaviour
         if (modoGuardianActivado)
         {
             HandleGuardianMode();
+        }
+        if (_battleMode)
+        {
+            HandleBattleMode();
         }
     }
 
@@ -184,7 +200,6 @@ public class playerControllerCustom : MonoBehaviour
         if ( (Input.GetKeyDown(KeyCode.G)) || (Input.GetButtonDown("L1_PS4")) && PlayerManager.instance.currentEnergy > 0)
         {
             cambiandoModo = true;
-           
             //anim.SetTrigger("Change");
             //anim.SetBool("ChangeMode", modoGuardian);
          
@@ -266,7 +281,17 @@ public class playerControllerCustom : MonoBehaviour
     }
     void HandleAttacking()
     {
-		if ((Input.GetKeyDown (KeyCode.E)) || (Input.GetButtonDown ("Cuadrado_PS4"))) {
+        if ((Input.GetButtonDown("R3_PS4")) && (enemiesClose.Count > 0))
+        {
+            if (_battleMode)
+            {
+                ExitBattleMode();
+            }else{
+                EnterBattleMode();
+            }
+            
+        }
+        if ((Input.GetKeyDown (KeyCode.E)) || (Input.GetButtonDown ("Cuadrado_PS4"))) {
 			if (modoGuardian || !canAttack)
 				return;
 
@@ -279,6 +304,87 @@ public class playerControllerCustom : MonoBehaviour
             }		
 			isAttacking = true;
         }
+    }
+
+    void HandleBattleMode()
+    {
+        if (Input.GetAxis("Pad_Derecho_PS4_Horizontal") > 0)
+        {
+            _angleEnemy = 200;
+            TargetEnemy(EnemyPosition.derecha);
+        }
+        else if (Input.GetAxis("Pad_Derecho_PS4_Horizontal") < 0)
+        {
+            _angleEnemy = 200;
+            TargetEnemy(EnemyPosition.izquierda);
+        }
+        playerModel.transform.rotation = Quaternion.LookRotation(_enemyTarget.position - playerModel.transform.position);
+    }
+
+    void TargetEnemy(EnemyPosition findPosition)
+    {
+        if (enemiesClose.Count == 0)
+        {
+            ExitBattleMode();
+        }
+        //calculamos un punto donde mira saru para poder calcular su vector
+        Vector2 positionLook = new Vector2(playerModel.transform.forward.x + transform.position.x, playerModel.transform.forward.z + transform.position.z);
+        //calculamos el vector hacia donde mira saru desde su ubicacion
+        Vector2 mira = new Vector2(positionLook.x - transform.position.x, positionLook.y - transform.position.z);
+        foreach (Transform enemy in enemiesClose)
+        {
+            if (enemy == _enemyTarget)
+                continue;
+            //calculamos el vector hacia donde esta el enemigo desde la posicion de Saru   
+            Vector2 v = new Vector2(enemy.position.x - transform.position.x, enemy.position.z - transform.position.z);
+            float posicion = mira.x * v.y - mira.y * v.x;
+            if((posicion > 0 && findPosition == EnemyPosition.izquierda)|| (posicion < 0 && findPosition == EnemyPosition.derecha))
+            {
+                NextTarget(mira.normalized, v.normalized, enemy);
+            }         
+        }
+       // Debug.Break();
+    }
+
+    //determina el siguiente objetivo al que seleccionar;
+    void NextTarget(Vector2 v1, Vector2 v2, Transform enemy)
+    {
+        float newAngle = Vector2.Angle(v1, v2);
+        if (_angleEnemy >  newAngle)
+        {
+            _angleEnemy = newAngle;
+            _enemyTarget = enemy;
+        }
+    }
+
+    void EnterBattleMode()
+    {
+        _cameraBrain.SetCameraOverride(1, PlayerManager.instance.cameraCinemachine, _cameraBattleMode, 1, Time.deltaTime);
+        _battleMode = true;
+        TargetNewEnemy();
+    }
+    void ExitBattleMode()
+    {
+        _cameraBrain.SetCameraOverride(1, _cameraBattleMode,PlayerManager.instance.cameraCinemachine, 1, Time.deltaTime);
+        _battleMode = false;
+        _angleEnemy = 200;
+        _enemyTarget = null;
+    }
+
+    public void EnemyExitRange(Transform enemyTransform)
+    {
+        enemiesClose.Remove(enemyTransform);
+        if (_enemyTarget == enemyTransform)
+        {
+            TargetNewEnemy();          
+        }
+    }
+   
+    //obtiene el enemigo mas cercano se puede mejorar el codigo :D
+    void TargetNewEnemy()
+    {
+        TargetEnemy(EnemyPosition.derecha);
+        TargetEnemy(EnemyPosition.izquierda);
     }
 
     public IEnumerator RollRoutine()

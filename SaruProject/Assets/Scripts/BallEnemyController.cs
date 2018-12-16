@@ -92,23 +92,24 @@ public class BallEnemyController : EnemyBase
 {
 
     public Transform saru;
-    public Transform baston;
     public Transform ballCenter;
     public GameObject ballExplosion;
     public GameObject ballDeath;
 
     private NavMeshAgent agent;
     private float distanceToSaru;
-    private float distanceToBaston;
+    private playerControllerCustom playerController;
 
     private Vector3 initialPosition;
     private bool _isDeath = false;
+    private bool inRange = false;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         initialPosition = transform.position;
         LevelManager.instance.RespawnEnemies += Respawn;
+        playerController = saru.GetComponent<playerControllerCustom>();
     }
 
     override public void TakeDamage(int i)
@@ -121,15 +122,17 @@ public class BallEnemyController : EnemyBase
     // Update is called once per frame
     void Update()
     {
-        if (ballCenter.position.y < 14)
-        {
-            Debug.Log(ballCenter.position.y);
-        }
         if (_isDeath) return;
         distanceToSaru = (transform.position - saru.position).magnitude;
 
         if (distanceToSaru < 15f)
         {
+            //si estamos dentro del rango de Saru nos añadimos al playercontroler
+            if (!inRange)
+            {
+                playerController.enemiesClose.Add(transform);
+                inRange = !inRange;
+            }
             agent.SetDestination(saru.position);
             if (distanceToSaru < 0.7f)
             {
@@ -138,13 +141,21 @@ public class BallEnemyController : EnemyBase
                     Explode();
             }
         }
-        if (distanceToSaru >= 15f)
+        if (inRange && distanceToSaru >= 15f)
         {
+            NotInRange();
             //si estas lejos de saru vuelve a tu posicion inicial
             agent.SetDestination(initialPosition);
         }
         //falta, si tocas el baston de saru Die()
 
+    }
+
+    //si se sale del rango quitamos al enemigo de playercontroller   
+    void NotInRange()
+    {
+        playerController.EnemyExitRange(transform);
+        inRange = !inRange;
     }
 
     public void Explode()
@@ -159,6 +170,7 @@ public class BallEnemyController : EnemyBase
     public void Die()
     {    
         _isDeath = true;
+        NotInRange();
         //particulas muerte
         //ballDeath.Play();
         gameObject.SetActive(false);

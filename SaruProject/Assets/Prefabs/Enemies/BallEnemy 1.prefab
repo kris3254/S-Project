@@ -98,7 +98,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1436854988898976}
   m_LocalRotation: {x: -0, y: -0.43064365, z: -0, w: 0.9025221}
-  m_LocalPosition: {x: -21.09, y: 1.593523, z: 2.883484}
+  m_LocalPosition: {x: 3837.3638, y: -9.76, z: -421.895}
   m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000002}
   m_Children:
   - {fileID: 4324040309673358}
@@ -271,7 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saru: {fileID: 0}
   baston: {fileID: 0}
-  ballCenter: {fileID: 1501346224558850}
+  ballCenter: {fileID: 4683653164578844}
   ballExplosion: {fileID: 100002, guid: c238cf19a1358114a8f6efc4ef866c05, type: 2}
   ballDeath: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 2}
 --- !u!137 &137445965290189286

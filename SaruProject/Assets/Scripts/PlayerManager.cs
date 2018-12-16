@@ -24,7 +24,7 @@ public class PlayerManager : MonoBehaviour {
     public bool playerIsHittedWithParticles;//booleano para garantizar que unicamente se nos quita un punto de vida por cada tiempo especificado aunk sigamos en contacto con el sistema de particulas
     public playerControllerCustom controller;
     public float timeToRespawn = 0.5f;
-    public CinemachineFreeLook camera;
+    public CinemachineFreeLook cameraCinemachine;
 
     [HideInInspector]
     public List<Sprite> collectablesList;//Conjunto de imagenes de los coleccionables que el jugador ha descubierto hasta ese momento.
@@ -193,13 +193,13 @@ public class PlayerManager : MonoBehaviour {
 
     public void SetCameraPosition(Vector2 value)
     {
-        camera.m_XAxis.Value = value.x;
-        camera.m_YAxis.Value = value.y;
+        cameraCinemachine.m_XAxis.Value = value.x;
+        cameraCinemachine.m_YAxis.Value = value.y;
     }
 
     public Vector2 GetCameraPosition()
     {
-        return new Vector2(camera.m_XAxis.Value, camera.m_YAxis.Value);
+        return new Vector2(cameraCinemachine.m_XAxis.Value, cameraCinemachine.m_YAxis.Value);
     }
 
     //borrar de aqui  pa abajo
@@ -208,7 +208,7 @@ public class PlayerManager : MonoBehaviour {
         //para optener la posicion que queremos de en la camara
         if (Input.GetKeyDown(KeyCode.N))
         {
-            Debug.Log(" // X Value: " + camera.m_XAxis.Value.ToString() + " // Y Value: " + camera.m_YAxis.Value.ToString());
+            Debug.Log(" // X Value: " + cameraCinemachine.m_XAxis.Value.ToString() + " // Y Value: " + cameraCinemachine.m_YAxis.Value.ToString());
         }
 
         //para quitar puntos de vida
