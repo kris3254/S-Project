@@ -309,13 +309,11 @@ public class playerControllerCustom : MonoBehaviour
     void HandleBattleMode()
     {
         if (Input.GetAxis("Pad_Derecho_PS4_Horizontal") > 0)
-        {
-            _angleEnemy = 200;
+        {         
             TargetEnemy(EnemyPosition.derecha);
         }
         else if (Input.GetAxis("Pad_Derecho_PS4_Horizontal") < 0)
         {
-            _angleEnemy = 200;
             TargetEnemy(EnemyPosition.izquierda);
         }
         playerModel.transform.rotation = Quaternion.LookRotation(_enemyTarget.position - playerModel.transform.position);
@@ -326,7 +324,9 @@ public class playerControllerCustom : MonoBehaviour
         if (enemiesClose.Count == 0)
         {
             ExitBattleMode();
+            return;
         }
+        _angleEnemy = 200;
         //calculamos un punto donde mira saru para poder calcular su vector
         Vector2 positionLook = new Vector2(playerModel.transform.forward.x + transform.position.x, playerModel.transform.forward.z + transform.position.z);
         //calculamos el vector hacia donde mira saru desde su ubicacion
@@ -374,7 +374,7 @@ public class playerControllerCustom : MonoBehaviour
     public void EnemyExitRange(Transform enemyTransform)
     {
         enemiesClose.Remove(enemyTransform);
-        if (_enemyTarget.name == enemyTransform.name)
+        if (_enemyTarget != null && _enemyTarget == enemyTransform)
         {
             TargetNewEnemy();          
         }
