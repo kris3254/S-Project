@@ -374,7 +374,7 @@ public class playerControllerCustom : MonoBehaviour
     public void EnemyExitRange(Transform enemyTransform)
     {
         enemiesClose.Remove(enemyTransform);
-        if (_enemyTarget == enemyTransform)
+        if (_enemyTarget.name == enemyTransform.name)
         {
             TargetNewEnemy();          
         }

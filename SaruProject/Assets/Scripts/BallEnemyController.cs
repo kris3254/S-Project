@@ -109,7 +109,7 @@ public class BallEnemyController : EnemyBase
         agent = GetComponent<NavMeshAgent>();
         initialPosition = transform.position;
         LevelManager.instance.RespawnEnemies += Respawn;
-        playerController = saru.GetComponent<playerControllerCustom>();
+        playerController = saru.GetComponentInParent<playerControllerCustom>();
     }
 
     override public void TakeDamage(int i)
