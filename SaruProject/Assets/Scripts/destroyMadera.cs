@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class destroyMadera : MonoBehaviour {
 
-    public GameObject destroyedVersion;
+    public GameObject[] destroyedVersion;
 
     private Component[] trocitosRB;
 
@@ -12,8 +12,9 @@ public class destroyMadera : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.O))
         {
-            GameObject newMadera = Instantiate(destroyedVersion, transform.position, transform.rotation) as GameObject;
-            Destroy(GetComponent<Transform>().GetChild(0).gameObject);
+            GameObject newMadera = Instantiate(destroyedVersion[Random.Range(0,2)], transform.position, transform.rotation) as GameObject;
+            if (GetComponent<Transform>().childCount != 0)
+                Destroy(GetComponent<Transform>().GetChild(0).gameObject);
 
             trocitosRB = newMadera.GetComponentsInChildren<Rigidbody>();
 

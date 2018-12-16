@@ -301,8 +301,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63439a1c526cb96498d7e0147ce4cb84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyedVersion: {fileID: 1602306462344140, guid: 992fc63d8a3eda449b67a3e9bc5bd646,
-    type: 2}
+  destroyedVersion:
+  - {fileID: 1602306462344140, guid: 992fc63d8a3eda449b67a3e9bc5bd646, type: 2}
+  - {fileID: 1466573090065872, guid: 3a034182cc6629d4193fbe333227bab4, type: 2}
 --- !u!1001 &961112121
 Prefab:
   m_ObjectHideFlags: 0
