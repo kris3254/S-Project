@@ -38,4 +38,29 @@ public class destroyMadera : MonoBehaviour {
         }
     }
 
+    void OnColliisionEnter(Collider fireball)
+    {
+        if (fireball.tag == "FireBall" && !_maderaDestroyed)
+        {
+            GameObject newMadera = Instantiate(destroyedVersion[Random.Range(0, 2)], new Vector3(transform.position.x, transform.Find("Bone001").transform.Find("Bone002").position.y - 1.5f, transform.position.z), transform.rotation) as GameObject;
+
+            trocitosCollider = newMadera.GetComponentsInChildren<Collider>();
+
+            foreach (Collider collider in trocitosCollider)
+                Physics.IgnoreCollision(collider, GetComponent<Collider>());
+
+            
+            Destroy(oldMadera);
+            _maderaDestroyed = true;
+            
+
+            trocitosRB = newMadera.GetComponentsInChildren<Rigidbody>();
+
+            foreach (Rigidbody rb in trocitosRB)
+                rb.AddForce(Random.Range(0, 3), Random.Range(0, 3), Random.Range(0, 3), ForceMode.Impulse);
+
+            Destroy(newMadera, 5f);
+        }
+    }
+
 }
