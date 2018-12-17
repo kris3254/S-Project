@@ -15,7 +15,7 @@ public class destroyMadera : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.O))
         {
-            GameObject newMadera = Instantiate(destroyedVersion[Random.Range(0,2)], transform.position, transform.rotation) as GameObject;
+            GameObject newMadera = Instantiate(destroyedVersion[Random.Range(0,2)], new Vector3(transform.position.x, transform.Find("Bone001").transform.Find("Bone002").position.y - 1.5f, transform.position.z), transform.rotation) as GameObject;
             // He probado con la position de todos los hijos de Woodball Enemy, la localPosition, buscando la diferencia de alturas... y no hay manera :>!
 
             trocitosCollider = newMadera.GetComponentsInChildren<Collider>();
