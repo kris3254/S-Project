@@ -8,8 +8,10 @@ using Cinemachine;
 
 public class playerControllerCustom : MonoBehaviour
 {
+    public GameObject target;
     #region variables   
-    private enum EnemyPosition { derecha, izquierda }
+    //los valores de down y up se multiplican para obtener un thresold correcto
+    private enum EnemyPosition { up, down, left, right, close }
     public float jumpForce = 15f;
     public float moveSpeed = 10f;
 	private float maxSpeed;
@@ -40,13 +42,9 @@ public class playerControllerCustom : MonoBehaviour
     public bool isAttacking;
     [HideInInspector]
     public int numberOfAttack = 1;
-	private bool attackCombo1 = false;
-	private bool attackCombo2 = false;
-	private bool attackCombo2Time = true;
 	public bool canAttack = false;
 	public BoxCollider cayadoCollider;
     [SerializeField]public List<Transform> enemiesClose;
-
     private float _lerpSpeed = 2f;
     private Color _colorModoSaru = new Color(1, 1, 1, 1);
     private Color _colorModoGuardian = new Color(0.58f, 0.33f, 0.87f, 1);
@@ -56,7 +54,12 @@ public class playerControllerCustom : MonoBehaviour
     private float initialSpeed;
     [SerializeField]
     private bool _battleMode;
-    private float _angleEnemy = 200;
+    private float _thresholdEnemy = 200;
+    [SerializeField]
+    private float _thresholdLeftJoystick = .5f;
+    [SerializeField]
+    private float _timeToTargetNewEnemy = .5f;
+    private float _actualTimeTargetEnemyWithDirection;
     private Transform _enemyTarget = null;
     [SerializeField]
     private CinemachineVirtualCamera _cameraBattleMode;
@@ -98,22 +101,19 @@ public class playerControllerCustom : MonoBehaviour
         HandleGroundedMovement();
         HandleAirMovement();
         HandlePlayerRotation();
-		HandleAttacking();
+        if (_battleMode)
+        {
+            HandleBattleMode();
+        }
+        HandleAttacking();
         HandleAnimations();
         if (modoGuardianActivado)
         {
             HandleGuardianMode();
         }
-        if (_battleMode)
-        {
-            HandleBattleMode();
-        }
-    }
-
-    private void FixedUpdate()
-    {
         
     }
+
     void HandleIsGrounded()
     {
         RaycastHit hit;
@@ -308,53 +308,151 @@ public class playerControllerCustom : MonoBehaviour
 
     void HandleBattleMode()
     {
-        if (Input.GetAxis("Pad_Derecho_PS4_Horizontal") > 0)
-        {         
-            TargetEnemy(EnemyPosition.derecha);
-        }
-        else if (Input.GetAxis("Pad_Derecho_PS4_Horizontal") < 0)
+        if (Input.GetAxis("Pad_Derecho_PS4_Horizontal") > _thresholdLeftJoystick && _actualTimeTargetEnemyWithDirection <= 0)
         {
-            TargetEnemy(EnemyPosition.izquierda);
+            NewTarget(EnemyPosition.left);
         }
-        playerModel.transform.rotation = Quaternion.LookRotation(_enemyTarget.position - playerModel.transform.position);
+        else if (Input.GetAxis("Pad_Derecho_PS4_Horizontal") < - _thresholdLeftJoystick && _actualTimeTargetEnemyWithDirection <= 0)
+        {
+            NewTarget(EnemyPosition.right);          
+        }
+        else if (Input.GetAxis("Pad_Derecho_PS4_Vertical") > _thresholdLeftJoystick && _actualTimeTargetEnemyWithDirection <= 0)
+        {
+            NewTarget(EnemyPosition.up);
+        }
+        else if (Input.GetAxis("Pad_Derecho_PS4_Vertical") < -_thresholdLeftJoystick && _actualTimeTargetEnemyWithDirection <= 0)
+        {
+            NewTarget(EnemyPosition.down);
+        }
+        else if(_actualTimeTargetEnemyWithDirection > 0)
+        {
+            _actualTimeTargetEnemyWithDirection -= Time.deltaTime;
+        }
+        Quaternion lookRotation = Quaternion.LookRotation(_enemyTarget.position - playerModel.transform.position);
+        playerModel.transform.rotation = new Quaternion(0f, lookRotation.y, 0f, lookRotation.w);
     }
 
-    void TargetEnemy(EnemyPosition findPosition)
+    //funcion que swithchea dependiendo del inputrecibido para  targetear enemigo
+    void NewTarget(EnemyPosition findPosition)
     {
         if (enemiesClose.Count == 0)
         {
             ExitBattleMode();
             return;
         }
-        _angleEnemy = 200;
+        _thresholdEnemy = 200;
+        switch (findPosition)
+        {
+            case EnemyPosition.right:
+                TargetNewEnemyLeftOrRight(findPosition);
+                break;
+            case EnemyPosition.left:
+                TargetNewEnemyLeftOrRight(findPosition);
+                break;
+            case EnemyPosition.close:
+                TargetNewEnemy();
+                break;
+            case EnemyPosition.up:
+                TargetNewEnemyUpOrDown(findPosition);
+                break;
+            case EnemyPosition.down:
+                TargetNewEnemyUpOrDown(findPosition);
+                break;
+            default:
+                break;
+        }
+    }
+
+
+    //obtiene el enemigo mas cercano
+    //se utiliza cuando se targetea y no es  por movimiento del stick derecho
+    void TargetNewEnemy()
+    {
+        Transform actualTarget = _enemyTarget;
+        float distance;
+        foreach (Transform enemy in enemiesClose)
+        {
+            if (actualTarget == enemy)
+                continue;
+            //calculamos el vector hacia donde esta el enemigo desde la posicion de Saru   
+            distance = (transform.position - enemy.position).magnitude;
+            if (_thresholdEnemy > distance)
+            {
+                NextTarget(distance, enemy);
+            }         
+        }
+    }
+    //obtiene el enemigo mas cercano dependiendo del movimiento derecha o izquierda del  recibido
+    void TargetNewEnemyUpOrDown(EnemyPosition findPosition)
+    {
+        Transform actualTarget = _enemyTarget;
+        //variable necesaria para que el mismo codigo funcione para up y para down
+        int upOrDown = findPosition == EnemyPosition.up? -1 : 1 ;
+      
+        _thresholdEnemy = (transform.position - _enemyTarget.position).magnitude * upOrDown;
+        
+        float distance;
+        float lastDistance = -100;
+        foreach (Transform enemy in enemiesClose)
+        {
+            if (actualTarget == enemy)
+                continue;
+            //calculamos el vector hacia donde esta el enemigo desde la posicion de Saru   
+            distance = (transform.position - enemy.position).magnitude * upOrDown;
+            if ((distance < _thresholdEnemy) && (distance > lastDistance) )
+            {
+                NextTarget(distance, enemy);
+                lastDistance = distance;
+                _actualTimeTargetEnemyWithDirection = _timeToTargetNewEnemy;
+            }
+            
+        }
+        if (actualTarget != _enemyTarget)
+        {
+            _actualTimeTargetEnemyWithDirection = _timeToTargetNewEnemy;
+            target.transform.localScale = new Vector3(.2f, .2f, .2f);
+        }
+    }
+
+    //obtiene el enemigo mas cercano dependiendo del movimiento derecha o izquierda del  recibido
+    void TargetNewEnemyLeftOrRight(EnemyPosition findPosition)
+    {
         //calculamos un punto donde mira saru para poder calcular su vector
         Vector2 positionLook = new Vector2(playerModel.transform.forward.x + transform.position.x, playerModel.transform.forward.z + transform.position.z);
         //calculamos el vector hacia donde mira saru desde su ubicacion
-        Vector2 mira = new Vector2(positionLook.x - transform.position.x, positionLook.y - transform.position.z);
+        Vector2 actualLookAt = new Vector2(positionLook.x - transform.position.x, positionLook.y - transform.position.z);
+        //esta variable sirve para guardar el enemigo que tenemos tarjeteado antes de comprobar todos ya que _enemytarget cambia dentro del foreach
+        Transform actualTarget = _enemyTarget;
         foreach (Transform enemy in enemiesClose)
         {
-            if (enemy == _enemyTarget)
+            if (actualTarget == enemy)
                 continue;
             //calculamos el vector hacia donde esta el enemigo desde la posicion de Saru   
-            Vector2 v = new Vector2(enemy.position.x - transform.position.x, enemy.position.z - transform.position.z);
-            float posicion = mira.x * v.y - mira.y * v.x;
-            if((posicion > 0 && findPosition == EnemyPosition.izquierda)|| (posicion < 0 && findPosition == EnemyPosition.derecha))
+            Vector2 enemyPlayerPosition = new Vector2(enemy.position.x - transform.position.x, enemy.position.z - transform.position.z);
+            float leftOrRight = actualLookAt.x * enemyPlayerPosition.y - actualLookAt.y * enemyPlayerPosition.x;
+            if ((leftOrRight > 0 && findPosition == EnemyPosition.right) || (leftOrRight < 0 && findPosition == EnemyPosition.left))
             {
-                NextTarget(mira.normalized, v.normalized, enemy);
-            }         
+                float threshold = Vector2.Angle(actualLookAt, enemyPlayerPosition);
+                if (_thresholdEnemy > threshold)
+                {
+                    NextTarget(leftOrRight, enemy);
+                }
+            }
         }
-       // Debug.Break();
+        if (actualTarget != _enemyTarget)
+        {
+            _actualTimeTargetEnemyWithDirection = _timeToTargetNewEnemy;
+        }
     }
 
     //determina el siguiente objetivo al que seleccionar;
-    void NextTarget(Vector2 v1, Vector2 v2, Transform enemy)
+    void NextTarget(float threshold, Transform enemy)
     {
-        float newAngle = Vector2.Angle(v1, v2);
-        if (_angleEnemy >  newAngle)
-        {
-            _angleEnemy = newAngle;
-            _enemyTarget = enemy;
-        }
+        _thresholdEnemy = threshold;
+        _enemyTarget = enemy;
+        //esto es solo para testeo
+        target.transform.parent = _enemyTarget.GetChild(0).GetChild(0);
+        target.transform.localPosition = new Vector3(-0.5f,0f,0f);
     }
 
     void EnterBattleMode()
@@ -362,13 +460,15 @@ public class playerControllerCustom : MonoBehaviour
         _cameraBrain.SetCameraOverride(1, PlayerManager.instance.cameraCinemachine, _cameraBattleMode, 1, Time.deltaTime);
         _battleMode = true;
         TargetNewEnemy();
+        target.SetActive(true);
     }
     void ExitBattleMode()
     {
         _cameraBrain.SetCameraOverride(1, _cameraBattleMode,PlayerManager.instance.cameraCinemachine, 1, Time.deltaTime);
         _battleMode = false;
-        _angleEnemy = 200;
+        _thresholdEnemy = 200;
         _enemyTarget = null;
+        target.SetActive(false);
     }
 
     public void EnemyExitRange(Transform enemyTransform)
@@ -378,13 +478,6 @@ public class playerControllerCustom : MonoBehaviour
         {
             TargetNewEnemy();          
         }
-    }
-   
-    //obtiene el enemigo mas cercano se puede mejorar el codigo :D
-    void TargetNewEnemy()
-    {
-        TargetEnemy(EnemyPosition.derecha);
-        TargetEnemy(EnemyPosition.izquierda);
     }
 
     public IEnumerator RollRoutine()
@@ -410,8 +503,8 @@ public class playerControllerCustom : MonoBehaviour
         moveSpeed = auxSpeed;
         isAttacking = false;
     }
-		
-	public void EnterAttack(){
+
+    public void EnterAttack(){
         numberOfAttack++;
 		moveSpeed = maxSpeed/2;
 		cayadoCollider.enabled = true;
