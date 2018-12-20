@@ -351,8 +351,15 @@ public class playerControllerCustom : MonoBehaviour
         {
             _actualTimeTargetEnemyWithDirection -= Time.deltaTime;
         }
+        RotatePlayerGameMode();
+        
+    }
+
+    void RotatePlayerGameMode()
+    {
         Quaternion lookRotation = Quaternion.LookRotation(_enemyTarget.position - playerModel.transform.position);
-        playerModel.transform.rotation = new Quaternion(0f, lookRotation.y, 0f, lookRotation.w);
+        lookRotation = new Quaternion(0f, lookRotation.y, 0f, lookRotation.w);
+        playerModel.transform.rotation = Quaternion.LerpUnclamped(playerModel.transform.rotation, lookRotation, Mathf.Max(Time.deltaTime * (8-(playerModel.transform.position - _enemyTarget.position ).magnitude),.1f));
     }
 
     //funcion que swithchea dependiendo del inputrecibido para  targetear enemigo
