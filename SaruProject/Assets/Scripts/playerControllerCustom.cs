@@ -70,6 +70,8 @@ public class playerControllerCustom : MonoBehaviour
     public PlayableDirector secondPlayableDirector;
     private Vector3 _positionCameraBattleMode;
     private Quaternion _rotationCameraBattleMode;
+    [SerializeField]
+    private float _gradesToDetectionEnemies = 60;
     #endregion
     private CameraFilterPack_Color_RGB _rgbColorFilter;
     private CameraFilterPack_3D_Anomaly _anomalyFilter;
@@ -398,11 +400,17 @@ public class playerControllerCustom : MonoBehaviour
     //se utiliza cuando se targetea y no es  por movimiento del stick derecho
     void TargetNewEnemy()
     {
-        Transform actualTarget = _enemyTarget;
+        //calculamos un punto donde mira saru para poder calcular su vector
+        Vector2 positionLook = new Vector2(playerModel.transform.forward.x + transform.position.x, playerModel.transform.forward.z + transform.position.z);
+        //calculamos el vector hacia donde mira saru desde su ubicacion
+        Vector2 actualLookAt = new Vector2(positionLook.x - transform.position.x, positionLook.y - transform.position.z);
+
         float distance;
         foreach (Transform enemy in enemiesClose)
         {
-            if (actualTarget == enemy)
+            Vector2 enemyPlayerPosition = new Vector2(enemy.position.x - transform.position.x, enemy.position.z - transform.position.z);
+            float a = Vector2.Angle(enemyPlayerPosition, actualLookAt);
+            if (a > _gradesToDetectionEnemies)
                 continue;
             //calculamos el vector hacia donde esta el enemigo desde la posicion de Saru   
             distance = (transform.position - enemy.position).magnitude;
@@ -411,10 +419,16 @@ public class playerControllerCustom : MonoBehaviour
                 NextTarget(distance, enemy);
             }         
         }
+
+        if (_enemyTarget == null)
+        {
+            ExitBattleMode();
+        }
     }
     //obtiene el enemigo mas cercano dependiendo del movimiento derecha o izquierda del  recibido
     void TargetNewEnemyUpOrDown(EnemyPosition findPosition)
     {
+        //esta variable sirve para guardar el enemigo que tenemos tarjeteado antes de comprobar todos ya que _enemytarget cambia dentro del foreach
         Transform actualTarget = _enemyTarget;
         //variable necesaria para que el mismo codigo funcione para up y para down
         int upOrDown = findPosition == EnemyPosition.up? -1 : 1 ;
@@ -429,6 +443,7 @@ public class playerControllerCustom : MonoBehaviour
                 continue;
             //calculamos el vector hacia donde esta el enemigo desde la posicion de Saru   
             distance = (transform.position - enemy.position).magnitude * upOrDown;
+
             if ((distance < _thresholdEnemy) && (distance > lastDistance) )
             {
                 NextTarget(distance, enemy);
@@ -507,6 +522,7 @@ public class playerControllerCustom : MonoBehaviour
         enemiesClose.Remove(enemyTransform);
         if (_enemyTarget != null && _enemyTarget == enemyTransform)
         {
+            _enemyTarget = null;
             NewTarget(EnemyPosition.close);          
         }
     }
