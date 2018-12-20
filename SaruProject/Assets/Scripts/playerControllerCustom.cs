@@ -3,12 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-
+using UnityEngine.Playables;
 
 
 public class playerControllerCustom : MonoBehaviour
 {
-    public GameObject target;
     #region variables   
     //los valores de down y up se multiplican para obtener un thresold correcto
     private enum EnemyPosition { up, down, left, right, close }
@@ -52,6 +51,8 @@ public class playerControllerCustom : MonoBehaviour
     private bool _isGrounded = true;
     private bool _lastFrameGrounded;
     private float initialSpeed;
+
+    #region BattleMode 
     [SerializeField]
     private bool _battleMode;
     private float _thresholdEnemy = 200;
@@ -64,7 +65,12 @@ public class playerControllerCustom : MonoBehaviour
     [SerializeField]
     private CinemachineVirtualCamera _cameraBattleMode;
     private CinemachineBrain _cameraBrain;
-
+    public GameObject target;
+    public PlayableDirector firstPlayableDirector;
+    public PlayableDirector secondPlayableDirector;
+    private Vector3 _positionCameraBattleMode;
+    private Quaternion _rotationCameraBattleMode;
+    #endregion
     private CameraFilterPack_Color_RGB _rgbColorFilter;
     private CameraFilterPack_3D_Anomaly _anomalyFilter;
 
@@ -85,6 +91,9 @@ public class playerControllerCustom : MonoBehaviour
         _rgbColorFilter = cam.GetComponent<CameraFilterPack_Color_RGB>();
         _anomalyFilter = cam.GetComponent<CameraFilterPack_3D_Anomaly>();
 
+        _positionCameraBattleMode = _cameraBattleMode.transform.localPosition;
+        _rotationCameraBattleMode = _cameraBattleMode.transform.localRotation;
+
         _rgbColorFilter.ColorRGB = _colorModoSaru;
         _anomalyFilter.Intensity = 0;
 		maxSpeed = moveSpeed;
@@ -100,11 +109,16 @@ public class playerControllerCustom : MonoBehaviour
         HandleIsGrounded();
         HandleGroundedMovement();
         HandleAirMovement();
-        HandlePlayerRotation();
+      
         if (_battleMode)
         {
             HandleBattleMode();
         }
+        else
+        {
+            HandlePlayerRotation();
+        } 
+        
         HandleAttacking();
         HandleAnimations();
         if (modoGuardianActivado)
@@ -178,10 +192,19 @@ public class playerControllerCustom : MonoBehaviour
             Vector3 rollDirection = playerModel.transform.forward * rollSpeed;
             _characterController.Move(rollDirection * Time.deltaTime);
         }
-        else if (!stop)
+        else if (!stop && !_battleMode)
         {
             float yStore = _moveDirection.y;
             _moveDirection = (transform.forward * Input.GetAxis("Vertical")) + (transform.right * Input.GetAxis("Horizontal"));
+            //normalize the player movement so diagonal movement is not twice as fast as single axis movement
+            _moveDirection = (_moveDirection.magnitude > 1) ? _moveDirection.normalized * moveSpeed : _moveDirection * moveSpeed;
+            _moveDirection.y = yStore;
+            _characterController.Move(_moveDirection * Time.deltaTime);
+        }
+        else if (_battleMode)
+        {
+            float yStore = _moveDirection.y;
+            _moveDirection = ( playerModel.transform.forward * Input.GetAxis("Vertical")) + (playerModel.transform.right * Input.GetAxis("Horizontal"));
             //normalize the player movement so diagonal movement is not twice as fast as single axis movement
             _moveDirection = (_moveDirection.magnitude > 1) ? _moveDirection.normalized * moveSpeed : _moveDirection * moveSpeed;
             _moveDirection.y = yStore;
@@ -457,18 +480,19 @@ public class playerControllerCustom : MonoBehaviour
 
     void EnterBattleMode()
     {
-        _cameraBrain.SetCameraOverride(1, PlayerManager.instance.cameraCinemachine, _cameraBattleMode, 1, Time.deltaTime);
         _battleMode = true;
         TargetNewEnemy();
         target.SetActive(true);
+        StartCoroutine(EntryAnimationBattlemode());
     }
+
     void ExitBattleMode()
     {
-        _cameraBrain.SetCameraOverride(1, _cameraBattleMode,PlayerManager.instance.cameraCinemachine, 1, Time.deltaTime);
         _battleMode = false;
         _thresholdEnemy = 200;
         _enemyTarget = null;
         target.SetActive(false);
+        StartCoroutine(ExitAnimationBattlemode());
     }
 
     public void EnemyExitRange(Transform enemyTransform)
@@ -476,7 +500,7 @@ public class playerControllerCustom : MonoBehaviour
         enemiesClose.Remove(enemyTransform);
         if (_enemyTarget != null && _enemyTarget == enemyTransform)
         {
-            TargetNewEnemy();          
+            NewTarget(EnemyPosition.close);          
         }
     }
 
@@ -521,4 +545,26 @@ public class playerControllerCustom : MonoBehaviour
 	public void FireAttackAnim(){
 		anim.SetTrigger ("FireAttack");
 	}
+
+    IEnumerator EntryAnimationBattlemode()
+    {
+        _cameraBattleMode.m_Follow = playerModel.transform;
+        _cameraBattleMode.m_LookAt = playerModel.transform;
+        _cameraBattleMode.transform.parent = playerModel.transform;
+        _cameraBattleMode.transform.localPosition = _positionCameraBattleMode;
+        _cameraBattleMode.transform.localRotation = _rotationCameraBattleMode;
+        yield return new WaitUntil(() => _cameraBrain.IsBlending == false);
+        secondPlayableDirector.Stop();
+        firstPlayableDirector.Play();
+    }
+
+    IEnumerator ExitAnimationBattlemode()
+    {
+        _cameraBattleMode.m_Follow = null;
+        _cameraBattleMode.m_LookAt = null;
+        _cameraBattleMode.transform.parent = null;
+        yield return new WaitUntil(() => _cameraBrain.IsBlending == false);
+        firstPlayableDirector.Stop();
+        secondPlayableDirector.Play();
+    }
 }
