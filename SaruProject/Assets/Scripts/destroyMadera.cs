@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class destroyMadera : MonoBehaviour {
+public class destroyMadera : BallEnemyController
+{
 
     public GameObject[] destroyedVersion;
     public GameObject oldMadera;
+    public float damageDelay;
 
     private Component[] trocitosRB;
     private Component[] trocitosCollider;
-    private bool _maderaDestroyed;
+    private bool _maderaDestroyed = false;
+    private bool _canTakeDamageAgain = false;
 
-    void Update()
+    public override void Update()
     {
+        base.Update();
+
         if (Input.GetKeyDown(KeyCode.O))
         {
             GameObject newMadera = Instantiate(destroyedVersion[Random.Range(0,2)], new Vector3(transform.position.x, transform.Find("Bone001").transform.Find("Bone002").position.y - 1.5f, transform.position.z), transform.rotation) as GameObject;
@@ -25,7 +30,7 @@ public class destroyMadera : MonoBehaviour {
 
             if (!_maderaDestroyed)
             {
-                Destroy(oldMadera);
+                oldMadera.SetActive(false);
                 _maderaDestroyed = true;
             }
 
@@ -38,9 +43,38 @@ public class destroyMadera : MonoBehaviour {
         }
     }
 
-    void OnColliisionEnter(Collider fireball)
+    public override void NotInRange()
     {
-        if (fireball.tag == "FireBall" && !_maderaDestroyed)
+        base.NotInRange();
+    }
+
+    public override void Explode()
+    {
+        if (_maderaDestroyed && _canTakeDamageAgain)
+            Debug.Log ("Entro al override");
+
+        else
+        {
+            Debug.Log("Entro y no exploto");
+            StartCoroutine("WaitCorroutine");
+            PlayerManager.instance.DecrementHealth(1);
+            this.gameObject.GetComponent<Rigidbody>().AddForce(0, 0, this.transform.position.z * -5);
+        }
+    }
+
+    public override void Die()
+    {
+        base.Die();
+    }
+
+    public override void Respawn()
+    {
+        base.Respawn();
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "FireBall" && !_maderaDestroyed || other.tag == "Player" && !_maderaDestroyed)
         {
             GameObject newMadera = Instantiate(destroyedVersion[Random.Range(0, 2)], new Vector3(transform.position.x, transform.Find("Bone001").transform.Find("Bone002").position.y - 1.5f, transform.position.z), transform.rotation) as GameObject;
 
@@ -49,10 +83,10 @@ public class destroyMadera : MonoBehaviour {
             foreach (Collider collider in trocitosCollider)
                 Physics.IgnoreCollision(collider, GetComponent<Collider>());
 
-            
-            Destroy(oldMadera);
+
+            oldMadera.SetActive(false);
             _maderaDestroyed = true;
-            
+
 
             trocitosRB = newMadera.GetComponentsInChildren<Rigidbody>();
 
@@ -61,6 +95,13 @@ public class destroyMadera : MonoBehaviour {
 
             Destroy(newMadera, 5f);
         }
+    }
+
+    IEnumerator WaitCorroutine()
+    {
+        yield return new WaitForSeconds(damageDelay);
+        _canTakeDamageAgain = true;
+
     }
 
 }

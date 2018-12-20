@@ -52,11 +52,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4550202867023474}
   - component: {fileID: 95188389466230696}
-  - component: {fileID: 114472470199714744}
+  - component: {fileID: 114121753437131034}
   - component: {fileID: 195745441053390976}
   - component: {fileID: 54272540812858410}
   - component: {fileID: 65904720639933916}
   - component: {fileID: 82974563077021626}
+  - component: {fileID: 65937359104993022}
   - component: {fileID: 114549822336348554}
   m_Layer: 0
   m_Name: WoodballEnemy
@@ -234,6 +235,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41363236, y: 1.8739614, z: 0.40165278}
   m_Center: {x: -0.01866601, y: 1.5400739, z: 0.026964748}
+--- !u!65 &65937359104993022
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1605481107284882}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.8739614, z: 1}
+  m_Center: {x: -0.01866601, y: 1.5400739, z: 0.026964748}
 --- !u!82 &82974563077021626
 AudioSource:
   m_ObjectHideFlags: 1
@@ -244,10 +257,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 19e28397b2a8da64488b5f416340b0a0, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -331,7 +344,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114472470199714744
+--- !u!114 &114121753437131034
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -357,10 +370,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63439a1c526cb96498d7e0147ce4cb84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saru: {fileID: 0}
+  ballCenter: {fileID: 4976043756367548}
+  ballExplosion: {fileID: 100002, guid: c238cf19a1358114a8f6efc4ef866c05, type: 2}
+  ballDeath: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 2}
   destroyedVersion:
   - {fileID: 1602306462344140, guid: 992fc63d8a3eda449b67a3e9bc5bd646, type: 2}
   - {fileID: 1466573090065872, guid: 3a034182cc6629d4193fbe333227bab4, type: 2}
   oldMadera: {fileID: 1283259071539386}
+  damageDelay: 50
 --- !u!137 &137833708758441188
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

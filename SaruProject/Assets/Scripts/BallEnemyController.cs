@@ -103,6 +103,7 @@ public class BallEnemyController : EnemyBase
     private Vector3 initialPosition;
     private bool _isDeath = false;
     private bool inRange = false;
+    private GameObject _madera;
 
     void Start()
     {
@@ -110,6 +111,8 @@ public class BallEnemyController : EnemyBase
         initialPosition = transform.position;
         LevelManager.instance.RespawnEnemies += Respawn;
         playerController = saru.GetComponentInParent<playerControllerCustom>();
+        if (gameObject.transform.Find("Bone001").transform.Find("Bone002").transform.Find("Madera") != null)
+            _madera = gameObject.transform.Find("Bone001").transform.Find("Bone002").transform.Find("Madera").gameObject;
     }
 
     override public void TakeDamage(int i)
@@ -120,7 +123,7 @@ public class BallEnemyController : EnemyBase
         Die();
     }
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         if (_isDeath) return;
         distanceToSaru = (transform.position - saru.position).magnitude;
@@ -152,13 +155,13 @@ public class BallEnemyController : EnemyBase
     }
 
     //si se sale del rango quitamos al enemigo de playercontroller   
-    void NotInRange()
+    public virtual void NotInRange()
     {
         playerController.EnemyExitRange(transform);
         inRange = !inRange;
     }
 
-    public void Explode()
+    public virtual void Explode()
     {
         
         PlayerManager.instance.DecrementHealth(1);
@@ -167,7 +170,7 @@ public class BallEnemyController : EnemyBase
         //particulas explosion
         Die();
     }
-    public void Die()
+    public virtual void Die()
     {    
         _isDeath = true;
         NotInRange();
@@ -177,10 +180,12 @@ public class BallEnemyController : EnemyBase
         transform.position = initialPosition;
     }
 
-    public void Respawn()
+    public virtual void Respawn()
     {
         _isDeath = false;
-        gameObject.SetActive(true); 
+        gameObject.SetActive(true);
+        if (_madera != null)
+            _madera.SetActive(true);
     }
 }
 
