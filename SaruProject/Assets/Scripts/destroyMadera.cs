@@ -24,7 +24,7 @@ public class destroyMadera : BallEnemyController
     public override void Update()
     {
         base.Update();
-
+    
         // esto es para testing
         if (Input.GetKeyDown(KeyCode.O))
         {
@@ -51,34 +51,21 @@ public class destroyMadera : BallEnemyController
         }
     }
 
-    public override void NotInRange()
+    public override void TakeDamage(int i)
     {
-        Debug.Log("Entro por override");
-        base.NotInRange();
+        if (_maderaDestroyed && _canTakeDamageAgain)
+        {
+            base.TakeDamage(i);
+        }
     }
 
     public override void Explode()
     {
         if (_maderaDestroyed && _canTakeDamageAgain)
         {
-            Debug.Log("Exploto");
             base.Explode();
             _canTakeDamageAgain = false;
         }
-
-
-        else
-        {
-            Debug.Log("Corrutina");
-            StartCoroutine("WaitCorroutine");
-            PlayerManager.instance.DecrementHealth(1);
-            this.gameObject.GetComponent<Rigidbody>().AddForce(0, 0, this.transform.position.z * -5);
-        }
-    }
-
-    public override void Die()
-    {
-        base.Die();
     }
 
     public override void Respawn()
@@ -115,6 +102,12 @@ public class destroyMadera : BallEnemyController
                 rb.AddForce(Random.Range(0, 3), Random.Range(0, 3), Random.Range(0, 3), ForceMode.Impulse);
 
             Destroy(newMadera, 5f);
+            StartCoroutine(WaitCorroutine());
+            if (other.tag == "Player")
+            {
+                PlayerManager.instance.DecrementHealth(1);
+                this.gameObject.GetComponent<Rigidbody>().AddForce(0, 0, this.transform.position.z * -5);
+            }
         }
     }
 
