@@ -498,6 +498,7 @@ public class playerControllerCustom : MonoBehaviour
         //esto es solo para testeo
         target.transform.parent = _enemyTarget.GetChild(0).GetChild(0);
         target.transform.localPosition = new Vector3(-0.5f,0f,0f);
+        target.transform.SetSiblingIndex(0);
     }
 
     void EnterBattleMode()

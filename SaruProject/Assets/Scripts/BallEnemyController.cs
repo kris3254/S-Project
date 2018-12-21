@@ -103,16 +103,14 @@ public class BallEnemyController : EnemyBase
     private Vector3 initialPosition;
     private bool _isDeath = false;
     private bool inRange = false;
-    private GameObject _madera;
 
-    void Start()
+    public void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         initialPosition = transform.position;
         LevelManager.instance.RespawnEnemies += Respawn;
         playerController = saru.GetComponentInParent<playerControllerCustom>();
-        if (gameObject.transform.Find("Bone001").transform.Find("Bone002").transform.Find("Madera") != null)
-            _madera = gameObject.transform.Find("Bone001").transform.Find("Bone002").transform.Find("Madera").gameObject;
+        
     }
 
     override public void TakeDamage(int i)
@@ -184,8 +182,7 @@ public class BallEnemyController : EnemyBase
     {
         _isDeath = false;
         gameObject.SetActive(true);
-        if (_madera != null)
-            _madera.SetActive(true);
+        
     }
 }
 
