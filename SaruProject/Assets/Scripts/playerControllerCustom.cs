@@ -364,7 +364,8 @@ public class playerControllerCustom : MonoBehaviour
         playerModel.transform.rotation = Quaternion.LerpUnclamped(playerModel.transform.rotation, lookRotation, Mathf.Max(Time.deltaTime * (8-(playerModel.transform.position - _enemyTarget.position ).magnitude),.1f));
     }
 
-    //funcion que swithchea dependiendo del inputrecibido para  targetear enemigo
+    //funcion que swithchea dependiendo del input recibido para  targetear enemigo
+    //EnemyPosition.close: es para el  enemigo que este mas cerca
     void NewTarget(EnemyPosition findPosition)
     {
         if (enemiesClose.Count == 0)
@@ -397,7 +398,8 @@ public class playerControllerCustom : MonoBehaviour
 
 
     //obtiene el enemigo mas cercano
-    //se utiliza cuando se targetea y no es  por movimiento del stick derecho
+    //se utiliza cuando se busca un nuevo target y no es por movimiento del stick derecho
+    // hay que estudiar esta funcion desde el diseño de batalla por como interactua
     void TargetNewEnemy()
     {
         //calculamos un punto donde mira saru para poder calcular su vector
@@ -425,7 +427,8 @@ public class playerControllerCustom : MonoBehaviour
             ExitBattleMode();
         }
     }
-    //obtiene el enemigo mas cercano dependiendo del movimiento derecha o izquierda del  recibido
+
+    //obtiene el enemigo mas cercano dependiendo del movimiento (arriba o abajo) recibido por el joystick derecho
     void TargetNewEnemyUpOrDown(EnemyPosition findPosition)
     {
         //esta variable sirve para guardar el enemigo que tenemos tarjeteado antes de comprobar todos ya que _enemytarget cambia dentro del foreach
@@ -459,7 +462,7 @@ public class playerControllerCustom : MonoBehaviour
         }
     }
 
-    //obtiene el enemigo mas cercano dependiendo del movimiento derecha o izquierda del  recibido
+    //obtiene el enemigo mas cercano dependiendo del movimiento (derecha o izquierda) recibido por el joystick derecho
     void TargetNewEnemyLeftOrRight(EnemyPosition findPosition)
     {
         //calculamos un punto donde mira saru para poder calcular su vector
@@ -490,7 +493,7 @@ public class playerControllerCustom : MonoBehaviour
         }
     }
 
-    //determina el siguiente objetivo al que seleccionar;
+    //asigna el siguiente objetivo al que targetear;
     void NextTarget(float threshold, Transform enemy)
     {
         _thresholdEnemy = threshold;
@@ -523,6 +526,10 @@ public class playerControllerCustom : MonoBehaviour
         PlayerManager.instance.cameraCinemachine.m_RecenterToTargetHeading.m_enabled = battleMode;
         PlayerManager.instance.cameraCinemachine.m_XAxis.m_MaxSpeed = battleMode ? 0 : _xAxisMaxSpeed;
         PlayerManager.instance.cameraCinemachine.m_YAxis.m_MaxSpeed = battleMode ? 0 : _yAxisMaxSpeed;
+
+        //Esta parte se utiliza para hacer que la y de la camara de saru se posicione a una altura concreta, 
+        //se necesita la coroutina(moveToYAxisPositionCoroutine) por si se sale del battlemode antes de que la camra llegue a su posicion
+        //parar el movimiento de la camara 
         if (battleMode)
             moveToYAxisPositionCoroutine = StartCoroutine(MoveToYAxisPosition());
         else
