@@ -63,15 +63,16 @@ public class playerControllerCustom : MonoBehaviour
     private float _actualTimeTargetEnemyWithDirection;
     private Transform _enemyTarget = null;
     [SerializeField]
-    private CinemachineVirtualCamera _cameraBattleMode;
     private CinemachineBrain _cameraBrain;
     public GameObject target;
-    public PlayableDirector firstPlayableDirector;
-    public PlayableDirector secondPlayableDirector;
-    private Vector3 _positionCameraBattleMode;
-    private Quaternion _rotationCameraBattleMode;
     [SerializeField]
     private float _gradesToDetectionEnemies = 60;
+    private float _xAxisMaxSpeed;
+    private float _yAxisMaxSpeed;
+    [SerializeField]
+    private float _timeToPositionCameraInBattleMode;
+    private float _positionYAxisInBattleMode=.5f;
+    private Coroutine moveToYAxisPositionCoroutine;
     #endregion
     private CameraFilterPack_Color_RGB _rgbColorFilter;
     private CameraFilterPack_3D_Anomaly _anomalyFilter;
@@ -93,14 +94,13 @@ public class playerControllerCustom : MonoBehaviour
         _rgbColorFilter = cam.GetComponent<CameraFilterPack_Color_RGB>();
         _anomalyFilter = cam.GetComponent<CameraFilterPack_3D_Anomaly>();
 
-        _positionCameraBattleMode = _cameraBattleMode.transform.localPosition;
-        _rotationCameraBattleMode = _cameraBattleMode.transform.localRotation;
-
         _rgbColorFilter.ColorRGB = _colorModoSaru;
         _anomalyFilter.Intensity = 0;
 		maxSpeed = moveSpeed;
         initialSpeed = maxSpeed;
-	}
+        _xAxisMaxSpeed = PlayerManager.instance.cameraCinemachine.m_XAxis.m_MaxSpeed;
+        _yAxisMaxSpeed = PlayerManager.instance.cameraCinemachine.m_YAxis.m_MaxSpeed;
+    }
 
 
     void Update()
@@ -504,9 +504,9 @@ public class playerControllerCustom : MonoBehaviour
     void EnterBattleMode()
     {
         _battleMode = true;
-        TargetNewEnemy();
+        CameraInBattleMode(true);
         target.SetActive(true);
-        StartCoroutine(EntryAnimationBattlemode());
+        TargetNewEnemy();
     }
 
     void ExitBattleMode()
@@ -515,7 +515,18 @@ public class playerControllerCustom : MonoBehaviour
         _thresholdEnemy = 200;
         _enemyTarget = null;
         target.SetActive(false);
-        StartCoroutine(ExitAnimationBattlemode());
+        CameraInBattleMode(false);
+    }
+
+    void CameraInBattleMode(bool battleMode)
+    {
+        PlayerManager.instance.cameraCinemachine.m_RecenterToTargetHeading.m_enabled = battleMode;
+        PlayerManager.instance.cameraCinemachine.m_XAxis.m_MaxSpeed = battleMode ? 0 : _xAxisMaxSpeed;
+        PlayerManager.instance.cameraCinemachine.m_YAxis.m_MaxSpeed = battleMode ? 0 : _yAxisMaxSpeed;
+        if (battleMode)
+            moveToYAxisPositionCoroutine = StartCoroutine(MoveToYAxisPosition());
+        else
+            StopCoroutine(moveToYAxisPositionCoroutine);
     }
 
     public void EnemyExitRange(Transform enemyTransform)
@@ -570,25 +581,23 @@ public class playerControllerCustom : MonoBehaviour
 		anim.SetTrigger ("FireAttack");
 	}
 
-    IEnumerator EntryAnimationBattlemode()
+    IEnumerator MoveToYAxisPosition()
     {
-        _cameraBattleMode.m_Follow = playerModel.transform;
-        _cameraBattleMode.m_LookAt = playerModel.transform;
-        _cameraBattleMode.transform.parent = playerModel.transform;
-        _cameraBattleMode.transform.localPosition = _positionCameraBattleMode;
-        _cameraBattleMode.transform.localRotation = _rotationCameraBattleMode;
-        yield return new WaitUntil(() => _cameraBrain.IsBlending == false);
-        secondPlayableDirector.Stop();
-        firstPlayableDirector.Play();
-    }
+        bool continueLoop = true;
+        float actualTimeLerp = 0f;
+        float initialYAxisposition = PlayerManager.instance.cameraCinemachine.m_YAxis.Value;
+        float actualPercentLerp=0;
 
-    IEnumerator ExitAnimationBattlemode()
-    {
-        _cameraBattleMode.m_Follow = null;
-        _cameraBattleMode.m_LookAt = null;
-        _cameraBattleMode.transform.parent = null;
-        yield return new WaitUntil(() => _cameraBrain.IsBlending == false);
-        firstPlayableDirector.Stop();
-        secondPlayableDirector.Play();
+        while (continueLoop)
+        {
+            if (actualTimeLerp > _timeToPositionCameraInBattleMode)
+            {
+                continueLoop = false;
+            }
+            actualPercentLerp = actualTimeLerp / _timeToPositionCameraInBattleMode;
+            PlayerManager.instance.cameraCinemachine.m_YAxis.Value = Mathf.Lerp(initialYAxisposition, _positionYAxisInBattleMode, actualPercentLerp);
+            actualTimeLerp += Time.deltaTime;
+            yield return null;
+        }
     }
 }
