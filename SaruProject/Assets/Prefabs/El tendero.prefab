@@ -204,7 +204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1159026574334906
 GameObject:
   m_ObjectHideFlags: 1
@@ -503,7 +503,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224565593810320348}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: Dinero actual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -569,7 +569,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224653622623469464}
   - component: {fileID: 65601649829388630}
-  - component: {fileID: 114845922350945470}
+  - component: {fileID: 114819157374062896}
   m_Layer: 9
   m_Name: El tendero
   m_TagString: Untagged
@@ -1709,14 +1709,14 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 31f49517b5bc6ad4f8eb3cd5f495e8ef, type: 3}
-    m_FontSize: 22
+    m_FontSize: 27
     m_FontStyle: 1
     m_BestFit: 1
-    m_MinSize: 10
-    m_MaxSize: 50
-    m_Alignment: 4
+    m_MinSize: 20
+    m_MaxSize: 81
+    m_Alignment: 5
     m_AlignByGeometry: 0
-    m_RichText: 1
+    m_RichText: 0
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
@@ -1951,7 +1951,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: e07b37ebd76f9a146b0bb3f29b1f3f05, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ed1b71d7ca77a764b8b56b1ba2d22e4c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2059,9 +2059,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 8081ac91b00a12d419e535b2992cbd67, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 664923bd4e6d77d41b084935306a1ccb, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -2165,6 +2165,7 @@ MonoBehaviour:
   secondToMove: 0.2
   selectItem: {r: 1, g: 1, b: 1, a: 1}
   deselectItem: {r: 0, g: 0, b: 0, a: 0}
+  buyColor: {r: 0, g: 0.751724, b: 1, a: 1}
   infoItems: {fileID: 114971745233947290}
   priceItems: {fileID: 114079657795862164}
   items:
@@ -2222,7 +2223,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114845922350945470
+--- !u!114 &114819157374062896
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2230,17 +2231,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1491299228469366}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3452618ddeb3b454584ebdcf632e8fb0, type: 3}
+  m_Script: {fileID: 11500000, guid: d8c2525fd5b00224badb298de2d08e73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   triangleInteractable: {fileID: 1153715091858648}
   dialogTexts:
-  - )
-  - ','
-  - /
-  - 2
-  - 5
+  - Hola, soy el tendero de este juego
+  - "Pero antes  fu\xED un loco del eclipse"
+  - yo he ido con ciento y pico  de vena en arcool
+  - "asi que te digo que el  que saca el baston pa ense\xF1arlo es un parguela"
   pController: {fileID: 0}
+  shopCanvas: {fileID: 1771934119162972}
 --- !u!114 &114849139779607206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2931,8 +2932,8 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1491299228469366}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 14.312456}
+  m_LocalRotation: {x: -0, y: -0.39227763, z: -0, w: 0.91984683}
+  m_LocalPosition: {x: 0, y: 0, z: -819.789}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children:
   - {fileID: 4707682481196782}
@@ -2941,10 +2942,10 @@ RectTransform:
   - {fileID: 224176045098365924}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -46.193, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 741.3422, y: 639.309}
+  m_AnchoredPosition: {x: 54.71, y: -1.12}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224676313338815098
@@ -3047,8 +3048,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.11413896, y: 0.078822926}
   m_AnchorMax: {x: 0.6054037, y: 0.98288345}
-  m_AnchoredPosition: {x: -0.35000038, y: -1.32}
-  m_SizeDelta: {x: -2.2999983, y: -1.76}
+  m_AnchoredPosition: {x: -0.16499901, y: -1.4100001}
+  m_SizeDelta: {x: -0.18999721, y: 0.120000005}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224900085408088342
 RectTransform:
