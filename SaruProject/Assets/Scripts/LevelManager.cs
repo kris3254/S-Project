@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour {
 
 
     private int numMiniOrbesLevel;// numero máximo de miniorbes repartidos por el nivel
-    private int numMiniOrbesPlayer;// numero de miniOrbes que el player ha recogido hasta el momento
+    public int numMiniOrbesPlayer;// numero de miniOrbes que el player ha recogido hasta el momento
 
     public float respawnDelay;//retardo que se produce antes de ejecutarse el metodo de respawn del player (tener en cuenta la duracion del efecto FadeInOut al morir), con 2s de respawnDelay queda perfectamente secuenciado con el FadeInOut
     public Transform initialRespawnPosition;//variable representa la posicion de respawn por defecto (por si el player muere antes de pasar por un respawn point)

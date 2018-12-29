@@ -564,15 +564,15 @@ public class UIManager : MonoBehaviour {
 	}
 
 	void ChangeText(){
-		textObjectActions objectDequeued = textsToShow.Dequeue ();
-		if(objectDequeued.script!=null && objectDequeued.endMethod!=null)
-			objectDequeued.script.SendMessage (objectDequeued.endMethod);
+		textObjectActions objectDequeued = textsToShow.Dequeue ();	
 		CancelInvoke ("ChangeText");
         if (textsToShow.Count <= 0)
         {
 			canEnter = true;
             pController.canDoThings = true;
             dialogPanel.SetActive(false);
+            if (objectDequeued.script != null && objectDequeued.endMethod != null)
+                objectDequeued.script.SendMessage(objectDequeued.endMethod);
         }
         else
         {
@@ -583,7 +583,8 @@ public class UIManager : MonoBehaviour {
 				objectDequeued.script.SendMessage (objectDequeued.initMethod);
             Invoke("ChangeText", timeBetweenDialogTexts);
         }
-	}
+        
+    }
 
 
 
