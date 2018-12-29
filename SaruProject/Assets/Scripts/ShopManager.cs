@@ -15,6 +15,7 @@ public class ShopManager : MonoBehaviour {
     public float secondToMove =.3f;
     public Color selectItem;
     public Color deselectItem;
+    public Color buyColor;
     public Text infoItems;
     public Text priceItems;
     public items[] items;
@@ -62,6 +63,20 @@ public class ShopManager : MonoBehaviour {
 
         //changeposition se debe llamar al final por la posibilidad de pulsar en diagonal
         ChangePosition();
+
+        if (Input.GetButton("X_PS4"))
+        {
+            StartCoroutine(BuyItem());
+        }
+    }
+
+    IEnumerator BuyItem()
+    {
+        isChanging = true;
+        fondoImages[actualPosition].color = buyColor;
+        yield return new WaitForSeconds(secondToMove);
+        fondoImages[actualPosition].color = selectItem;
+        isChanging = false;
     }
 
     private void MoveToItem(Direccion direccion)
@@ -83,6 +98,11 @@ public class ShopManager : MonoBehaviour {
             default:
                 break;
         }
+    }
+
+    private void OnEnable()
+    {
+        isChanging = false;
     }
 
     private void HorizontalMove(int i)
@@ -115,7 +135,7 @@ public class ShopManager : MonoBehaviour {
         fondoImages[nextPosition].color = selectItem;
         actualPosition = nextPosition;
         infoItems.text = items[actualPosition].itemInformation;
-        priceItems.text = items[actualPosition].price.ToString();
+        priceItems.text = LevelManager.instance.numMiniOrbesPlayer.ToString();
         StartCoroutine(WaitForMove());
     }
 
