@@ -7,11 +7,11 @@ public class CitizenInteractable : MonoBehaviour {
     public GameObject triangleInteractable;
 	public string[] dialogTexts;
     public playerControllerCustom pController;
-    private bool isOnTrigger = false;
-	bool canSendDialog = true;
+    protected bool isOnTrigger = false;
+	protected bool canSendDialog = true;
 
 
-    private void Update()
+    virtual protected void Update()
     {
         if (isOnTrigger && ((Input.GetKeyDown(KeyCode.T)) || (Input.GetButtonDown("Triangle_PS4"))) )
         {
@@ -65,7 +65,7 @@ public class CitizenInteractable : MonoBehaviour {
 		}
 	}
 
-	void DoWhenEndText(){
+	virtual protected void DoWhenEndText(){
 		canSendDialog = true;
 	}
 }
